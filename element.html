@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+    <style>
+        #cons{
+            width: 400px;
+            height: 150px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow: auto;
+        }
+        tbody > tr:first-child > td:last-child > input:first-child{
+            background-color: #0f0;
+        }
+        .qq{
+            background-color: #f0f;
+        }
+        .ww{
+            background-color: #0ff;
+        }
+    </style>
+    <script>
+        /* var cons = document.getElementById("cons") -> 여기서는 실행 불가(cons가 null이라서) 밑에서는 실행됨
+        alert("왔어?") */
+
+        //window.onload 실행시 function() 내용으로 실행해라
+        window.onload=function(){
+            //alert("또 왔어?")
+            var cons = document.getElementById("cons")//클래스는 여러개의 같은 이름을 가져올 때 편한데 아이디는 한 개만 가져올 때 편해
+            //alert(cons.innerHTML)
+            cons.innerHTML = "또 왔어요<br/>"
+
+            frm.pname.value = "운만씨" //window.document정도는 생략 가능
+            window.document.frm.pid.value = "aaa"
+            /* pname.value = "건우야"  -> 너무 많이 줄이는 건 에러야 - pname이 뭔지 모르거든*/
+            frm.pname.style.backgroundColor = "#ff0" 
+            //background-color :  ' - ' 연산을 막기위해 카멜표기법으로 변경
+
+            function ddd(){
+                document.getElementById("rf").setAttribute('checked',true)//setAttribute()기본값 바꾸겠단 말임~
+            }
+            ddd()
+            eee() //에러발생하지 않아
+
+           //frm.email2.value = "다음"
+           document.getElementById("em_gogle").setAttribute('selected',true)
+           //frm.email2.value = "알리" //option 이 없는 값을 넣을 경우 select 선택 항목이 없어지는 현상 발생하니 하지마!!!!
+
+           frm.content.setAttribute('class','ww')
+           function idchk1(){
+                alert("눌렀다")
+            }
+            //eee() 에러 발생!!!
+
+        }
+            function eee(){ //함수를 정의 했어도 호출하지 않으면 문제가 안 돼, 
+                //그치만 호출을 window.onload{} 밖에서 하면 에러고 안에서 하면 괜찮아, 함수 위치는 상관 없어
+                document.getElementById("hor").setAttribute('checked',true)
+            }
+
+            function idchk2(){
+                alert("눌렀다")
+                frm.pid.readOnly =true      /* 이제 읽기만해 ,  */
+
+            }
+
+            frm.name_btn.onclick = function(){ //객체에 함수를 재정의 하는 형태로 만든 것!! 바로 위에 경우는 tag에 입력한 속성을 가져온 거 
+                alert("이름이 왜?")
+                this.value = "이름확인완료" //this : 자신  -> 자신도 바꿀 수 있음!!
+                this.disabled = true //확인<버튼 눌렀으면>됐으면 재클릭 차단!
+           }
+            //eee() 에러 발생!!!
+        
+    </script>
+</head>
+<body>
+    <h1>element</h1>
+    <form action="" name="frm">
+        <table border="">
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="pid">
+                    <input type="button" value="id 중복확인" onclick="idchk2()">
+                <!--     <input type="button" value="id 중복확인" onclick="idchk1()">  윈도우 내부 선언이라서 안됨-->
+                
+                </td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="pname">
+                    <input type="button" name="name_btn" value="이름확인">
+                </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <label for=""><input type="radio" name="gender" value="m">남</label>
+                    <label for=""><input type="radio" name="gender" value="w" id="rf">여</label>
+                    <label for=""><input type="radio" name="gender" value="it">it인</label>
+                </td>
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td>
+                    <label for=""><input type="checkbox" name="hobby" value="sleep">잠자기</label>
+                    <label for=""><input type="checkbox" name="hobby" value="game">게임</label>
+                    <label for=""><input type="checkbox" name="hobby" value="riding" id="hor">가즈아</label>
+                </td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email1">@
+                    <select name="email2">
+                        <option>네이버</option>
+                        <option  id="em_gogle">구글</option>
+                        <option>다음</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="qq">파일</td>
+                <td><input type="file" name="ff"></td>
+            </tr>
+            <tr>
+                <td>남기실말</td>
+                <td>
+                    <textarea name="content" id="" cols="50" rows="10">남기실 게</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="" value="가입">
+                    <input type="reset" name="" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="cons">안냐세요</div> <!-- 아이디는 그 중 하나만 가져와 -->
+
+    <script>
+        var cons = document.getElementById("cons")//클래스는 여러개의 같은 이름을 가져올 때 편한데
+        alert(cons.innerHTML)
+    </script>
+</body>
+</html>
