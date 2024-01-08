@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #888;
+            margin: 20px;
+            position: relative;
+            float: left;
+        }
+        .wrapper > div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #888;            
+            position: absolute;
+
+        }
+        .wrapper > div:nth-child(1){
+            background: #ff0;
+           
+        }
+        .wrapper > div:nth-child(2){
+            background: #f0f;
+            left:10px;
+            top:10px;
+        }
+        .wrapper > div:nth-child(3){
+            background: #0ff;
+            left:20px;
+            top:20px;
+        }
+        .wrapper > div:nth-child(4){
+            background: #0f0;
+            left:30px;
+            top:30px;
+        }
+        .wrapper > div:nth-child(5){
+            background: #f00;
+            left:40px;
+            top:40px;
+        }
+
+        .wrapper:nth-of-type(2) > div:nth-child(1){
+            z-index: 1; /*기본값 0 */
+        }
+        .wrapper:nth-of-type(3) > div:nth-child(3){
+            z-index: -1;
+        }
+        h2{
+            clear: both;
+        }
+
+        .wrapper:nth-of-type(4), .wrapper:nth-of-type(6) {
+            z-index: 10;
+            background-color: #ffa;
+        }
+        .wrapper:nth-of-type(5) {
+            z-index: 20;
+            background-color: #ffa;
+        }
+
+        .wrapper:nth-of-type(4) > div:nth-of-type(2)  {
+            z-index: 1;
+            left:230px;
+            top:25px;
+        }
+        .wrapper:nth-of-type(4) > div:nth-of-type(3)  {
+            z-index: 21;
+            left:230px;
+            top:45px;
+        }
+        .wrapper:nth-of-type(4) > div:nth-of-type(4)  {
+            z-index: 1;
+            left:455px;
+            top:25px;
+        }
+        .wrapper:nth-of-type(4) > div:nth-of-type(5)  {
+            z-index: 11;
+            left:455px;
+            top:45px;
+        }
+
+        .wrapper:nth-of-type(5) > div:nth-of-type(2)  {
+           
+            left:-220px;
+            top:25px;
+        }
+        .wrapper:nth-of-type(5) > div:nth-of-type(3)  {
+           
+           left:320px;
+           top:35px;
+       }
+
+       .wrapper:nth-of-type(5) > div:nth-of-type(4)  {
+           z-index: -1;
+           left:-240px;
+           top:45px;
+       }
+       .wrapper:nth-of-type(5) > div:nth-of-type(5)  {
+          z-index: -1;
+          left:300px;
+          top:60px;
+      }
+    </style>
+</head>
+<body>
+    <h1>z-index</h1>
+    <div class="wrapper">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="wrapper">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="wrapper">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h2>교차</h2>
+    <div class="wrapper">
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+    </div>
+    <div class="wrapper">
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div>25</div>
+    </div>
+    <div class="wrapper">
+        <div>31</div>
+        <div>32</div>
+        <div>33</div>
+        <div>34</div>
+        <div>35</div>
+    </div>
+</body>
+</html>

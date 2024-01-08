@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pacMan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #888;
+            margin: auto;
+        }
+
+        .enermy {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #0f0;
+
+        }
+
+        .enermy2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #0f0;
+
+        }
+
+        .enermy3 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #0f0;
+
+        }
+        .enermy4 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #0f0;
+
+        }
+
+        #me {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #fa0;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            playChk = true
+
+            me = document.getElementById("me")
+            me.xx = 300
+            me.yy = 200
+            me.style.left = me.xx + "px"
+            me.style.top = me.yy + "px"
+
+            enermy = document.getElementsByClassName("enermy")[0]
+            enermy.xx = 150
+            enermy.yy = 100
+            enermy.xDir = 1
+            enermy.yDir = 3
+            enermy.style.left = enermy.xx + "px"
+            enermy.style.top = enermy.yy + "px"
+
+            enermy2 = document.getElementsByClassName("enermy2")[0]
+            enermy2.xx = 120
+            enermy2.yy = 100
+            enermy2.xDir = 2
+            enermy2.yDir = 1
+            enermy2.style.left = enermy2.xx + "px"
+            enermy2.style.top = enermy2.yy + "px"
+
+            enermy3 = document.getElementsByClassName("enermy3")[0]
+            enermy3.xx = 50
+            enermy3.yy = 100
+            enermy3.xDir = 1
+            enermy3.yDir = 2
+            enermy3.style.left = enermy3.xx + "px"
+            enermy3.style.top = enermy3.yy + "px"
+
+            enermy4 = document.getElementsByClassName("enermy4")[0]
+            enermy4.xx = 50
+            enermy4.yy = 100
+            enermy4.xDir = 3
+            enermy4.yDir = 1
+            enermy4.style.left = enermy4.xx + "px"
+            enermy4.style.top = enermy4.yy + "px"
+
+            function enermyMove() {
+
+                if (enermy.xx > 600 - 50 || enermy.xx < 0) { enermy.xDir *= -1 }
+                if (enermy.yy > 400 - 50 || enermy.yy < 0) { enermy.yDir *= -1 }
+
+                enermy.xx += enermy.xDir
+                enermy.yy += enermy.yDir
+
+                enermy.style.left = enermy.xx + "px"
+                enermy.style.top = enermy.yy + "px"
+
+                touch()
+            }
+            function enermyMove2() {
+
+                if (enermy2.xx > 600 - 50 || enermy2.xx < 0) { enermy2.xDir *= -1 }
+                if (enermy2.yy > 400 - 50 || enermy2.yy < 0) { enermy2.yDir *= -1 }
+
+                enermy2.xx += enermy2.xDir
+                enermy2.yy += enermy2.yDir
+
+                enermy2.style.left = enermy2.xx + "px"
+                enermy2.style.top = enermy2.yy + "px"
+
+                touch()
+            }
+            function enermyMove3() {
+
+                if (enermy3.xx > 600 - 50 || enermy3.xx < 0) { enermy3.xDir *= -1 }
+                if (enermy3.yy > 400 - 50 || enermy3.yy < 0) { enermy3.yDir *= -1 }
+
+                enermy3.xx += enermy3.xDir
+                enermy3.yy += enermy3.yDir
+
+                enermy3.style.left = enermy3.xx + "px"
+                enermy3.style.top = enermy3.yy + "px"
+
+                touch()
+            }
+            function enermyMove4() {
+
+                if (enermy4.xx > 600 - 50 || enermy4.xx < 0) { enermy4.xDir *= -1 }
+                if (enermy4.yy > 400 - 50 || enermy4.yy < 0) { enermy4.yDir *= -1 }
+
+                enermy4.xx += enermy4.xDir
+                enermy4.yy += enermy4.yDir
+
+                enermy4.style.left = enermy4.xx + "px"
+                enermy4.style.top = enermy4.yy + "px"
+
+                touch()
+            }
+            //enermyMove()
+
+            gogo = setInterval(enermyMove, 20)
+            gogo = setInterval(enermyMove2, 20)
+            gogo = setInterval(enermyMove3, 20)
+            gogo = setInterval(enermyMove4, 20)
+
+        }
+        window.onkeydown = function (e) {
+            //console.log("나야:"+e.keyCode)
+            switch (e.keyCode) {
+                case 38: //위
+                    me.yy -= 5
+                    break
+                case 40: //아래
+                    me.yy += 5
+                    break
+                case 37: //좌
+                    me.xx -= 5
+                    break
+                case 39: //우
+                    me.xx += 5
+                    break
+            }
+
+            if (me.xx < 0) { me.xx = 0 }
+            if (me.xx > 600 - 50) { me.xx = 600 - 50 }
+            if (me.yy < 0) { me.yy = 0 }
+            if (me.yy > 400 - 50) { me.yy = 400 - 50 }
+
+            if (playChk) {
+                me.style.left = me.xx + "px"
+                me.style.top = me.yy + "px"
+            }
+
+            //touch()
+
+        }
+
+        function touch() {
+            if (me.xx < enermy.xx + 50 &&
+                me.xx + 50 > enermy.xx &&
+                me.yy < enermy.yy + 50 &&
+                me.yy + 50 > enermy.yy
+            ) {
+                console.log("touch:")
+
+                playChk = false
+                clearInterval(gogo)
+                alert("게임오버")
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>pacMan</h1>
+    <section>
+        <div class="enermy"></div>
+        <div class="enermy2"></div>
+        <div class="enermy3"></div>
+        <div class="enermy4"></div>
+
+        <div id="me"></div>
+
+    </section>
+</body>
+
+</html>

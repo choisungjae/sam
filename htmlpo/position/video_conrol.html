@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video_control</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        video{
+            width: 300px;
+        }
+        video:last-of-type{
+            /* controls:controls; */ /*   autoplay 등은  스타일에서 안됩니다 css가 아닌 속성*/
+        }
+    </style>
+</head>
+<body>
+    <h1>video_control</h1>
+    <video src="../fff/sons.mp4" controls></video>
+    <video src="../fff/sons.mp4" autoplay muted></video>
+    <video src="../fff/sons.mp4" autoplay muted loop></video>
+    <video src="../fff/sons.mp4"></video>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marginPadding</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width : 50px;
+            height: 50px;
+            background-color: #ff0;
+            border: 1px solid #000;
+            float: left;
+        }
+        hr{
+            clear: both;
+        }
+        .mm1{
+            margin: 30px;
+        }
+        .mm2{
+            margin: 50px 20px;
+                /* 상하  좌우*/
+        }
+        .mm3{
+            margin: 50px 100px 10px 0px;
+                /*   상   우    하   좌 */
+        }
+        .mm4{
+            margin-top: 50px;
+            margin-right: 100px;
+            margin-bottom: 10px;
+            margin-left:  0px;
+        }
+
+        .pp1{
+            padding: 30px;
+        }
+        .pp2{
+            padding: 50px 20px;
+                /* 상하  좌우*/
+        }
+        .pp3{
+            padding: 50px 100px 10px 0px;
+                /*   상   우    하   좌 */
+        }
+        .pp4{
+            padding-top: 50px;
+            padding-right: 100px;
+            padding-bottom: 10px;
+            padding-left:  0px;
+        }
+        .bb{
+            margin: 20px;
+        }
+        .tt1{
+            border: 20px solid #f00;
+        }
+        .tt2{
+            border: 20px dotted rgba(255, 0, 0, 0.5); /* a 추가 =투명도가다름  */
+        }
+        .tt3{
+            border: 20px dashed #f00;
+        }
+        .tt4{
+            border: 20px double #f00;
+        }
+        .tt5{
+            border: 20px groove #f00;
+        }
+        .tt6{
+            border: 20px ridge #f00;
+        }
+
+        .rr1{
+            border-radius: 20px;
+        }
+        .rr2{
+            border-radius: 50px;/* 테두리 깎기는 50px가 맥스  */
+        }
+        .rr3{
+            border-radius: 50px 10px;   /* 날렵한 */
+        }
+        .rr4{
+            border-radius: 20px;
+        }
+        .rr5{
+            border-radius: 50px 10px 0px 30px;
+        }
+        .rr6{
+            border-top-left-radius: 50px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 30px;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>marginPadding</h1>
+    <h2>margin</h2>
+    <div class="mm1">마진1</div>
+    <div class="mm2">마진2</div>
+    <div class="mm3">마진3</div>
+    <div class="mm4">마진4</div>
+    <hr/>
+    <h2>padding</h2>
+    <div class="pp1">패딩1</div>
+    <div class="pp2">패딩2</div>
+    <div class="pp3">패딩3</div>
+    <div class="pp4">패딩4</div>
+    <hr/>
+
+    <h2>border-type</h2>
+    <div class="bb tt1">타입1</div> <!-- 클래스2개쓸때는 띄어쓰기 -->
+    <div class="bb tt2">타입2</div>
+    <div class="bb tt3">타입3</div>
+    <div class="bb tt4">타입4</div>
+    <div class="bb tt5">타입5</div>
+    <div class="bb tt6">타입6</div>
+    <hr/>
+
+    <h2>border-radius</h2>
+    <div class="bb rr1">라디우스1</div> <!-- 주변선 모양-->
+    <div class="bb rr2">라디우스2</div>
+    <div class="bb rr3">라디우스3</div>
+    <div class="bb rr4">라디우스4</div>
+    <div class="bb rr5">라디우스5</div>
+    <div class="bb rr6">라디우스6</div>
+    <hr/>
+
+
+</body>
+</html>

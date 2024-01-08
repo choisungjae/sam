@@ -1,0 +1,122 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .big{
+            width:1200px;
+            height: 900px;
+            background-color: rgb(228, 228, 208);
+            margin: 20px;
+            display: flex;
+            float: left;
+        }
+        .box{
+            width: 400px;
+            height: 280px;
+            background-color: #fa0;
+            border: 1px solid #888;
+        }
+        .mm {
+            width: 400px;
+            height: 280px;
+            /* border: 3px solid #f00101; */
+            background-color: rgb(255, 255, 255);
+            margin: 24px 24px 0px 24px;
+          
+            float: left;
+
+        }
+        .row{/* 기본과 같다*/
+            flex-direction: row;
+        }
+        .item-center{
+            align-items: center; 
+            /*전체가 세로 방향으로 가운데
+              아이템이 나열된 1개의 줄을 부모 객체에서 줄단위의 가운데로 작업
+            */
+        }
+        .justify-center{
+            justify-content: center;
+            /*전체가 가로 방향으로 가운데
+                아이템이 나열되는 1개 줄이 있는 위치에서 가운데 작업
+            */
+        }
+        .rij-center{
+            flex-direction: row;
+            align-items: center; /*전체가 세로 방향으로 가운데*/
+            justify-content: center;/*전체가 가로 방향으로 가운데*/
+        }
+        .row-r{
+            flex-direction: row-reverse;
+        }
+        .column{
+            flex-direction: column;
+        }
+        .column-item{
+            flex-direction: column;
+            align-items: center; 
+        }
+        .column-justify{
+            flex-direction: column;
+            justify-content: center; 
+        }
+        .column-item-justify{
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .column-r{
+            flex-direction: column-reverse;
+        }
+        .justify-space-between{
+            justify-content: space-between;
+        }
+        .column-justify-space-between{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-center-justify-space-between{
+            align-items: center; 
+            justify-content: space-between;
+        }
+        .justify-space-around{
+            justify-content: space-around;
+        }
+        .justify-space-evenly{
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <h1>flex@@@@@@@@@</h1>
+    <div class="big justify-space-around">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+
+
+    <!-- <div class="big justify-space-around">
+        <div class="box">
+            <img src="p1219/스크린샷 2023-12-19 175956.png" alt="">
+              <img src="p1219/스크린샷 2023-12-19 175956.png" alt="">
+              <img src="p1219/스크린샷 2023-12-19 175956.png" alt="">
+              <img src="p1219/스크린샷 2023-12-19 175956.png" alt="">
+            </div>
+    </div> -->
+    <!-- <div class="big">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div> -->
+    
+    
+</body>
+</html>

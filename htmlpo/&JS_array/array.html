@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        var arr= [33,66,55,88,33,55,22,44,55,66];
+        document.write(arr+"<br>");   
+        document.write(arr[2]+"<br>")
+
+        document.write(arr.length+"<br>") /* 배열길이 */
+
+        arr[5]  = 5678                    /* 변경가능 */
+        document.write(arr+"<br>")
+
+        arr[10] =99                         /* 추가 가능  */
+        document.write(arr+"<br>")
+
+        arr[15] = 333                   /*  arr 의 빈자리 생기면 ,,,  < 으로됨 */
+        document.write(arr+"<br>")
+
+        delete arr[2]  /* 원소의값만 삭제 , 칸은 존재함 빈칸으로 */
+        document.write(arr+"<br>")
+        
+        document.write(arr[2]+"<br>")      /* 빈칸은 undefined < 으로 뜹니다. */
+
+         //함수
+         //추가
+
+         arr.push(22);                 /* 추가기능 , 맨뒷자리에 추가 push */
+         document.write(arr+"<br>")
+
+         arr.unshift(44)                  /* 추가기능2, 맨앞에추가 */
+         document.write(arr+"<br>")
+
+         var vv = arr.pop()                            /* 맨뒤 제거 */
+         document.write(arr+"<br>")
+         document.write(vv+"<br>")
+
+         vv=arr.shift();                              //앞제거
+         document.write(arr+"<br>")
+         document.write(vv+"<br>")
+
+         arr.splice(4,0,100,200,300)                   /* 시작위치,삭제갯수,추가원소들 .. */
+         document.write(arr+"<br>")
+
+         VV=arr.splice(10,7)                              //중간 삭제  =  시작위치,삭제갯수 
+         //vv 리턴은 삭제된 원소들의 배열
+         document.write(arr+"<br>")
+         document.write(VV+"<br>")
+
+         //배열인지 검색
+         vv=143
+        document.write(Array.isArray(arr)+"<br>")                     /* 배열임  트루 */
+        document.write(Array.isArray(vv)+"<br>")                   /*  배열아님  풜스 */
+        //그 원소 존재하는지
+        document.write(arr.includes(33)+"<br>")           /* 33이 arr 배열에 존재하냐  = contains 랑 같음ㅋ */
+        document.write(arr.includes(5959)+"<br>")           /* 없어서 풜스 */
+
+        //원소 번호 찾기
+        document.write(arr.indexOf(33)+"<br>")             //33의 위치 
+        document.write(arr.indexOf(563345)+"<br>")         //없으면 -1
+        document.write(arr.indexOf(33,5)+"<br>")           //33의 위치를 5번째 부터 찾아라 
+        //원소 번호 뒤에서부터 찾기
+        document.write(arr.lastIndexOf(33)+"<br>")             //33의 위치 
+        document.write(arr.lastIndexOf(563345)+"<br>")         //없으면 -1
+        document.write(arr.lastIndexOf(33,5)+"<br>")           //33의 위치를 5번째 부터 찾아라 
+
+
+
+        //배열<-->배열
+        var arr2 = [23,45,67]
+        vv= arr+arr2                /* 배열을 배열+배열이 아닌 문자열로 결합; */
+
+        document.write(vv+"<br>")
+
+        vv =arr.concat(arr2)          /* 이게 배열+배열 합치기        concat*/
+
+        document.write(vv+"<br>")
+        document.write(vv[12]+"<br>")        /* 배열+배열합쳐야 이렇게검색도됨 */
+
+
+        var arr3 =arr.slice(4,8)    /* 배열일부 추출  4~8이 아닌 4~7 추출임 */
+        
+        document.write(arr+"<br>")
+        document.write(arr3+"<br>")
+        arr3 =arr.slice(7)            /* arr3 =arr.slice(7)     arr의 7번부터 ~끝까지  arr3에 추출 */
+        document.write(arr+"<br>")
+        document.write(arr3+"<br>")
+
+        //배열<->문자열
+        vv= "정우성,정남성,정중성,북두신성,남한산성,감수성"
+        document.write(vv+"<br>")
+        document.write(vv[5]+"<br>") //문자열은 배열임 = 남한상성이아닌  5번째글씨 '남' 추출
+
+        arr2=vv.split(",")          /*     vv.split(",")        ,기준으로 배열로 나눔  */
+        document.write(arr2+"<br>")
+        document.write(arr2[0]+"<br>")
+        document.write(arr2[5]+"<br>")
+
+
+        arr3=["한가인","두가인","송가인"]
+        document.write(arr3[0]+"<br>")
+
+        vv=arr3.join("@")              /*  arr3.join("@")   배열사이에 @ 삽입 */
+        document.write(arr3+"<br>")
+        document.write(vv+"<br>")
+
+        document.write(arr+"<br>")
+        arr.reverse()                 /*  arr.reverse()         배열순서 뒤집어짐 */
+        document.write(arr+"<br>")        
+
+        arr.sort()                   /*    arr.sort()           낮은순자먼저  순서대로 정렬 */
+        document.write(arr+"<br>")
+
+        arr2=[34,12,67,98,54,34,67,78]
+        document.write(arr2+"<br>")
+        arr2.sort()
+        document.write(arr2+"<br>")
+
+        //기타
+
+        arr = [11,22,33,44,55,66,77,88]
+            // 0  1  2  3  4  5  6   7
+        document.write(arr+"<br>")  
+        arr.copyWithin(2,5,7)           /* copyWithin(2,5,7)       5,7 = 5~7번자리전 (5~6)까지를    2번위치에 복사붙여넣기 덮어씀 */
+        document.write(arr+"<br>") 
+
+        arr.fill("나는무너",3,7)          /* fill               3~7번자리를  "나는무너"로 덮어쓰기 */
+        document.write(arr+"<br>") 
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+         
+
+
+    </script>
+    
+</body>
+</html>

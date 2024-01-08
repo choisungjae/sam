@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            피자 주문을 구현하세요
+
+            주문 시 --< 토핑을 바꿀 수 있어요
+
+            이름 : 콤비네이션, 하와이얀, 치즈, 불고기
+            크기 : 스몰, 미디움, 라지 
+            토핑 재료 : 치즈재료, 고기류, 야채(과일)류, 테두리  알아서 만드는 형태
+
+        */
+        function oder(menu,size,topi){
+              var sizee="스몰,미디움,라지".split(",")
+              var price=0;
+             
+
+            if(menu=="콤비네이션"){
+                price+=28000
+                var siz=sizee[size]
+                if(topi)
+                toping("치즈")
+
+            }else if(menu=="하와이얀"){
+                price+=20000
+                var siz=sizee[size]
+                toping("치즈")
+
+            }else if(menu=="치즈"){
+                price+=18000
+                var siz=sizee[size]
+                toping("야채")
+
+            }else if(menu=="불고기"){
+                price+=15000
+                var siz=sizee[size]
+                toping("크러스트")
+            }       
+
+            function toping(toping){
+               
+                price+=2000;
+                /* var to ="치즈추가,크러스트,야채,고기추가".split(","); */
+                document.write(menu+"피자 "+siz+"로 "+toping+"추가로 주문되었습니다 가격은:"+price+"<br>")
+            }
+        }
+        oder("콤비네이션",2,"크러스트")
+        oder("하와이얀",1,"야채")
+    </script>
+    
+</body>
+</html>

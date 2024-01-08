@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        section{
+            width:800px;
+            background-color: #ffa;
+        }
+
+        section > div> img{
+            width:100px;
+            height: 70px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+
+        section > div> img{
+            width:100px;
+            height: 70px;
+        }
+        #box{
+            width:200px;
+            height: 200px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        function dd0(){
+            console.log("dd0 눌렀냐")
+        }
+        window.onload = function(){
+            var ppArr = document.getElementsByClassName("pp")
+            console.log(ppArr)
+            ppArr[1].onclick = function(){
+                console.log(" ppArr[1] 눌렀구만?")
+            }
+            ppArr[2].addEventListener('click',
+                                        ()=>{console.log(" ppArr[2] 눌렀으요")}, 
+                                        false)
+            
+            ppArr[3].onmouseover = function(e){
+                console.log("ppArr[3] over여 : "+e.clientX+","+e.clientY)
+            }
+            ppArr[4].onmouseout = function(e){
+                console.log("ppArr[4] out여1 : "+e.clientX+","+e.clientY)
+                console.log("ppArr[4] out여2 : "+e.pageX+","+e.pageY)
+            }
+            ppArr[5].onmousemove = function(e){
+                console.log("ppArr[5] move여 : "+e.clientX+","+e.clientY)
+            }
+            ppArr[3].onmousedown = function(e){
+                console.log("ppArr[3] 눌렀어 : "+e.clientX+","+e.clientY)
+            }
+            ppArr[4].onmouseup = function(e){
+                console.log("ppArr[4] 땠어 : "+e.clientX+","+e.clientY)
+                
+            }
+
+            var iptArr = document.getElementsByTagName("input")
+
+            console.log(iptArr)
+
+            iptArr[0].onfocus =function(){
+                console.log("iptArr[0] 눌렀어 : ")
+            }
+
+            iptArr[1].onblur =function(){
+                console.log("iptArr[1] 땠어 : ")
+            }
+            
+            iptArr[2].onkeydown =function(e){
+                console.log("iptArr[2]키다운 : "+e.keyCode)
+            }
+            iptArr[3].onkeyup =function(e){
+                console.log("iptArr[2]키업 : "+e.keyCode)
+            }
+            
+
+            var sel = document.getElementsByTagName("select").item(0)
+
+            console.log(sel)
+
+            sel.onchange= function(){
+                console.log("sel.onchange : "+this.value)    /* 아이템가져온거 셀렉터창  바뀔때마다 출력  */
+            }
+
+            document.getElementById("box").onscroll=function(){
+                console.log("sel.onchange : "+this.scrollTop+","+this.scrollLeft) 
+            }
+        }
+
+        window.onresize= function(){
+            console.log("window.onresize "
+            +this.outerWidth+","+this.outerHeight+","+this.innerWidth+","+this.innerHeight) 
+        }  /* 실질적으로는  이너위드,하잇트 */
+    </script>
+</head>
+<body>
+    <h1>event</h1>
+    <section>
+        <div class="pp"><img src="../fff/child_1.jpg" alt="" onclick="dd0()"></div>
+        <div class="pp"><img src="../fff/child_2.jpg" alt=""></div>
+        <div class="pp"><img src="../fff/child_3.jpg" alt=""></div>
+        <div class="pp"><img src="../fff/child_4.jpg" alt=""></div>
+        <div class="pp"><img src="../fff/child_4.jpg" alt=""></div>
+        <div class="pp"><img src="../fff/son_2.jpg" alt=""></div>
+    </section>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    
+
+    <select name="" id="">
+        <option>나혜린</option>
+        <option>너혜린</option>
+        <option>그혜린</option>
+        <option>그것혜린</option>
+        <option>우리혜린</option>
+    </select>
+
+    <div id="box"><img src="../fff/son_3.jpg" alt=""></div>
+
+</body>
+</html>

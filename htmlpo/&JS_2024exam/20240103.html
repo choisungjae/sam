@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            border: 1px solid rgb(255, 62, 9);
+
+
+        }
+
+        .main {
+            width: 400px;
+            background-color: rgb(194, 244, 227);
+            text-align: center;
+        }
+
+        .gg {
+            width: 400px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        function one(aa) {
+            var pi = 3.14
+            var dul = aa * pi
+            var area = aa * aa * pi
+            document.write("<div>" + "원의둘레:" + dul + " 원의넓이:" + area + "<br>" + "</div>")
+        }
+
+        function sam(bb, cc, bit) {
+            var dul = bb + cc + bit
+            var area = (bb * cc) / 2
+            document.write("<div>" + "직각삼각형둘레:" + dul + " 직각삼각형넓이:" + area + "<br>" + "</div>")
+        }
+        function sa(aa, bb) {
+            var dul = (aa + bb) * 2
+            var area = aa * bb
+            document.write("<div>" + "사각형둘레:" + dul + " 사각형형넓이:" + area + "</div>")
+        }
+
+
+        document.write("<div class='main'>" + "도형의 함수" + "</div>")
+
+        document.write("<div class='gg'>")
+        one(3);
+        sam(5, 6, 10);
+        sa(5, 7);
+        document.write("</div>")
+
+        /* document.write("<div>"+one+"</div>") */
+
+
+    </script>
+
+</body>
+
+</html>

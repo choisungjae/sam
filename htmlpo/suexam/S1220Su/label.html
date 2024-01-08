@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        form{
+            margin: 50px;
+            
+        }
+        fieldset{
+            width:700px;
+            height: 80px;
+            margin-bottom: 20px;
+           
+        }
+
+        legend{
+            background-color: rgb(246, 225, 223);
+            width : 700px;
+            height: 24px;
+            text-align: center;
+        }
+        
+
+
+        #pid{
+            width:200px;
+            height: 24px;
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 12px;
+        }
+        #gender{
+            background-color: rgb(225, 196, 225);
+            width : 150px;;
+            width : 700px;
+            height: 24px;
+            text-align: center;
+        }
+        #friend{
+            display: inline-block;
+            background-color: rgb(255, 255, 255);
+            width : 300px;
+            height: 24px;
+            text-align: right
+        }
+        #ID{
+            display: inline-block;
+            background-color: rgb(255, 255, 255);
+            width : 300px;
+            height: 24px;
+            text-align: right
+            
+        }
+        input[type=text]{
+            width:80%;
+            height: 30px;
+          background-color: rgb(244, 228, 217);
+
+        }
+        input[type=checkbox]{
+            width:40px;
+            height: 40px;
+            margin: 0px 50px;
+        }
+        input[type=radio]{
+            width:30px;
+            height: 30px;
+            margin: 0px 50px;
+        }
+        input:read-only{
+            background-color: #f0f;
+        }
+        input:disabled{
+
+            background-color: #f00;
+
+        }
+        input:focus{
+            
+            background-color: #0f0;
+        }
+       
+
+        select{
+            background-color: rgb(234, 214, 234);
+            width : 100px;
+            height: 40px;
+            border: 3px solid rgb(11, 7, 7);
+            border-radius: 12px;
+            
+        }
+
+        textarea{
+            background-color: rgb(255, 255, 255);
+            width : 700px;
+            height: 270px;
+            border: 3px solid rgb(226, 204, 204);
+           
+        }
+        #contentSet{
+            height: 300px;
+        }
+        button{
+            background-color: rgb(181, 181, 225);
+            color:#fff;
+            width :344.9px;
+            height: 80px;
+            line-height: 50px;
+            border: 1px solid rgb(170, 170, 220);
+            border-radius: 10px 5px;
+        }
+        
+        
+    </style>
+    
+</head>
+<body>
+    <form action="" align="center">
+        
+        <fieldset align="center">
+            <legend>아이디</legend>
+            <label for="" >(영문소문자/숫자, 4~16자)</label>
+            <input type="text"id=""  name="ID" align="right">
+        </fieldset>
+
+
+        <fieldset align="center">
+            <legend>비밀번호</legend>
+            <label for="">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합)</label>
+            <input type="text" name="PW" id="" align="right" >
+        </fieldset>
+
+        <fieldset align="center">
+            <legend>비밀번호재입력</legend>
+            <label for="" >(영문 대소문자/숫자/특수문자 중 2가지 이상 조합)</label>
+            <input type="text"  name="rePW" align="right">
+        </fieldset>
+
+        <fieldset align="center">
+            <legend>이름</legend>
+            <label for="" > 이름을입력하세요(한글)</label>
+            <input type="text" name="namee" >
+        </fieldset>
+
+        <fieldset align="center">
+            <legend>성별</legend>
+            <label style="margin: 0px 20px;" >남자</label>
+            <label  style="margin: 0px 50px;">여자</label>
+            <label  style="margin: 0px 30px;">외국인</label><br/>
+            <input type="radio" name="gender" value="m">
+            <input type="radio" name="gender" value="f">
+            <input type="radio" name="gender" value="i">
+        </fieldset>
+        <fieldset align="center" >
+            <legend>자격증</legend>
+            <label for="gisa" style="margin: 0px 30px;" >정보처리기사</label>
+            <label for="gi" style="margin: 0px 20px;">정보처리기능사</label>
+            <label for="no" style="margin: 0px 30px;">없음</label><br/>
+            <input type="checkbox" name="License" id="gisa" value="gisa" align="center">
+            <input type="checkbox" name="License" id="gi" value="gi">
+            <input type="checkbox" name="License" id="no" value="no">
+        </fieldset>
+        <fieldset align="center">
+            <label for="email1"><legend>이메일</legend></label>
+            <input type="text" name="email1" id="email1">
+            <select name="email2" id="">
+                <option>naver</option>
+                <option>google</option>
+                <option>daum</option>
+            </select>
+        </fieldset>
+        <fieldset id="contentSet">
+            <label for="content">
+                <legend>가입시 요청사항</legend>
+                <textarea id="content"></textarea>
+            </label>
+        </fieldset>
+        <fieldset >
+           <button>가입하기</button>
+           <button>취소</button>
+        </fieldset>
+    </form>
+
+
+
+
+
+    </form>
+    
+</body>
+</html>

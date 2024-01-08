@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .te{
+            text-align: left;
+            width: 1150px;
+            margin: 0px 200px 0px 0px;
+        }
+
+        .content{
+            width: 1200px;
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0px;
+        } 
+      
+        .content>div>img{
+            display: block;
+            float: left;
+            width: 300px;
+            height: 350px;
+            margin: 0px 30px;
+        }
+        .content>div>div{
+            width: 300px;
+            height: 100px;
+            margin: 0px 30px;
+        }
+        .ttt{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .content>div>.im5{
+            display: block;
+            float: left;
+            width: 300px;
+            height: 350px;
+            margin: 0px 30px;
+            opacity: 0.3;
+        }
+        .content>div>.hot{
+            display: block;
+            float: left;
+            width: 300px;
+            height: 350px;
+            margin: 0px 30px;
+            border: 3px solid #ff0000;
+    
+            line-height: 30px;
+        }
+
+        .content>div>.sale{
+            display: block;
+            float: left;
+            width: 300px;
+            height: 350px;
+            margin: 0px 30px;
+            border: 3px solid #2bff00;
+         
+        }
+        .pu::before{                           
+            content:"-품절-";
+            width: 300px;
+            height: 20px;
+            background-color: rgb(174, 185, 173);
+            display:block
+          
+        }
+        .se::before{                           
+            content:"%세일중인 상품%";
+            width: 300px;
+            height: 20px;
+            background-color: rgb(19, 222, 12);
+            display:block
+          
+        }
+        .hott::before{                           
+            content:"*인기상품*";
+            width: 300px;
+            height: 20px;
+            background-color: rgb(232, 89, 89);
+            display:block
+        }
+ 
+    </style>
+</head>
+
+<body>
+    <div class="ttt">
+    
+        <hr>
+        <div class="te" align="left">
+            <font size="5">New Product<br></font>
+            <font size="2">새롭게 입고된 신상품들을 만나보세요</font>
+        </div>
+       
+        <div class="content">
+            <div class="pu" align="center">
+                <img class= "im5" src="p1219/스크린샷 2023-12-19 175902.png" alt="">
+                <div>멍멍이로고기모맨투맨티 SMO843M312<br><font color=#2E9AFE>31,600원</font><font color=#00ffff>[품절]</font></div>
+            </div>
+            <div>
+                <img src="p1219/스크린샷 2023-12-19 175916.png" alt="">
+                <div>머스트헤브후드기모티 SMO844M312<br>   <font color=#2E9AFE>36,200원</font></div>
+            </div>
+            <div class="hott"  align="center">
+                <img class ="hot" src="p1219/스크린샷 2023-12-19 175926.png" alt="">
+                <div>다이아퀼팅루즈후드조끼 SMO845M312<br> <font color=#2E9AFE>95,600원</font><font color=red>[인기]</font></div>
+            </div>
+            <div> 
+                <img src="p1219/스크린샷 2023-12-19 175956.png" alt="">
+                <div>코듀스커트후드원피스 SMO846M312<br>   <font color=#2E9AFE>61,400원<br></font></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div>
+                <img src="p1219/스크린샷 2023-12-19 180033.png" alt="">
+                <div>멍멍이로고기모맨투맨티 SMO843M312<br><font color=#2E9AFE align="center">31,600원</font></div>
+            </div>
+            <div>
+                <img src="p1219/스크린샷 2023-12-19 180028.png" alt="">
+                <div>머스트헤브후드기모티 SMO844M312<br>   <font color=#2E9AFE>36,200원</font></div>
+            </div>
+            <div class="pu" align="center">
+                <img class="im5" src="p1219/스크린샷 2023-12-19 180037.png" alt="">
+                <div>다이아퀼팅루즈후드조끼 SMO845M312<br> <font color=#2E9AFE>95,600원</font><font color=#00ffff>[품절]</font></div>
+            </div>
+            <div class="se" align="center">
+                
+                <img class="sale" src="p1219/스크린샷 2023-12-19 180015.png" alt="">
+                <div>코듀스커트후드원피스 SMO846M312<br>   <font color=#2E9AFE><S>61,400원</S><font color="green">[50%세일]</font><font color=#2E9AFE>>>30,700원</font>
+                </div>
+        </div>
+       
+    </div>
+
+</body>
+
+</html>

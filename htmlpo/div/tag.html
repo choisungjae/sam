@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag</title>
+    <style>
+        *{
+           /* 
+           * : 모든 요소
+           style 주석처리 */
+            margin: 0;
+            padding:0; 
+        }
+       /* window{  접근자 없음 - javascript 에서 사용
+            color : #f00;
+        } 
+        document{  접근자 없음 - javascript 에서 사용
+            color : #0f0;
+        }*/
+        body{ /* 같은 속성을 다르게 설정할 경우 작은 범위가 우선권*/
+            background-color: #ff0;
+        }
+        html{
+            color : #00f;
+            background-color: #0f0;
+        }
+        ol{
+            background-color: #f0f;
+        }
+        table{
+            background-color: #0ff;
+            /*bgcolor:#faa;  table 의 속성과 style은 다른 요소 */
+        }
+        tr{
+            font-style: italic;
+        }
+        img{
+            border: 2px solid #f00;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>tag</h1>
+    <ol>
+        <li>요소1</li>
+        <li>요소2</li>
+        <li>요소3</li>
+    </ol>
+    <table border="2" >
+        <tr bgcolor="#faa">
+            <td>1_1</td>
+            <td>1_2</td>
+            <td>1_3</td>
+        </tr>
+        <tr>
+            <td>2_1</td>
+            <td>2_2</td>
+            <td>2_3</td>
+        </tr>
+    </table>
+    <img src="../fff/child_1.jpg" alt="" width="100px">
+    <img src="../fff/child_2.jpg" alt="" width="100px">
+    <img src="../fff/child_3.jpg" alt="" width="100px">
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var order = "아시아노";
+		var cnt = 3;
+		var price;
+        
+		
+		switch(order) {
+		case "아메리카노":
+			price = 2000;
+			break;
+		case "아시아노":
+			price = 3000;
+			break;
+		case "아프리카노":
+			price = 4000;
+			break;
+		default:
+			price = 0;
+			break;
+		}
+        var totprice =price*cnt
+
+        document.write(order+" "+cnt+"잔 "+totprice+"원")
+    </script>
+
+<script>
+        var orderlist =["아메리카노","아시아노","아프리카노"];
+        var pricelist =[2000,3000,4000];
+
+        var order =orderlist[0]
+        /* var cnt=3; */
+
+        /* console.log(order)
+        console.log(pricelist[0]) */
+        switch(order) {
+		case "아메리카노":
+			price = pricelist[0];
+			break;
+		case "아시아노":
+			price = pricelist[1];
+			break;
+		case "아프리카노":
+			price = pricelist[2];
+			break;
+		default:
+			price = 0;
+			break;
+		}
+        console.log(order)
+        console.log(pricelist[0])
+
+        var ttt =cnt*price;
+		console.log(ttt)
+        document.write(order+" "+cnt+"잔 "+ttt+"원")
+
+    </script>
+    
+</body>
+</html>

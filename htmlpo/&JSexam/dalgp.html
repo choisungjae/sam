@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1달치 달력</title>
+    <style>
+        table {
+            /* border-collapse: collapse; */
+            width: 400px;
+            /* height: 500px; */
+        }
+
+      
+        td {
+            border: 1px solid #ddd;
+           /*  padding: 8px; */
+            text-align: center;
+            
+        }
+
+        .main{
+            background-color: rgb(203, 239, 227);
+            height: 100px;
+            font-size: 30px;
+        }
+        .red{
+            color: rgb(255, 0, 0);
+        }
+        .blue{
+            color: #2007ff;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+
+    <script>
+        
+        var currentDate = new Date(); /* 현시간 */
+        var currentYear = currentDate.getFullYear(); /* 년 설정*/
+        var currentMonth = currentDate.getMonth();/* 달 설정 */
+
+        
+        var firstDayOfMonth = new Date(currentYear, currentMonth, 1);  /* 현재 년, 월 , 1일 기입 */
+        console.log(firstDayOfMonth) 
+        var firstDay = firstDayOfMonth.getDay(); /* 지금달의1일의 요일을 숫자로 표현   0부터6*/
+        console.log(firstDay) /* 월(1)  출력*/
+
+        
+        var lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+        var daylast = lastDayOfMonth.getDate(); /* 마지막날 (다음달의 첫날을 생성해서 이번달의 마지막날을 구함 *그래서 달에 +1) */
+        console.log(daylast) /* 그 달의 마지막 날(31) 출력 */
+        document.write('<table>');
+            document.write("<tr>")
+            document.write('<td colspan="7">')
+                document.write('<img src="../fff/KakaoTalk_20231218_161451357.jpg" width="100%" height="100px" alt="">')
+                document.write("</td>")
+                document.write("</tr>")
+
+                document.write("<tr>")
+            document.write('<td class="main" colspan="7" height="100px" background-color:#f00;>')
+                document.write("2024년 1월")
+                document.write("</td>")
+                document.write("</tr>")
+            
+        var yo = ["일", "월", "화", "수", "목", "금", "토"]
+        for (let index = 0; index < 7; index++) {
+            /* if(yo[inedx]=="일"||yo[index]=="토"){
+                document.write('<td class="red">' + yo[index] + "</td>")
+            }else{ */
+            document.write("<td>" + yo[index] + "</td>")
+        }
+    /* } */
+
+
+        var date = 1;
+        for (let i = 0; i < 5; i++) { /* 5주 */
+            document.write("<tr>");
+            for (let j = 0; j < 7; j++) { /* 7일 */
+                document.write("<td>");
+
+                if (i === 0 && j < firstDay) { /* 첫날보다 작으면 ""(빈칸처리)+ */
+
+                    document.write("");
+                } else if (date > daylast) {/* 마지막날보다 크면 ""(빈칸처리)+ */
+
+                    document.write("");
+                } else {
+                   /*  var ww= 6
+                    if(ww=date){ */
+                    /*     var cc =""; */
+                        /* document.write('<fontcolor="red">'+date+'</font>'); */
+                       /*  cc= "class ="
+                        date++;
+                    } */
+                    /* else{ */
+                        document.write(date)
+                        date++;};/* 나머지 그냥 기입 */
+                    
+               /*  } */
+
+                document.write('</td>');
+            }
+
+            document.write('</tr>');
+        }
+
+        document.write('</table>');
+
+        var aa = prompt("숫자좀써봐")      
+        console.log(aa)
+    </script>
+  <!-- <h2 fontcolor="red"></h2> -->
+</body>
+
+</html>

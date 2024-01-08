@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mularray</title>
+</head>
+<body>
+    <h1>mularray</h1>
+    <script>
+        var arr1 =[11,22,33]
+
+        var mul= [
+            [100,200,300,400],
+            new Array(123,456),
+            arr1,
+             arr2 =[987,654]
+        ]
+
+        document.write(mul+"<br>")
+        document.write(mul.length+"<br>")
+
+        for(var k in mul){
+            document.write(k+":"+mul[k]+"<br>")
+        }
+        document.write("<hr/>")
+
+        arr1[3]=44;
+
+        for(var k in mul){
+            document.write(k+":"+mul[k]+"=>"+mul[k].length+"<br>")
+        }
+        document.write("<hr/>")
+
+        for (var ttt of mul) {
+            ttt.push(44)
+            document.write(ttt+"<br>")
+        }
+
+        document.write(arr2)
+
+
+
+    </script>
+    
+</body>
+</html>

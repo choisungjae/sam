@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        fieldset{
+            width: 500px;
+            height: 50px;
+            margin: 5px;
+        }
+        input[type=text]{
+            background-color: #ff0;
+            width: 100px;
+        }
+       
+        
+        input:read-only{/* readonly, disabled 적용*/
+            background-color: #f0f;
+        }
+        input:disabled{/*나중에 적용된 것 우선순위를 가짐*/
+            background-color: #f00;
+        }
+        input:focus{ /*반응 선택자
+            일반, readonly 적용, disabled는  focus 안됌
+            */
+            background-color: #0f0;
+        }
+        input:hover{ /* 마우스 올렸을때
+            일반, readonly , disabled 모두 적용
+            */
+            color: #fff;
+        }
+        input[name=hobby]:checked{
+            width:30px;
+            height:30px;
+        }
+        input[name=spec]+div{
+            display: inline-block;
+            background-image: url(/selector/off.png);
+            background-size: 30px 30px;
+            width:30px;
+            height:30px;
+        }
+        input[name=spec]:checked+div{
+           
+            background-image: url(/selector/on.png);
+           
+        }
+        input[name=spec]{
+            display: none;
+        }
+        #addr2, #addr3{
+            display: none;
+        }
+        #addr1:focus+#addr2{
+            display: inline;
+        }
+        #addr2:active, #addr2:focus{
+            display: inline;
+        }
+        #addr2:focus+#addr3{
+            display: inline;
+        }
+        #addr3:active, #addr3:focus{
+            display: inline;
+        }
+        #email2Txt, #email2Chk{
+            display: none;
+        }
+        #email2ChkBox{
+            display: inline-block;
+            background-image: url(/selector/off.png);
+            background-size: 30px 30px;
+            width:30px;
+            height:30px;
+        }
+        #email2Chk:checked~#email2Txt{
+            display: inline-block;
+        }
+        #email2Chk:checked+#email2Sel{
+            display: none;
+        }
+        #email2Chk:checked~label>#email2ChkBox{
+            background-image: url(/selector/on.png);
+        }
+        button:hover, input[type=reset]:hover{
+            width:50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>react</h1>
+    <form action="">
+        <fieldset>
+            <legend>아이디</legend>
+            <label for=""></label><input type="text" value="aaa"></fieldset>
+        <fieldset>
+            <legend>암호</legend>
+            <label for=""></label><input type="text" readonly value="1234"></fieldset>
+        <fieldset>
+            <legend>이름</legend>
+            <label for=""></label><input type="text" disabled  value="정우성"></fieldset>
+        <fieldset>
+            <legend>취미</legend>
+            <label for="riding">낭만</label><input type="checkbox" id="riding" name="hobby">
+            <label for="shopping">쇼핑</label><input type="checkbox" id="shopping" name="hobby">
+            <label for="sleeping">잠자기</label><input type="checkbox" id="sleeping" name="hobby">
+        </fieldset>
+        <fieldset>
+            <legend>특기</legend>
+            <label for="game">게임</label>
+            <input type="checkbox" id="game" name="spec"><div></div>
+            <label for="drink">술</label><input type="checkbox" id="drink" name="spec">
+            <div></div>
+            <label for="roll">구르기</label><input type="checkbox" id="roll" name="spec">
+            <div></div>
+        </fieldset>
+        <fieldset>
+            <legend>주소</legend>
+            <select name="" id="addr1">
+                <option>서울시</option>
+                <option>남양주시</option>
+                <option>울산시</option>
+            </select>
+            <select name="" id="addr2">
+                <option>강남구</option>
+                <option>강동구</option>
+                <option>얼씨구</option>
+            </select>
+            <select name="" id="addr3">
+                <option>역삼동</option>
+                <option>압구정동</option>
+            </select>
+        <fieldset>
+            <legend>이메일</legend>
+            <input type="text">@
+            <input type="checkbox" id="email2Chk">
+            <select name="" id="email2Sel">
+                <option>구글</option>
+                <option>네이버</option>
+                <option>다음</option>
+            </select>
+            <input type="text" id="email2Txt">
+           <label for="email2Chk"><div id="email2ChkBox"></div>직접입력</label>
+        </fieldset>
+        <fieldset>
+            <button>가입</button>
+            <input type="reset" value="초기화"/>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0106game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            position: relative;
+            width: 600px;
+            height: 700px;
+            border: 1px solid #888;
+            background-color: #75f185;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .zone1 {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: #3e2709;
+            border-radius: 30px;
+            z-index: 5;
+
+        }
+        .bosszone {
+            position: absolute;
+            width: 400px;
+            height: 30px;
+            background-color: #ff0000;
+            border-radius: 30px;
+            z-index: 5;
+            
+
+        }
+        
+
+        /* .zone2 {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: #75f185;
+            border-radius: 30px;
+            
+        }
+        .zone3 {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: #75f185;
+            border-radius: 30px;
+            
+        }
+        .zone4 {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: #75f185;
+            border-radius: 30px;
+            
+        }
+        .zone5 {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            background-color: #75f185;
+            border-radius: 30px;
+            
+        } */
+        .doo {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background-color: #683f09;
+            border-radius: 30px 30px 0px 0px;
+            display: none;
+            z-index: 2;
+
+
+        }
+        .boss{
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            background-color: #680909;
+            border-radius: 30px 30px 0px 0px;
+            display: none;
+            z-index: 4;
+        }
+        
+        .bossimg{
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            background-color: #680909;
+            border-radius: 30px 30px 0px 0px;
+            /* display: none; */
+            z-index: 4;
+        }
+        .die{
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            background-color: #680909;
+            border-radius: 30px 30px 0px 0px;
+            display: none;
+            z-index: 5;
+        }
+
+        .eyes {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            z-index: 3;
+            display: none;
+
+        }
+
+        .eyes2 {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(0, 0, 0);
+            display: none;
+            z-index: 4;
+        }
+
+
+        .hit {
+            position: absolute;
+
+            width: 150px;
+            /* display: flex;*/
+            display: none;
+
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 500px;
+            font-size: 20px;
+        }
+
+        #time{
+            position: absolute;
+            top: 10px;
+            left: 370px;
+            font-size: 20px;
+        }
+
+        .mang {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background-color: #ff0000;
+        }
+
+        .chi {
+            position: absolute;
+            width: 90px;
+            height: 20px;
+            background-color: #000000;
+            margin: 30px 0px 0px 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var zones = document.getElementsByClassName("zone1");
+            var totscore = document.getElementById("score");
+            var times =document.getElementById("time");
+            var bosshh =document.getElementById("bosshp");
+            var score = 0;
+            var time =30;
+            var cnt=0;
+            var hp=10;
+            function zonezen() {
+                var num = parseInt(Math.random() * zones.length);/* 랜덤존 */
+                return zones[num];
+            }
+
+            function zen0() {
+                var zonenum = zonezen();
+                var doo = zonenum.children[0];//zones[num]에 0번쨰접속 doo
+                var hit = zonenum.children[1];             //hit
+                var eye1 = zonenum.children[2];/*왜안 */
+                var eye2 = zonenum.children[3];
+                var eyes1 = zonenum.children[4];  /*검눈1  */
+                var eyes2 = zonenum.children[5];
+                console.log(eyes1)
+
+                doo.style.display = "block";
+                eye1.style.display = "block";
+                eye2.style.display = "block";
+                eyes1.style.display = "block";
+                eyes2.style.display = "block";
+                hit.style.display = "none";
+                function hide() {
+                    if (doo.style.display == "block") {
+                        doo.style.display = "none";
+                        eye1.style.display = "none";
+                        eye2.style.display = "none";
+                        eyes1.style.display = "none";
+                        eyes2.style.display = "none";
+                    } else {
+                        eye1.style.display = "block";
+                        eye2.style.display = "block";
+                        eyes1.style.display = "block";
+                        eyes2.style.display = "block";
+                        doo.style.display = "block";
+                        /*  doo.style.backgroundcolor = "red" */
+                        /* scoreup(); */
+                    }
+                }
+
+                setTimeout(hide, 3000)
+
+                doo.onclick = function () {
+                    hit.style.display = "block";
+                    eye1.style.display = "none";
+                    eye2.style.display = "none";
+                    eyes1.style.display = "none";
+                    eyes2.style.display = "none";
+                    doo.style.display = "none";
+                    /* clearInterval(ttt); */
+                    scoreup();
+
+
+                };
+
+            }
+            function bosszen() {
+                var bosszones = document.getElementsByClassName("bosszone");
+                
+                var boss = bosszones[0].children[0];
+                var bosshit = bosszones[0].children[1];
+                var bossdie = bosszones[0].children[0].children[1];
+                
+
+                boss.style.display ="block";
+                bosshit.style.display = "none";
+                
+                function boshide() {
+                    if (boss.style.display == "block") {
+                        boss.style.display = "none";
+                       
+                    } else {
+                        boss.style.display = "block";
+                     
+                    }
+                }
+
+                setTimeout(boshide, 3000)
+
+                boss.onclick = function () {
+                    bosshit.style.display = "block";
+                    bosshp();
+                    cnt++;
+                    if(cnt==9){
+                        bossdie.style.display="block"
+                   
+                   /* stop(); */
+                    }
+                };
+            }
+            function mangchireset() {/* 망치리셋 */
+                for (var i = 0; i < zones.length; i++) {
+                    zones[i].children[1].style.display = "none";    
+                    
+
+                    /* 존1~5에hit */
+                }
+                bosszones[0].children[1].style.display="none";
+
+            }
+
+            setInterval(mangchireset, 2000)
+            function bosshp(){
+                hp-=1;
+                bosshh.textContent = "보스체력:"+hp
+                if(hp==0){
+                    stop();
+                }
+
+            }
+
+            function scoreup() {
+                score += 1;
+                console.log(score)
+                totscore.textContent = "점수:" + score;
+                if (score == 10) {
+                    stop();
+                }
+            }
+            function tt() {
+                time -= 1;
+                console.log(time)
+                times.textContent = "남은시간:" + time;
+                if (time == 0) {
+                    stop();
+                }
+            }
+            var ti =setInterval(tt,1000)
+
+            /*  zens=[zen0,zen1,zen2,zen3,zen4]    //보류
+             function start() {
+                 gameInterval = setInterval(function () {
+                     var randomnum = parseInt(Math.random() * 5);
+                     zens[randomnum](); 
+                 }, 3000);
+             } */
+
+
+            function start() {
+                alert("10점획득or 보스퇴치시 승리")
+                game = setInterval(zen0, 3000);
+                boszen = setInterval(bosszen,4000);
+
+            }
+           
+            /* function boszentime() {
+                return Math.floor(Math.random() * (10000));
+            } */
+            function stop() {
+                clearInterval(game);
+                clearInterval(ti);
+                clearInterval(boszen);
+
+                alert("승리")
+            }
+
+            start();
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>두더지 게임</h1>
+    <section>
+        <div id="score">점수:0</div>
+        <div id="time">남은시간:30</div>
+        <div class="zone1" style="top: 200px; left: 100px;">
+            <div class="doo" style="top: -80px;left:20px"></div>
+            <div class="hit" style="top: -160px;left:20px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+            </div>
+            <!-- <div class="test"> -->
+            <div class="eyes" style="top:-60px; left: 28px;"></div>
+            <div class="eyes" style="top:-60px; left: 52px"></div>
+            <div class="eyes2" style="top:-50px; left: 33px;"></div>
+            <div class="eyes2" style="top:-50px; left: 57px"></div>
+        <!-- </div> -->
+        </div>
+        <div class="zone1" style="top: 200px; left: 250px;">
+            <div class="doo" style="top: -80px;left:20px"></div>
+            <div class="hit" style="top: -160px;left:20px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+            </div>
+            <div class="eyes" style="top:-60px; left: 28px;"></div>
+            <div class="eyes" style="top:-60px; left: 52px"></div>
+            <div class="eyes2" style="top:-50px; left: 33px;"></div>
+            <div class="eyes2" style="top:-50px; left: 57px"></div>
+        </div>
+        <div class="zone1" style="top: 200px; left: 400px;">
+            <div class="doo" style="top: -80px;left:20px"></div>
+            <div class="hit" style="top: -160px;left:20px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+            </div>
+            <div class="eyes" style="top:-60px; left: 28px;"></div>
+            <div class="eyes" style="top:-60px; left: 52px"></div>
+            <div class="eyes2" style="top:-50px; left: 33px;"></div>
+            <div class="eyes2" style="top:-50px; left: 57px"></div>
+        </div>
+        <div class="zone1" style="top: 350px; left: 175px;">
+            <div class="doo" style="top: -80px;left:20px"></div>
+            <div class="hit" style="top: -160px;left:20px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+            </div>
+            <div class="eyes" style="top:-60px; left: 28px;"></div>
+            <div class="eyes" style="top:-60px; left: 52px"></div>
+            <div class="eyes2" style="top:-50px; left: 33px;"></div>
+            <div class="eyes2" style="top:-50px; left: 57px"></div>
+        </div>
+        <div class="zone1" style="top: 350px; left: 325px;">
+            <div class="doo" style="top: -80px;left:20px"></div>
+            <div class="hit" style="top: -160px;left:20px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+            </div>
+            
+            <div class="eyes" style="top:-60px; left: 28px;"></div>
+            <div class="eyes" style="top:-60px; left: 52px"></div>
+            <div class="eyes2" style="top:-50px; left: 33px;"></div>
+            <div class="eyes2" style="top:-50px; left: 57px"></div>
+
+            
+            
+        </div>
+        <div class="bosszone" style="top:650px; left: 100px;">
+            <div class="boss" style="top:-250px; left: 50px;"> 
+                <img class="bossimg" src="../&JS_2024exam/KakaoTalk_20240107_225809921.jpg" alt="">
+                <img class="die" src="../&JS_2024exam/스크린샷 2024-01-08 044946.png" alt="">
+            </div>
+            <div class="hit" style="top: -340px;left:150px">
+                <div class="mang"></div>
+                <div class="chi" style="left:50px"></div>
+                
+            </div>
+            <div align="center" id="bosshp">보스체력:10</div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        DIV{
+            WIDTH:300PX;
+            height: 50PX;
+            maRgIn:10Px;
+            boRDer:1px sOliD #888;
+        }
+        div[ttt-data=abc]{/* 정확히 일치 abc */
+            color:#F00;
+        }
+
+        div[ttt-data~=abc]{/* 단어 형태 띄어쓰기로 구분
+             abc , abc qwe , zzz abc ewwef*/
+            font-size: 30px;
+        }
+        div[ttt-data|=abc]{/* 단어 형태 -로 구분
+             abc, abc-qwe */
+            font-style: italic;
+        }
+        div[ttt-data^=abc]{/* abc로 시작
+             abc, abc qwe, abc-qwe, abcqweeff */
+            text-align: center;
+        }
+        div[ttt-data$=abc]{/* abc로 끝
+             abc, zzzcdefzzabc */
+            text-decoration: underline;
+        }
+        div[ttt-data*=abc]{/* abc 포함
+abc,abc qwe, abc-qwe, abcqweeff, zzzcdefzzabc, zzzabcewwef, zzz abc ewwef, zzz-abc-ewwef, */
+            background-color: #ff0;
+        }
+
+        .aaa .eee{ /* 후손 선택자*/
+            color:#0f0;
+        }
+        .bbb, .eee{ /* or */
+            color:#00f;
+        }
+        div[class="aaa bbb"]{ /* and 처럼 사용 */
+            background-color: #f0f;
+        }
+
+        img{
+            width: 200px;
+            height: 150px;
+        }
+        .im1{
+            opacity: 0.5;
+        }
+        .im2{
+            opacity: 0.3;
+            background-color: #f00;
+        }
+        .im_back3{
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            background-color: #f00;
+        }
+        .im3{
+            opacity: 0.5;
+        }
+        </style>
+</head>
+<body>
+    <h1>attr</h1>
+    <div ttt-data="abc">abc 이지롱</div>
+    <div ttt-data="eee">eee 이지롱</div>
+    <div ttt-data="abc qwe">abc qwe이지롱</div>
+    <div ttt-data="abc-qwe">abc-qwe이지롱</div>
+    <div ttt-data="abcqweeff">abcqweeff이지롱</div>
+    <div ttt-data="zzzcdefzzabc">zzzcdefzzabc이지롱</div>
+    <div ttt-data="zzzabcewwef">zzzabcewwef이지롱</div>
+    <div ttt-data="zzz abc ewwef">zzz abc ewwef이지롱</div>
+    <div ttt-data="zzz-abc-ewwef">zzz-abc-ewwef이지롱</div>
+    <div class="abc">class:abc 이지롱</div>
+    <div class="aaa eee">class:aaa eee 이지롱</div>
+    <div class="aaa bbb">class:aaa bbb이지롱</div>
+    <div class="eee">class:eee이지롱</div>
+    <div class="bbb">class:bbb이지롱</div>
+
+    <img class="im1" src="../fff/child_1.jpg" alt="">
+    <img class="im2" src="../fff/child_1.jpg" alt="">
+    <div class="im_back3">
+        <img class="im3" src="../fff/child_1.jpg" alt="">
+    </div>
+    <img class="im4" src="../fff/child_1.jpg" alt="">
+</body>
+</html>

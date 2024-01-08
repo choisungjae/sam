@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            border: 1px solid rgb(0, 0, 0);
+            /*    float: left; */
+        }
+
+
+        .one {
+            width: 700px;
+            border: 1px solid rgb(0, 0, 0);
+            display: flex;
+        }
+
+        .two {
+            width: 700px;
+            border: 1px solid rgb(0, 0, 0);
+            display: flex;
+        }
+
+        .wa {
+            width: 700px;
+        }
+
+        .수 {
+            background-color: #f00;
+        }
+
+        .우 {
+            background-color: #fa0;
+        }
+
+        .미 {
+            background-color: #ff0;
+        }
+
+        .양 {
+            background-color: #0f0;
+        }
+
+        .가 {
+            background-color: rgb(124, 14, 144);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wa">
+        <div class="two">
+            <div>반</div>
+            <div>성별</div>
+            <div>이름</div>
+            <div>국어</div>
+            <div>영어</div>
+            <div>수학</div>
+            <div>총점</div>
+            <div>평균</div>
+            <div>등급</div>
+            <div>등수</div>
+        </div>
+
+
+        <script>
+
+            var arr = [
+                { name: "김청아", ban: 1, gender: "남", han: 65, en: 67, ma: 69 },
+                { name: "배수지", ban: 2, gender: "남", han: 75, en: 77, ma: 79 },
+                { name: "원빈", ban: 1, gender: "여", han: 95, en: 97, ma: 99 },
+                { name: "유승호", ban: 2, gender: "남", han: 85, en: 87, ma: 89 },
+                { name: "조승우", ban: 1, gender: "여", han: 75, en: 87, ma: 51 },
+                { name: "김혜수", ban: 2, gender: "남", han: 45, en: 57, ma: 47 },
+                { name: "김인구", ban: 1, gender: "여", han: 95, en: 57, ma: 61 },
+                { name: "아리수", ban: 2, gender: "남", han: 95, en: 77, ma: 59 },
+                { name: "인디안", ban: 1, gender: "남", han: 65, en: 73, ma: 72 },
+                { name: "쥬라기", ban: 2, gender: "여", han: 85, en: 71, ma: 72 }
+
+            ]
+
+
+
+            for (var i = 0; i < arr.length; i++) {
+                document.write('<div class="two">')
+
+       
+                var ttt = "<div>" + arr[i].ban + "</div>";
+                ttt += "<div>" + arr[i].gender + "</div>";
+                ttt += "<div>" + arr[i].name + "</div>";
+                ttt += "<div>" + arr[i].han + "</div>";
+                ttt += "<div>" + arr[i].en + "</div>";
+                ttt += "<div>" + arr[i].ma + "</div>";
+                var tot = 0;
+                var avg = 0;
+                var rank;
+
+                tot = arr[i].han + arr[i].en + arr[i].ma;
+                avg = parseInt(tot / 3);
+                ttt += "<div>" + tot + "</div>";
+                ttt += "<div>" + avg + "</div>";
+                arr[i].avg = avg;
+
+
+                gradee = "가가가가가가양미우수수";
+                var grade = gradee[parseInt(avg / 10)];
+
+                ttt += "<div class='" + grade + "'>" + grade + "</div>"
+
+
+
+                /*  ttt += "<div>" + rank + "</div>"; */
+                /*  var rank = 1; */
+                for (var me of arr) {
+                    me.rank = 1;
+                    for (var you of arr) {
+                        if (me.han + me.en + me.ma < you.han + you.en + you.ma) {
+                            me.rank++;
+                            console.log(me + ",,,,")
+                        }
+                        arr.push(me.rank)
+                    }
+
+                    console.log(me.rank + "------11------")
+
+                }
+                ttt += "<div>" + me.rank + "</div>";
+
+
+                /*  ttt += "<div>" + rank + "</div>"; */
+
+                document.write(ttt);
+
+                document.write("</div>")
+            }
+
+
+
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>

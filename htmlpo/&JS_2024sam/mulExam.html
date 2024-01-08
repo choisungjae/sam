@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mulExam</title>
+</head>
+<body>
+    <h1>mulExam</h1>
+    <style>
+        .수{
+            background-color: #f00;
+        }
+        .우{
+            background-color: #fa0;
+        }
+        .미{
+            background-color: #ff0;
+        }
+        .양{
+            background-color: #0f0;
+        }
+        .가{
+            color: #fff;
+            background-color: #00f;
+        }
+    </style>
+    <script>
+        var studs = [
+            ["현빈",65,67,69],
+            ["원빈",75,77,79],
+            ["투빈",95,97,99],
+            ["김우빈",85,87,89],
+            ["젤리빈",95,67,39],
+            ["장희빈",85,67,49,21],
+            ["커피빈",25,47,69,81]
+        ]
+
+        const kindArr = "일반,예체능".split(",")
+        const gradeArr = "가가가가가가양미우수수"
+        const spec = [0.2,0.15, 0.05, 0.6]
+
+        for (var st of studs) {
+            const jum = st.slice(1)
+            var tot = 0
+            var kind = kindArr[jum.length-3]
+            var avg = 0;
+            
+            for(var  j in jum){
+                tot += jum[j]
+                avg += jum[j] * spec[j]
+                
+            }
+            if(kind=="일반"){
+                avg = tot/(jum.length)
+            }
+            st.unshift(kind)
+            st.unshift(gradeArr[parseInt(avg/10)])
+            st.unshift(avg)
+            st.unshift(tot)
+
+            //document.write(st+"<br/>")
+        }
+
+       
+
+        for (var i in studs) {
+            var rank = 1
+            var me = studs[i]
+            for (var you of studs) {
+                if(me[1] < you[1] && me[3] == you[3]){
+                    rank++
+                }
+            }
+            studs[i].push(rank)
+       
+            
+            //document.write( studs[i]+"<br/>")
+        }
+
+        /* 
+        4과목 - 평균 : 비균등  20%,15%, 5%, 60%
+        
+        등급, 등수(구분별)
+
+        */
+    </script>
+
+    <table border="">
+        <tr>
+            <td>구분</td>
+            <td>이름</td>
+            <td>국어</td>
+            <td>영어</td>
+            <td>수학</td>
+            <td>예체능</td>
+            <td>총점</td>
+            <td>평균</td>
+            <td>등급</td>
+            <td>등수</td>
+        </tr>
+        <script>
+            for (var st of studs) {
+                console.log(st)
+                console.log(st[2])
+                var ttt = "<tr class="+st[2]+">"
+
+                    for (let i = 3; i < st.length-1; i++) {
+                        ttt += "<td>"+st[i]+"</td>"    
+                        
+                    }
+                    if(st[3]=="일반"){
+                        ttt += "<td></td>" // 빈칸 추가
+                    }
+                    for (var s of st.slice(0,3)) {
+                        console.log(st.slice(0,3))
+                        console.log(s)
+                        ttt += "<td>"+s+"</td>"    
+                        
+                    }
+                   
+                    ttt += "<td>"+st[st.length-1]+"</td></tr>"
+
+                document.write(ttt)
+            
+            }
+        </script>
+        
+    </table>
+
+
+</body>
+</html>

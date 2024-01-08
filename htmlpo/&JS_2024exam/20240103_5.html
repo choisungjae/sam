@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        /*
+            피자 주문을 구현하세요
+
+            주문 시 --< 토핑을 바꿀 수 있어요
+
+            이름 : 콤비네이션, 하와이얀, 치즈, 불고기
+            크기 : 스몰, 미디움, 라지 
+            토핑 재료 : 치즈재료, 고기류, 야채(과일)류, 테두리  알아서 만드는 형태
+
+        */
+        var menus="콤비네이션,하와이얀,치즈,불고기".split(",");
+        var price=[19000,20000,22000,18000];
+        var size="스몰,미디움,라지".split(",");
+        var totprice=0;
+        function order(menu,si){
+
+            if(menu=="콤비네이션"){
+                price+=28000
+                size[si]
+                toping("치즈")
+
+            }else if(menu=="하와이얀"){
+                price+=20000
+                size[si]
+                toping("치즈")
+
+            }else if(menu=="치즈"){
+                price=18000
+                size[si]
+                toping("야채")
+
+            }else if(menu=="불고기"){
+                price=15000
+                size[si]
+                toping("크러스트")
+            }       
+
+            function toping(to){
+                
+                document.write(menu+"피자("+size+")"+to+"추가로 주문되었습니다 가격은:"+price+"<br>")
+
+                }
+                
+        }
+
+        order("하와이얀",2)
+
+           /*  while(true){
+            var menu = prompt("주문하실 피자번호를 입력하세요 1.콤비네이션 2.하와이얀, 3.치즈 4.불고기")
+            if(menu=="1"||"2"||"3"||"4"){
+                var tt=parseInt(menu);
+                pizza=menus[tt]
+            }else{
+                continue}
+            var siz = prompt("사이즈 번호를 입력하세요 1.스몰 2.미디움, 3.라지")
+            if(siz==1||2||3){
+                var ttt=parseInt(siz)
+                pizza=menus[ttt]
+            }else{
+             continue}
+              break;
+             } */
+
+            /*  function toping(){
+                while(){
+                var siz = prompt("사이즈 번호를 입력하세요 1.스몰 2.미디움, 3.라지")
+            } } */
+
+       
+       
+       
+      
+     
+
+
+    </script>
+    
+</body>
+</html>

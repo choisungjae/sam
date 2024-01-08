@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        wrapper{
+            display: block;
+            width: 800px;
+            height: 550px;
+            background: #ff0;
+            margin: auto;
+        }
+        @media screen and (max) {
+            
+        }
+        div{
+            background-color: rgb(255, 0, 0);
+        }
+        header,nav,aside,section,footer{
+            border:1px solid #f00;
+            margin: 20px;
+            padding: 20px;
+
+        }
+        aside{
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        section{
+            width: 420px;
+            height: 200px;
+            float: left;
+        }
+        article{
+            width: 150px;
+            height: 50px;
+            float: left;
+            background-color: aquamarine;
+            margin: 5px;
+            padding: 5px;
+        }
+        footer{
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>sementic</h1>
+    <wrapper>                            <!-- div 가 아님@@ -->
+
+<header>
+    헤더입니다.
+    <nav>메뉴바입니다</nav>
+</header>
+
+<aside dd>측면입니다</aside>
+<section>
+    <h3>section입니다.</h3>
+    <article>내용1</article>
+    <article>내용2</article>
+    <article>내용3</article>
+</section>
+    <footer>바닥입니다.</footer>
+
+
+
+    </wrapper>
+    
+</body>
+</html>

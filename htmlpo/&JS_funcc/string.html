@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+    <h1>string</h1>
+    <script>
+        var tt = "aBCd EfG 그린 컴퓨터 green computer 123"
+        //        0123456789 0 12 3 45678901234567890123
+
+        document.write(tt+"<br/>")
+        document.write(tt[2]+"<br/>")
+        document.write(tt.charAt(2)+"<br/>")
+        document.write(tt[33]+"<br/>")
+        document.write(tt[34]+"<br/>")
+
+        tt[1] = "비"        //에러는 없으나 실행되지 않음
+        document.write(tt+"<br/>")
+        document.write(tt.length+"<br/>")
+
+        
+        document.write(tt.substring(3,7)+"<br/>")
+        //                      시작, 끝+1 : 끝 생략시 문자열 끝까지
+        document.write(tt.substring(3)+"<br/>")
+        document.write(tt.substring(3,50)+"<br/>")
+        // 끝번호가 문자열 길이보다 클 경우 문자열 끝까지만 호출
+
+        // substring, slice 동일작업
+        document.write(tt.slice(3,7)+"<br/>")
+        document.write(tt.slice(3)+"<br/>")
+        document.write(tt.slice(3,50)+"<br/>")
+
+        document.write(tt.substr(3,7)+"<br/>")
+        //                     시작, 글자수  : 글자수 쌩략시 문자열 끝까지
+        document.write(tt.substr(3)+"<br/>")
+        document.write(tt.substr(3,50)+"<br/>")
+        // 글자수가 문자열 길이보다 클 경우 문자열 끝까지만 호출
+
+        //검색
+        //존재유무
+        document.write(tt.includes("ree")+"<br/>")
+        document.write(tt.includes("qwer")+"<br/>")
+        document.write(tt.indexOf("e")+"<br/>")
+        document.write(tt.indexOf("E")+"<br/>")
+        document.write(tt.indexOf("er")+"<br/>")
+        document.write(tt.indexOf("e",22)+"<br/>")
+                         //     찾을문자열, 시작위치
+        document.write(tt.indexOf("qwer")+"<br/>")  //존재하지 않을 경우 -1
+        document.write(tt.lastIndexOf("e")+"<br/>")
+        document.write(tt.lastIndexOf("e",25)+"<br/>")
+
+        //문자열 시작
+        document.write(tt.startsWith("aBC")+"<br/>")
+        document.write(tt.startsWith("ee")+"<br/>")
+        //문자열 끝
+        document.write(tt.endsWith("er 123")+"<br/>")
+        document.write(tt.endsWith("ee")+"<br/>")
+
+
+        //대소문자
+        document.write(tt.toUpperCase()+"<br/>")
+        document.write(tt.toLowerCase()+"<br/>")
+
+        //문자열 <-> 배열
+        var arr = "정운만,정운천,정운백.정운십,정운일".split(",")
+        for (const a of arr) {
+            document.write(a+"<br/>")
+        }
+
+        arr = ["가혜린","나혜린","다혜린","나쁜???"]
+
+        var a = arr.join("@")
+        document.write(a+"<br/>")
+
+        //Abcd Efg 그린 컴퓨터 Green Computer 123
+        
+        arr = []
+
+        for (const t of tt.toLowerCase().split(" ")) {
+            //document.write(t+"<br/>")
+            arr.push(t[0].toUpperCase() + t.substr(1))
+        }
+        document.write(arr.join(" ")+"<br/>")
+
+        //치환 --> 최초 1글자만 변경
+        document.write(tt.replace("e","이")+"<br/>")
+        document.write("왜요".repeat(5)+"<br/>")
+        document.write("아기상어".concat(" 뚜루루 뚜루")+"<br/>")
+        tt = "     그린 컴퓨터     "
+        document.write(tt.length+"<br/>")
+        document.write(tt.trim().length+"<br/>")
+
+        /// 주민번호 - 생년월일, 성별, 국적
+
+        var jumin = "960320-8234567"
+        var pp = eval(jumin[7])
+        document.write("여남"[pp%2]+"자<br/>")
+        document.write("내외"[parseInt(pp/5)]+"국인<br/>")
+        var title = "년월일"
+        var birth = ""+Math.floor( (pp-1) %4 /2 +19)
+        for (var i in title) {
+            birth += jumin.substr(i*2,2)+title[i]
+        }
+        document.write(birth+"<br/>")
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        fieldset{/* 테두리 */
+            width: 400px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        form{
+            margin: 50px;
+        }
+        legend{
+            background-color: #ffa;
+            width: 100px;
+            height: 24px;
+        }
+        #pid{
+            width: 200px;
+            height: 20px;
+            background-color: #aff;
+            border-radius: 12px
+        }
+        #gender{
+            background-color: #0f0;
+            width: 180px;
+            height: 24px;
+            border-radius: 20px 0px;
+            text-align: center;
+        }
+        #friend_ib{
+            display: inline-block;
+            background-color: #ff0;
+            width: 150px;
+            height: 24px;
+        }
+        input[type=raido]{/* 잘쓰지않음 */
+            width: 550px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>label</h1>
+    <form action="">
+        <fieldset>             <!-- fieldset = 테두리가 있는 div -->
+            <legend>아이디</legend><!--  fieldset 상단 border에 걸쳐있는 div-->
+            <label for=""><input type="text" name="" id="pid">
+            </label>
+        </fieldset>
+        <fieldset>
+           
+            <label>암호<input type="text" name=""></label> <!-- 웹에서 레이블누르면 입력칸으로 이동 (장점) -->
+        </fieldset>
+        <fieldset>
+            
+            <label for="">이름</label><input type="text" name=""><!--  레이블 안에 들어가지않으면 눌러도 안감 (입력란을 뒤에만들어서;) -->
+        </fieldset>
+
+        <fieldset>
+            <label for="frined">추천아이디</label><input type="text" id="frined"> <!-- 인풋을 라벨안에 안넣어도 for=id 맞춰주면 누르면입력란이동 -->
+        </fieldset>    
+                                                                  <!-- label=for ,input=id   for=id 일치시이동 -->
+        <fieldset>
+            <legend id="gender"> 성별</legend>                           <!--따로바꾸려면 id=변수  스타일에 변수통만들어서 변경 -->
+            <label ><input type="radio" name="gender">남자</label>
+            <label ><input type="radio" name="gender">여자</label>
+            <label ><input type="radio" name="gender">it인</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>취미</legend>  
+            <label for="coding">코딩</label>                 <!-- 레이블,인풋 떨어져있어도 for=id 같으면 작동  -->
+            <label for="programming">프로그래밍</label>
+            <label for="debuging">디버깅</label>
+            <input type="checkbox" id="coding">
+            <input type="checkbox" id="programming">
+            <input type="checkbox" id="debuging">
+        </fieldset>
+
+        <fieldset>
+           <!-- label 안에 legend를 포함할 경우 lael의 for를 이용해야만 input 이나 textarea에 접근 가능 -->
+
+
+            <label for="email1"> <legend>이메일</legend></label>
+            <input type="text" name="email1" id="email1">
+            <select name="email2" id="">
+                <option>naver</option> <!-- value를 설정하지 않으면 옵션에 text node가 value로 설정된다. -->
+                <option>google</option>
+                <option>daum</option>
+            </select>
+        </fieldset>
+        <fieldset>             
+           
+            <label for="content"> <legend>남기실 말</legend>  <textarea id="content"></textarea>
+        </fieldset>
+        <fieldset>
+            <button>가입</button>
+        </fieldset>
+        
+        
+    </form>
+
+
+</body>
+</html>

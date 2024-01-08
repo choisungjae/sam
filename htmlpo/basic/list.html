@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+</head>
+<body>
+    <h1>list</h1>
+    <h2>ol</h2>
+    <ol> <!-- 순서가 있는 목록 -->
+        <li>java</li> <!-- 요소 넣기  -->
+        <li>array</li>
+        <li>thread</li>
+        <li>io</li>
+    </ol>
+    <hr/>
+    <ol start="10"> <!-- 시작번호 변경-->
+        <li>일효리</li>
+        <li>이효리</li>
+        <li value="20">삼효리</li><!-- 중간에 변경-->
+        <li>사효리</li>
+    </ol>
+    <hr/>
+    <ol type="A">
+        <li>장동건</li>
+        <li>장서건</li>
+        <li>장남건</li>
+        <li>북두신건</li>
+    </ol>
+    <hr/>
+    <ol type="I" start="3"><!-- type 과 상관없이 start, value는 숫자로 순서를 정한다-->
+        <li>차은우</li>
+        <li value="VI">더운우</li><!-- value="VI" 적용안됨-->
+        <li>뜨거은우</li>
+    </ol>
+    <hr/>
+    <ol type="가"><!-- 한글(가, ㄱ, ㅏ ) 등등은 불가 -->
+        <li>정우성</li>
+        <li>정좌성</li>
+        <li>정남성</li>
+    </ol>
+    <h2>ul</h2>
+    <ul><!-- 순서가 없는 목록 , 우열이 없다-->
+        <li>김태희</li>
+        <li>김대희</li>
+        <li>김내희</li>
+    </ul>
+    <hr/>
+    <ul type="square"><!-- type 변경 (square, disc, circle) -->
+        <li>한가인</li>
+        <li>한나인</li>
+        <li>한다인</li>
+    </ul>
+    <hr/>
+    <ul type="disc"><!-- type 변경 (square, disc, circle) -->
+        <li>손예진</li>
+        <li>발예진</li>
+        <li>목예진</li>
+    </ul>
+    <h2>dl</h2> <!-- 정의 목록  :: 제목과 내용으로 된 요소들이 있는 목록-->
+    <dl><!-- 목록 시작 definition list-->
+        <dt>java</dt><!-- 제목 definition title-->
+        <dd>객체지향언어</dd><!-- 설명 definition description-->
+
+        <dt>html</dt><!-- 제목 definition title-->
+        <dd>hyper text markup language</dd><!-- 설명 definition description-->
+
+        <dt>jsp</dt><!-- 제목 definition title-->
+        <dd>java server page</dd><!-- 설명 definition description-->
+        
+    </dl><!-- 목록 끝-->
+    <h2>중첩</h2><!-- 목록을 겹쳐서 사용 가능-->
+    <ol> 
+        <li>
+            파일
+            <ul>
+                <li>새로만들기</li>
+                <li>열기</li>
+            </ul>
+        </li>
+        <li>
+            편집
+            <ol type="a">
+                <li>복사</li>
+                <li>이동</li>
+                <li>삭제</li>
+            </ol>
+        </li>
+        <li>
+            보기
+            <dl>
+                <dt>핸드폰</dt>
+                <dd>320~640</dd>
+                <dt>테블릿</dt>
+                <dd>640~900</dd>
+                <dt>데스크탑</dt>
+                <dd>900~</dd>
+            </dl>
+        </li>
+    </ol>
+</body>
+</html>

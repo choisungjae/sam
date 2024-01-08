@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+      
+</head>
+<body>
+    <script>
+        /*
+        매개변수 갯수를 이용하여 도형의 넓이와 둘레를 구현하세요
+        1 - 원
+        2 - 직사각형
+        3 - 직각삼각형
+        나머지 - 도형이 아니무니다
+        */
+        function doo(...arr){
+          
+            
+            if(arr.length==1){
+
+            var kind ="원"
+            var pi = 3.14
+            var dul = arr[0] * pi
+            var area = arr[0] * arr[0] * pi
+            }
+            else if(arr.length==2){
+
+                var kind ="사각형"
+                var dul = arr[0]+arr[1]
+                var area = arr[0]*arr[1]
+            }
+            else if(arr.length==3){
+                
+                var kind ="삼각형"
+                var dul = arr[0]+arr[1]+arr[2]
+                var area = arr[0]*arr[2]
+                
+            }
+          
+            document.write("<div>"+kind+"둘레:"+dul+"넓이"+area+"<br>"+"</div>")
+        
+        }
+        
+        doo(12,34,56)
+        doo(12,34)
+        doo(12)
+
+       
+
+    </script>
+    
+</body>
+</html>

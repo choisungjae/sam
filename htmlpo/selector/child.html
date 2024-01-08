@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            display: block;
+        }
+       
+        /* 후손 선택자 */
+        .box h3{              
+            color: red;
+           
+        }
+        .box>h3{
+            text-decoration: line-through; /* 자식 h3만 삭제 */
+        }
+        h2{                                  /* 1.얘랑 아래 */
+            background-color: #ff0;
+        }
+        .box>h2{                                /*2. 얘랑  겹치면 명확한것이 우선순위 ,여기선 h2 보단 box>h2*/
+            background-color: rgb(115, 150, 79);
+        }
+        .box h2{                                
+            background-color: chartreuse;
+        }
+
+        /* box div h2 는 box h2 보다 자식한칸 더 들어갔기때문에 나중에써도 먼저 적용 */
+        .box div h2{                                
+            background-color: rgb(79, 83, 150);
+        }
+        .box div h2{                                
+            background-color: rgb(79, 83, 150);
+        }
+       
+
+    
+
+    </style>
+</head>
+<body> <!-- 아버지가 자식을부르면 자손  꺽쇠가 붙으면 안쪽 -->
+    <h1>child</h1>
+    <h2>h2입니다</h2>
+    <h3>h3입니다</h3>
+    <div class="box">        <!-- 박스안에 h2는 다걸림 스펜 걸려있어도 자식,자손,후손   자식을 많이씀-->
+        <h2>box > h2 입니다.</h2>
+        <h3>box > h3 입니다.</h3>
+        <div>
+            box>div 입니다
+            <h2>box >div> h2 입니다.</h2>
+            <h3>box > div> h3 입니다.</h3>
+        </div>
+    </div>
+<hr/>
+    <div class="box">
+        <span>
+            box>span 입니다
+            <h2>box >span> h2 입니다.</h2>
+            <h3>box >span> h3 입니다.</h3>
+            <div>
+                box>span>div 입니다
+                <h2>box >span> div> h2 입니다.</h2>
+                <h3>box > span> div>h3 입니다.</h3>
+        </div>
+    </span>
+    </div>
+</body>
+</html>

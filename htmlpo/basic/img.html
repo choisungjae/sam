@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img</title>
+</head>
+<body>
+    <h1>img</h1>
+    <!-- src : 경로 (상대 경로도 가능)
+            ../ 현 위치에서 1단계 위의 폴더
+        width : 너비 , height: 높이  - 1개만 값을 지정할 경우 그림의 비율이 유지되면서 크기 조정
+       도둠                             - 둘다 지정할 경우 비율에 상관없이 크기 조정
+
+    -->
+    <img src="../fff/child_1.jpg" width="200px">
+    <img src="../fff/child_1.jpg" height="200px">
+    <img src="../fff/child_1.jpg" width="200px" height="200px">
+    <img src="../fff/child_123.jpg" width="200px"><!-- 그림이 없어서 엑박-->
+    <img src="../fff/child_123.jpg" width="200px" alt="아이123">
+                <!-- 그림이 없을때 alt 내용 출력-->
+    <hr/>
+    <!-- 글자와 이미지가 같이 있을 경우 기본형태는 글의 1줄 바닥과 이미지가 같은 위치-->
+    <img src="../fff/child_2.jpg" width="100px">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    <hr/>
+    <!-- 이미지가 오른쪽 -->
+    <img src="../fff/child_2.jpg" width="100px" align="right">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    <hr/>
+    <!-- 이미지가 왼쪽 
+     vspace 새로 여백
+    hspace 가로 여백
+    -->
+    <img src="../fff/child_2.jpg" width="100px" align="left" vspace="50px" hspace="100px">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    <br/><br/><br/><br/>
+    <hr/>
+    <br/>
+    <!-- 첫째 줄이 이미지의 세로 가운데 -->
+    <img src="../fff/child_2.jpg" width="100px" align="center" border="20px">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    <hr/>
+    <br/>
+    <!-- 첫째 줄이 이미지의 세로 위 -->
+    <img src="../fff/child_2.jpg" width="100px" align="top" style="border: 5px dotted #f00;">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    <hr/>
+    <br/>
+    <!-- 첫째 줄이 이미지의 세로 아래 (기본값) -->
+    <img src="../fff/child_2.jpg" width="100px" align="bottom">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Nulla quasi doloribus saepe dolor ipsum, quaerat dolores 
+    fugit eligendi ipsa! Nisi sunt et perspiciatis assumenda 
+    molestiae quidem repellat sequi laboriosam earum.
+</body>
+</html>

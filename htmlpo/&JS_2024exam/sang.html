@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>mulExam</h1>
+
+    <table border="1">
+        <tr bgcolor="#ff0">
+            <td>구분</td>
+            <td>이름</td>
+            <td>국어</td>
+            <td>영어</td>
+            <td>수학</td>
+            <td>예체능</td>
+            <td>총점</td>
+            <td>평균</td>
+            <td>등급</td>
+            <td>등수</td>
+        </tr>
+        
+        <script>
+            var studs = [
+                ["현빈",65,67,69],
+                ["원빈",75,77,79],
+                ["투빈",95,97,99],
+                ["김우빈",85,87,89],
+                ["젤리빈",95,67,39],
+                ["장희빈",85,67,49,21],
+                ["커피빈",25,47,69,81],
+                ["미스터빈",65,57,79,91],
+                ["케빈",91,79,57,65],
+                ["조빈",45,47,89,71]
+            ]
+            
+            var per = [0,0.2,0.15,0.05,0.6]
+            
+            for (var st of studs) {
+                var tot = 0
+                
+                for (var j of st.slice(1)) {
+                    tot += j
+                    var avg = 0
+                    if(st.length==5){
+                        for (var i = 1; i < st.length; i++) {
+                            avg += st[i]*per[i]
+                        }
+                    }else{
+                        avg = tot/(st.length-1)
+                    }
+                }
+                
+                if(st.length==4){
+                    st.unshift("일반")
+                }else if(st.length==5){
+                    st.unshift("예체능")
+                }
+                
+                st.push(tot)
+                st.push(avg)
+                
+                var grade = "가가가가가가양미우수수"    
+                st.push(grade[parseInt(avg/10)]) 
+                
+            }
+            
+            for (var me of studs) {
+                var rank = 1
+                if(me[0]=="일반"){
+                    for (var you of studs) {
+                        if(you[0]=="일반" && me[6]<you[6]){
+                            rank++
+                        }
+                    }
+                    me.push(rank)
+                }else if(me[0]=="예체능"){
+                    for (var you of studs) {
+                        if(you[0]=="예체능" && me[7]<you[7]){
+                        rank++
+                    }
+                }
+                me.push(rank)
+            }
+            
+           // document.write(me+"<br/>")
+        }
+
+        for (var st of studs) {
+            if(st[0]=="일반"){
+                st.splice(5,0,"")
+            }
+        }
+
+        
+        for (var st of studs) {
+            document.write("<tr>")
+            for (var j of st.slice(0)) {
+                document.write("<td>"+j+"</td>")
+            }
+            document.write("</tr>")
+        }
+        
+        </script>
+        
+    </table>
+</body>
+    </html>

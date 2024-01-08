@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Lato&family=Rubik+Doodle+Shadow&family=Rubik+Doodle+Triangles&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        html {
+            font-size: 20px;
+            /* 기준크기 */
+        }
+
+        .box {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid #333;
+            margin: 50px;
+            /* float: left; */
+        }
+
+        .box:nth-of-type(1) {
+            font-family: 'Diphylleia';
+            font-size: 16px;
+        }
+
+        .box:nth-of-type(1)>div {
+            font-family: 'Diphylleia';
+            font-size: 8px;
+        }
+
+        .box:nth-of-type(1)>div>div {
+            font-family: 'Diphylleia';
+            font-size: 32px;
+        }
+
+        .box:nth-of-type(2) {
+            font-family: 'Lato&family';
+            font-size: 2em;
+            /* html 크기의 1배    (20px)x2 = 40px*/
+        }
+
+        .box:nth-of-type(2)>div {
+            font-family: 'Diphylleia';
+            font-size: 1.5em
+                /* em은 부모 element의 크기대비로 변경된다   40px x 1.5 = 60px  @이미 커진거에 비례함/*/
+        }
+
+        .box:nth-of-type(2)>div>div {
+            font-family: 'Diphylleia';
+            font-size: 0.5em;
+            /* em은 부모 element의 크기대비로 변경된다   60px x 0.5 = 30px  @이미 커진거에 비례함/*/
+        }
+
+        .box:nth-of-type(3) {
+            font-family: 'Rubik Doodle Shadow';
+            /* rem = html 크기 절대 비교 @  20px 로 계속 비교  */
+        }
+
+        .box:nth-of-type(3)>div {
+            font-family: 'Diphylleia';
+            font-size: 2rem;
+        }
+
+        .box:nth-of-type(3)>div>div {
+            font-family: 'Diphylleia';
+            font-size: 1.5rem;
+        }
+
+        .box:nth-of-type(4) {
+            font-family: 'Rubik Doodle Triangles';
+            font-size: 1.5rem;         /* 30px */
+        }
+        .box:nth-of-type(4)>div {
+            font-family: 'Diphylleia';
+            font-size: 0.5em;        /* em이라서 위에 rem 30px *0.5 해서 15px 임    20px 아님 @@ */
+        }
+
+      
+
+        /* em  [엘리먼트]=사이즈를 정해놓고 부르는@     16px이 기준 1rem =16px*/
+    </style>
+</head>
+
+<body>
+    <h1>font</h1>
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+        <div>
+            Rerum pariatur facere eveniet itaque impedit,
+            <div>
+                placeat minus magnam perspiciatis
+            </div>
+        </div><br />
+        atque reprehenderit! Repellat fugit distinctio molestias similique <br />
+        nisi blanditiis veritatis est recusandae.
+    </div>
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+        <div>
+            Rerum pariatur facere eveniet itaque impedit,
+            <div>
+                placeat minus magnam perspiciatis
+            </div>
+        </div><br />
+        atque reprehenderit! Repellat fugit distinctio molestias similique <br />
+        nisi blanditiis veritatis est recusandae.
+    </div>
+
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+        <div>
+            Rerum pariatur facere eveniet itaque impedit,
+            <div>
+                placeat minus magnam perspiciatis
+            </div>
+        </div><br />
+        atque reprehenderit! Repellat fugit distinctio molestias similique <br />
+        nisi blanditiis veritatis est recusandae.
+    </div>
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+        <div>
+            Rerum pariatur facere eveniet itaque impedit,
+            <div>
+                placeat minus magnam perspiciatis
+            </div>
+        </div><br />
+        atque reprehenderit! Repellat fugit distinctio molestias similique <br />
+        nisi blanditiis veritatis est recusandae.
+    </div>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        video:nth-of-type(1){
+            width: 400px;
+        }
+        video:nth-of-type(2){
+            /*비율이 조정되는 것이 아닌 작은 사이즈를 기준으로 크기 조정*/
+            width: 400px;   
+            height: 100px;
+        }
+        video:nth-of-type(3){
+            /*비율이 조정되는 것이 아닌 작은 사이즈를 기준으로 크기 조정*/
+            width: 400px;
+            height: 200px;
+        }
+
+        /*min --------------*/
+        video:nth-of-type(4){
+            
+            width: 300px;   
+            background-color: #f00;
+        }
+        video:nth-of-type(5){
+           
+            width: 300px;   
+            height: 100px;
+            background-color: #ff0;
+        }
+        video:nth-of-type(6){
+           
+            width:300px;     /* width 로 인해 종횡비를 유지하여 높이값이 커져야 함*/
+            min-height: 100px; /* 가장 작은 사이즈 일때 100px ::> 100px 이상으로 커짐(제한없음)*/  
+            background-color: #0f0;
+        }
+        video:nth-of-type(7){
+           
+           width:50px;   /* width 로 인해 종횡비를 유지하여 높이값이 작아져야 함*/
+           min-height: 100px; /* 가장 작은 사이즈 일때 100px::> 100px 미만으로 작아지는 것 차단*/
+           background-color: #00f;
+       }
+
+
+       /*max ::> 최대로 커지는 사이즈가 얼마 
+                 너비로 인해 작아지는 것은 상관없음 (같이 작아짐)
+       --------------*/
+       video:nth-of-type(8){
+            
+            width: 300px;    
+            background-color: #f00;
+        }
+       video:nth-of-type(9){
+           
+              
+           width: 300px;
+           height: 100px; 
+           background-color: #ff0;
+       }
+       video:nth-of-type(10){
+          
+            width: 300px; 
+            max-height: 100px;/* 가장 큰 사이즈 일때 100px*/  
+           background-color: #0f0;
+       }
+       video:nth-of-type(11){
+          
+          width: 500px;  /* width 가 커서 종횡비를 유지하여 높이값이 커져야함*/
+          max-height: 100px;/* 가장 큰 사이즈 일때 100px --> 높이값이 100px을 초과하지 못하게 함*/
+          background-color: #00f;
+      }
+      video:nth-of-type(12){
+          
+          width: 50px;    /* width 로 인해 종횡비를 유지하여 높이값이 작아져야 함*/
+          max-height: 100px;/* 가장 큰 사이즈 일때 100px --> 원본 종횡비에 맞춰  작아짐*/
+          background-color: #00f;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>video</h1>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <hr/>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <hr/>
+    <video src="../fff/sons.mp4"></video>
+    <h2>min</h2>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <h2>max</h2>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+    <video src="../fff/long_1280x720.mp4"></video>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    var arr1={
+        "호랑이":"포유류",
+        "사자":"포유류",
+        "곰":"포유류",
+        "독수리":"조류",
+        "오타니":"이도류",
+        "사자":"팔자"             /* 키가 겹치면 나중에꺼 덮어씌워짐 */
+        
+    }
+    document.write(arr1);
+    console.log(arr1);
+
+    document.write(arr1[0]+"<br>")      /* 안나옴 ,  배일개념이 아님  키:벨류 타입 */
+   /*  document.write(arr1[곰]+"<br>")                  에러임*/
+   /* document.write(arr1."곰"+<br>")        .키  이것도 에러임 */
+   document.write(arr1["곰"]+"<br>")   /* 이렇게 불러야함 */
+   document.write(arr1.곰+"<br>")     /*  이렇게도 부름  */
+
+   arr1.독수리 ="발톱"       /* 대입 */
+   arr1["호랑이"]=123       /* 대입 */
+
+   console.log(arr1)
+
+   arr1.상어="어류"         /* 추가 */
+   arr1["악어"]=987        /* 추가 */
+
+   console.log(arr1)
+
+   delete arr1.오타니       /*삭제 */
+   delete arr1["곰"]        /* 삭제 */
+   delete arr1["사타니"]       /* 존재하지않은 키 삭제해도 오류가 나지않음 */
+   console.log(arr1)
+
+   //존재 확인
+   document.write(("사자" in arr1)+"<br>")    /* arr1에 "사자"(키) 가 있는지,   있어서 트루로 나옴 */
+   document.write(("어류" in arr1)+"<br>")    /* arr1에 "어류"(키) 가 있는지,   없어서 펄스로 나옴 */
+
+
+   var kk =Object.keys(arr1)   /* arr1 의  키들만 빼옴 */
+   document.write(kk+"<br>")
+
+   var va =Object.values(arr1) /* arr1의 벨류들을 빼옴 */
+   document.write(va+"<br>") 
+
+
+
+   
+
+</script>
+</body>
+</html>

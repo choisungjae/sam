@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 800px;
+            height: 100px;
+          /*   border: 1px solid #333; */
+            margin: 50px;
+            /* float: left; */
+        }
+        div:first-of-type>a{          /* 링크에 밑줄사라짐 */                                 /* 자주씀 */
+            text-decoration: none;
+            color: chartreuse;
+        }
+        div:first-of-type(2){          /* 영향 x  윗줄에 a태그가 영향력이 더쎔 */         
+            text-decoration: none;
+        }
+        div:first-of-type>a:visited{        /* /호버랑 우선순위같음 */
+            text-decoration: none;
+            color: rgb(124, 49, 84);
+        }
+        
+        div:first-of-type>a:hover{        /* 마우스올리면 빨갛게 변함 hover */                 /* 자주씀 */
+            text-decoration: none;
+            color: rgb(255, 0, 119);
+        }
+
+        div:nth-of-type(3)::first-line{        /* div3번째에 첫줄만 빨갛게 */
+            color: rgb(250, 7, 7);
+        }
+        div:nth-of-type(4)::first-letter{        /* div4번째에 첫글자만 빨갛게 */
+            color: rgb(250, 7, 7);
+        }
+        div:nth-of-type(odd){        /*  odd= 2n+1 과 같음   홀수; */
+            background-color: rgb(234, 248, 192);
+        }
+        div:nth-of-type(even){        /*  even= 2n 과 같음   짝수; */
+            background-color: rgb(171, 175, 229);
+        }
+        div:not(.asdf){                         /* .asdf만 제외하고 실행 */
+            border: 3px solid #333;
+        }
+
+        div::selection{                /* 드래그를 했을때 어떻게 나타낼꺼냐, */
+            background-color: #0f0;
+            color: #f00;
+        }
+
+
+      
+    </style>
+</head>
+<body>
+
+    <h2> link</h2>
+    <div>
+        <a href="">link1</a>
+        <a href="http://cafe.naver.com/greenkdt/2596">link2</a>
+        <a href="">link3</a>>
+    </div>
+    <div>
+        <a href="">link1</a>
+        <a href="http://cafe.naver.com/greenkdt/2596">link2</a>
+        <a href="">link3</a>>
+    </div>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+        Quas deleniti sunt, nobis explicabo voluptas maiores ea, <br/>
+        necessitatibus unde repudiandae veniam eveniet, modi esse ducimus minima!<br/> 
+        Quisquam ipsum ipsam illum alias!<br/>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+        Quas deleniti sunt, nobis explicabo voluptas maiores ea, <br/>
+        necessitatibus unde repudiandae veniam eveniet, modi esse ducimus minima!<br/> 
+        Quisquam ipsum ipsam illum alias!<br/>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+        Quas deleniti sunt, nobis explicabo voluptas maiores ea, <br/>
+        necessitatibus unde repudiandae veniam eveniet, modi esse ducimus minima!<br/> 
+        Quisquam ipsum ipsam illum alias!<br/>
+    </div>
+    <div class="asdf">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+        Quas deleniti sunt, nobis explicabo voluptas maiores ea, <br/>
+        necessitatibus unde repudiandae veniam eveniet, modi esse ducimus minima!<br/> 
+        Quisquam ipsum ipsam illum alias!<br/>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+        Quas deleniti sunt, nobis explicabo voluptas maiores ea, <br/>
+        necessitatibus unde repudiandae veniam eveniet, modi esse ducimus minima!<br/> 
+        Quisquam ipsum ipsam illum alias!<br/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           margin:0;
+           padding: 0;
+       }
+       form{
+           margin: 50px;
+       }
+       fieldset{
+           width:400px;
+           height: 50px;
+           margin-bottom: 20px;
+       }
+
+       legend{
+           background-color: #ffa;
+           width : 150px;
+           height: 24px;
+       }
+       #pid{
+           width:200px;
+           height: 24px;
+           background-color: rgb(253, 253, 253);
+           border: none;
+           border-radius: 12px;
+       }
+   </style>
+</head>
+<body>
+
+    
+
+    
+
+    <form action="">
+        <table border="" align="center">
+
+            <tr>
+                <td colspan="2" align="center">
+                    <H1>회원가입</H1>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    약관동의 > 정보입력 > 가입완료
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td rowspan="2"align="center" >
+                    아이디
+                </td>
+                <td width="60px" height="40px" >
+                    <input type="text" name="pid" size="60" style="height: 40px;" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                
+                <td width="60px" height="40px"><font size="2">(영문소문자/숫자, 4~16자)</font></td>
+            </tr>
+            <tr>
+                <td rowspan="2"align="center">비밀번호</td>
+                <td width="60px" height="40px" >
+                    <input type="text" name="ps" size="60" style="height: 40px;" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                
+                <td width="60px" height="40px"><font size="2">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</font></td>
+            </tr>
+            <tr>
+                <td align="center">비밀번호확인</td>
+                <td width="60px" height="40px" >
+                    <input type="text" name="ps2" size="60" style="height: 40px;" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">이름</td>
+                <td width="60px" height="40px" >
+                    <input type="text" name="pname" size="60" style="height: 40px;" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">성별</td>
+                <td align="left">
+                    <input type="radio" name="gender" value="m">남성
+                    <input type="radio" name="gender" value="f">여성  
+                </td>
+            
+            </tr>
+            <tr>
+                <td align="center">휴대전화</td>
+                <td >
+                <select name="pon2" style="width: 100px;height: 40px;" >                              
+                    <option value="010" selected  align="center">010 </option>    
+                    <option value="011" align="center">011 </option>
+                    <option value="016" align="center">016 </option>     
+                    <option value="017" align="center"> 017 </option>
+                    <option value="018" align="center"> 018 </option>
+                    <option value="019" align="center"> 019 </option>
+                </select>
+                <input type="text" name="pon" style="width: 130px;height: 40px;"> -
+                <input type="text" name="pon" style="width: 130px;height: 40px;">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="center" >이메일</td>
+                <td><input type="text" name="email" style="width: 330px;height: 40px;">@
+                    <select name="email2" style="height: 40px;">                              
+                        <option value="google.com" >구글 </option>        
+                        <option value="naver.com" selected>네이버 </option>
+                        <option value="daum.net" >다음 </option>     
+                        <option value="nate.com">네이트 </option>
+                    </select>
+                    </td>
+            </tr>
+            <tr>
+                
+                <td width="60px" height="40px"><font size="2">로그인 아이디로 사용할 이메일을 입력해 주세요.</font></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" size="60px">
+                    <input type="submit" value="가입하기"  style="width: 270px;height: 60px;">
+                    <input type="submit" value="취소"style="width: 270px;height: 60px;">
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+
+    
+</body>
+</html>

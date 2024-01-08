@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 250px;
+            border: 1px solid #000;
+        }
+        .big{
+            width: 300;
+            background-color: rgb(216, 254, 242);
+        }
+        .one{
+            width: 250px;
+            border: 1px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        function order(menu="아메리카노",su=1){
+            var price;
+            if(menu=="아메리카노"||menu=="아시아노"||menu=="아프리카노"){
+            if(menu=="아메리카노"){
+                price=1800*su;
+            }else if(menu=="아시아노"){
+                price=2100*su;
+            }else if(menu=="아프리카노"){
+                price=2200*su;
+            }
+            document.write("<div>"+"메뉴:"+menu+" 수량:"+su+" 가격"+price+"<br>"+"</div>")
+        }}
+       
+        function order2(menu="아메리카노",su=1){
+            if(menu=="아메리카노"||menu=="아시아노"||menu=="아프리카노"){
+            switch(menu){
+            case "아메리카노":
+                var price = 2000
+                break
+            case "아시아노":
+                var price = 3000
+                break
+            case "아프리카노":
+                var price = 4000
+                break
+            }
+       var totprice = price * su
+       document.write('<div class="one">')
+       document.write("<div>"+"메뉴:"+menu+" 수량:"+su+" 가격"+totprice+"<br>"+"</div>")
+        }}
+        document.write("<div>")
+        order("아메리카노",1)
+        order("아시아노",2)
+        order("아프리카노",1)
+        order();
+        document.write("</div>")
+        document.write("<hr>")
+        document.write("<div>"+"</div>")
+
+        document.write("<div>")
+        order2("아메리카노",2)
+        order2("아시아노",4)
+        order2("아프리카노",1)
+        order2();
+        document.write("</div>")
+        document.write("</div>")
+
+
+
+
+    </script>
+    
+</body>
+</html>

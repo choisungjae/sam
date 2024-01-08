@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        div{
+            width:50px;
+            height: 50px;
+            background-color: #ff0;
+            border: 1px solid #888;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        /*.fc{
+            float: center;  center는 없음
+        }*/
+        .ww{
+            width:200px;
+            height: 50px;
+            background-color: #0f0;
+            clear: both; /* float 의 left, right를 삭제하고 줄바꿈을 실행한다.*/
+        }
+        hr{
+            height: 3px;
+            width: 100%;
+            background-color: #333;
+        }
+        li{
+            float: left;  /* 순서 */
+            list-style: none;
+            height: 30px;
+            width: 100px;
+            background-color: #0f0;
+            text-align: center;/* 텍스트 위치 */
+            border-right: 1px solid #333;
+            line-height: 30px;/* 위에 여백 크기 */
+        }
+    </style>
+</head>
+<body>
+    <h1>float</h1>
+    <h2>left</h2>
+    <div class="fl">left 1</div>
+    <div class="fl">left 2</div>
+    <div class="fl">left 3</div>
+    <div class="fl">left 4</div>
+    <hr/>
+    <h2>center</h2>
+    <div class="fc">center 1</div>
+    <div class="fc">center 2</div>
+    <div class="fc">center 3</div>
+    <div class="fc">center 4</div>
+    <hr/>
+    <h2>right</h2>
+    <div class="fr">right 1</div>
+    <div class="fr">right 2</div>
+    <div class="fr">right 3</div>
+    <div class="fr">right 4</div>
+    
+    <hr/>
+    <h2>clear</h2>
+    <div class="fl">left 1</div>
+    <div class="fl">left 2</div>
+    <div class="ww">wide 3</div>
+    <div class="fr">right 4</div>
+    <div class="fr">right 5</div>
+    <div class="ww">wide 6</div>
+    <div class="fl">left 7</div>
+    <div class="fr">right 8</div>
+    <hr/>
+   
+    <h2>ul을 이용한 메뉴바</h2>
+    <ul>
+        <li><a href="">회사소개</a></li>
+        <li><a href="">제품</a></li>
+        <li><a href="">갤러리</a></li>
+        <li><a href="">공지사항</a></li>
+    </ul>
+</body>
+</html>

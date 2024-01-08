@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intervalTimer</title>
+</head>
+<body>
+    <h1>intervalTimer</h1>
+    <script>
+        function timeWrite(){
+            var now = new Date()
+            var ttt = now.getHours() +":"+now.getMinutes() +":"+now.getSeconds()+"<br/>"
+            document.write(ttt)
+        }
+
+        function timeStop(){
+            if(confirm("멈출꼬야?")){
+                clearInterval(time)
+                clearInterval(stop)
+            }
+        }
+        var time = setInterval(timeWrite, 1000)
+        var stop = setInterval(timeStop, 5000)
+    </script>
+</body>
+</html>

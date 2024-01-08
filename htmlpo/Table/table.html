@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>table</h1><!-- table>tr*4>td*3> -->
+
+
+    <table border="1" bgcolor="#ff0">
+        내용을쓴다 꺼져
+        
+        <tr bgcolor="#f00">
+            여기도 쓴다 @@@@
+            <!-- 내용은 td 안에만 써야 함,이미지,링크 등등 
+             스타일은 td >tr >table  순으로 색을 다넣었을떄 우선순위 -->   
+            <td>1_1</td>
+            <td><img src="../fff/child_1.jpg" width="20px" alt="">1_2</td>
+            <td bgcolor="#f0f" width="40px">1_3</td>   <!-- 위딧 td에 쓰면 밑에 라인도 같이 늘어남  [가장넓은애기준] -->
+        </tr>
+        <tr>
+            <td height="40px">2_1</td>
+            <td height="60px">2_2</td>
+            <td width="60px" height="80px">2_3</td>  <!-- height 도 같음  제일 넓은거기준 -->
+        </tr>
+        <tr>
+            <td rowspan="2">3_1</td><!-- 칸 밑으로합침  -->
+            <td colspan="2">3_2</td><!-- 칸 오른쪽으로 합침 "2"개 -->
+           <!--  <td width="30px">3_3</td> -->
+        </tr>
+        <tr>
+          <!--   <td>4_1</td> -->
+            <td>4_2</td>
+            <td>4_3</td>
+        </tr>
+        <tr>
+              <td colspan="3">
+                <table border="1" width="100%"><!-- 나누고 이거해야 칸생김; -->
+                    <tr>
+                        <td>new1</td><!-- 나누긴했는데 티가 안남 -->
+                        <td>2new2</td>
+                    </tr>
+                </table>
+
+              </td><!-- 3칸을 2개로 하려면 다합치고 테이블추가 -->
+             
+          </tr>
+    </table>
+</body>
+</html>

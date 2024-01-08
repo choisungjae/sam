@@ -1,0 +1,94 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .big{
+            width:600px;
+            height: 200px;
+            border: 1px solid #000;
+            float: left;
+        }
+        .big > div{
+            width:100px;  /*이거의 반을  뺴줘야 도형이 정중앙 */
+            height: 50px; /*이거의 반을  뺴줘야 도형이 정중앙 */
+            background-color: #ff0;
+        }
+        .big:nth-of-type(1) > div, .big:nth-of-type(4) > div
+        , .big:nth-of-type(7) > div, .big:nth-of-type(10) > div{
+            margin: auto;
+        }
+        .big:nth-of-type(2) > div, .big:nth-of-type(5) > div
+        , .big:nth-of-type(8) > div, .big:nth-of-type(11) > div{
+           /* margin: auto auto;*/
+           margin:75px 250px;
+        }
+        .big:nth-of-type(3) > div, .big:nth-of-type(6) > div
+        , .big:nth-of-type(9) > div, .big:nth-of-type(12) > div{
+            margin: 75px auto;
+        }
+        h2{
+            clear: both;
+        }
+        .sta{
+            position: static;
+        }
+        .rr{
+            position: relative;
+        }
+        .aa{/*absolute는 margin: auto가 불가*/
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>margin</h1>
+    <h2>기본</h2>
+    <div class="big">
+        <div></div>
+    </div>
+    <div class="big">
+        <div></div>
+    </div>
+    <div class="big">
+        <div></div>
+    </div>
+    <h2>static</h2>
+    <div class="big">
+        <div class="sta"></div>
+    </div>
+    <div class="big">
+        <div class="sta"></div>
+    </div>
+    <div class="big">
+        <div class="sta"></div>
+    </div>
+    <h2>relative</h2>
+    <div class="big">
+        <div class="rr"></div>
+    </div>
+    <div class="big">
+        <div class="rr"></div>
+    </div>
+    <div class="big">
+        <div class="rr"></div>
+    </div>
+    <h2>absolute</h2>
+    <div class="big">
+        <div class="aa"></div>
+    </div>
+    <div class="big">
+        <div class="aa"></div>
+    </div>
+    <div class="big">
+        <div class="aa"></div>
+    </div>
+</body>
+</html>

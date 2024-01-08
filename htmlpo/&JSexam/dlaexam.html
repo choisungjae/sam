@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            margin: auto;
+            border: 1px solid #888;
+            width: 440px;
+            height: 850px;
+            padding:10px;
+        }
+        img{
+            width: 440px;
+            height: 440px;
+        }
+        h2{
+            text-align: center;
+        }
+        .wrapper > div{
+            width: 440px;
+        }
+        .wrapper > div > div{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            border: 1px solid #888;
+            margin: 5px;
+            padding: 10px;
+            float: left;
+        }
+        .wrapper > div:first-of-type > div{
+            text-align: center;
+        }
+        .wrapper > div > div:nth-of-type(7n+1){
+           
+            color: #f00;   
+        }
+        .wrapper > div > div:nth-of-type(7n){
+            color: #00f;   
+        }
+
+
+        .wrapper > div:first-of-type > div:first-child{
+            background-color: #f00;
+            color: #fff;   
+        }
+        .wrapper > div:nth-of-type(1) > div:last-child{
+            background-color: #00f;
+            color: #fff;   
+        }
+        .now{
+            background-color: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <h1>for</h1>
+    <div class="wrapper">
+        <img src="../fff/SY_1.jpeg" alt="">
+        <h2>2024년 2월</h2>
+        <div>
+            <div>일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div>토</div>
+        </div>
+        <div>
+            
+            
+            <script>
+                //  script는 제어문을 분리하여 코딩 불가
+                for (var i = 0 ; i< 4; i++) {
+                    document.write("<div></div>")
+                }
+                var now = 8
+                for (var i = 1 ; i<=29; i++) {
+                    var cc = ""
+                    if(now==i){
+                        cc = "class = now"
+                    }
+                    document.write("<div "+cc+">"+i+"</div>")
+                }
+            </script>  
+
+
+
+        </div>
+    </div>
+</body>
+</html>

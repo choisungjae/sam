@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>form</h1>
+    <form action="joinReg.html">
+        이름:<input type="text" name="pname"><br>
+        암호:<input type="password" name="pw"><br>
+        <input type="submit" value="로그인"><!-- 제출버튼생성 ,벨류 =생성버튼에씌어지는글귀-->
+    </form>
+
+    <form action="joinReg.html">
+        <table border="">
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="pid" value="asdf" size="13" maxlength="10"><!--size 박스길이 -->
+                    <input type="button" value="중복확인">
+                </td>
+               
+            </tr>
+            <tr>
+                <td>암호</td>
+                <td><input type="password" name="pw" maxlength="10"></td><!-- maxlength="10"  작성최대글자수 "10" 설정 -->
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="pname" placeholder="한글로입력하세요"></td><!-- placeholder 입력란에 뒷배경글씨나옴 -->
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" value="m">남자<!-- radio 선택 버튼생성 -->
+                    <input type="radio" name="gender" value="f">여자  <!-- name 같이 묶으면 1개만 선택가능하게변함 -->
+                    <input type="radio" name="gender" value="it" checked>it인<!-- checked 미리 선택되어있게함 -->
+                </td>
+            </tr>
+            <tr>
+                <td>취미</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="coding">코딩      <!-- checkbox 생성, 체크박스는 네임같아도 동시선택가능 -->
+                    <input type="checkbox" name="hobby" value="programming">프로그래밍
+                    <input type="checkbox" name="hobby" value="debuging">디버깅
+                </td>
+            </tr>
+            <tr>
+                <td>파일</td>
+                <td><input type="file" name="ff"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" name="email">@
+                <select name="email2">                               <!-- 1,select 메일@뒤에 선택란열리게하는거 -->
+                    <option value="google.com">구글 </option>        <!-- 2,select 에서 열린자리에 option 에 적힌 목록 선택란에 들어감 -->
+                    <option value="naver.com" >네이버 </option>
+                    <option value="daum.net" selected>다음 </option>     <!-- selected > 쓰인곳에 option 미리 선택되어있게함 -->
+                    <option value="nate.com">네이트 </option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>남기실 말 </td>
+                <td>
+                    <textarea name="" id="" cols="100" rows="10"><!-- cols 칸수 , rows 줄수 -->
+남기실 말
+남기실 개
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2" align="center">
+                    <input type="submit" value="가입">
+                    <input type="submit" value="초기화">
+                    <button>가입2@</button> <!-- button  잘안씀, 다루기불편함;기능은 submit과 동일     submit 애용-->
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

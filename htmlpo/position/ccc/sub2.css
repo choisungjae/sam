@@ -1,0 +1,12 @@
+img{
+    width: 200px;
+    height: 100px;
+
+}
+div{
+    width: 50px;
+    height: 100px;
+    border: 10px dashed #ff0000;
+    background-color: gold;
+
+}

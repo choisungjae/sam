@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tetris</title>
+    <style>
+        /* 도형에 색을넣기, 도형의 종류를 늘릴것 , 게임을 종료할것,스페이스바 누르면 밑으로 오게 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            position: relative;
+            margin: auto;
+            width: 300px;
+            /*10, 15*/
+            height: 450px;
+            border: 1px solid #ccc;
+
+        }
+
+        section>div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            /*테두리를 객체안에 넣기*/
+            border: 5px solid #ccc;
+        }
+
+        #time {
+            position: absolute;
+            top: 10px;
+            left: 200px;
+            font-size: 14px;
+        }
+
+        section>.tm {
+            background-color: rgb(255, 255, 255);
+            width: 100px;
+
+        }
+
+        .tt {
+            background-color: black;
+        }
+    </style>
+    <script>
+        blocks = []
+        shape = [
+
+            [
+                [[-1, 0], [0, 0], [0, 1], [1, 0]],  //0    ㅜ
+                [[-1, 0], [0, 0], [0, 1], [0, -1]],  //90   ㅓ
+                [[-1, 0], [0, 0], [0, -1], [1, 0]],  //180  ㅗ
+                [[0, -1], [0, 0], [0, 1], [1, 0]]    //270   ㅏ
+            ],
+            [
+                [[-1, 0], [0, 0], [1, 0], [2, 0]],  //0  -
+                [[0, -1], [0, 0], [0, 1], [0, 2]]  //90  |    
+            ],
+            [
+                [[0, -1], [0, 0], [1, -1], [1, 0]],  //ㅁ
+
+            ],
+            [
+                [[-1, 0], [0, 0], [1, 0], [1, 1]],  // 0
+                [[0, -1], [0, 0], [0, 1], [1, -1]],  // 90
+                [[-1, 0], [0, 0], [1, 0], [-1, -1]],  // 180
+                [[0, -1], [0, 0], [0, 1], [-1, 1]]    // 270
+            ],
+
+            [
+                [[-1, 0], [0, 0], [1, 0], [1, -1]],  // 0  ㄴ
+                [[0, -1], [0, 0], [0, 1], [-1, 1]],  // 90
+                [[-1, 0], [0, 0], [1, 0], [-1, 1]],  // 180
+                [[0, -1], [0, 0], [0, 1], [1, 1]]    // 270
+            ],
+
+            [
+                [[-1, 0], [0, 0], [0, 1], [1, 1]],  // 0   번개
+                [[0, -1], [0, 0], [1, 0], [1, 1]]  // 90
+
+            ]
+
+        ]
+
+
+
+
+
+        window.onload = function () {
+            section = document.getElementsByTagName("section")[0]
+
+            /* shape[0].style.backgroundcolor="red"; */
+            // bb = document.createElement("div")  //object 생성
+            // bb1 = document.createElement("div")
+            // bb2 = document.createElement("div")
+            // bb1.style.backgroundColor="#f00"
+            // bb2.style.backgroundColor="#ff0"
+            // bb.style.backgroundColor="#0f0"
+            // section.appendChild(bb1)    //section 안에 추가
+            // section.appendChild(bb2)
+            // section.appendChild(bb)
+
+            // bb2.remove()        //삭제
+            curr = null
+            var time = 30;
+            function blockCreate() {
+
+                //현재 움직이는 것이 없으면 새로 생성
+                if (curr == null) {
+
+
+                    curr = {}
+                    curr.block = []   //실제 벽돌
+                    curr.x = 5
+                    curr.y = 0
+                    curr.nx = 5
+                    curr.ny = 0
+                    curr.rotate = 0
+                    curr.rotatePos = shape[Math.floor(Math.random() * shape.length)]
+                    /* curr.rotatePos = shape[2] */
+
+                    for (var i = 0; i < 4; i++) {
+                        /*  if (i == 0) { */
+                        var block = document.createElement("div")
+                       
+                        /* block.style.backgroundcolor="red"; */
+
+                        curr.block.push(block)
+                        section.append(block)
+                    }
+                    for (let i = 0; i < 4; i++) {
+                        curr.block[i].style.backgroundColor = "#ff0"
+
+                    }
+
+                }
+            }
+
+            var times = document.getElementById("time");  /* 남은시간 */
+            function tt() {
+                time -= 1;
+                console.log(time)
+                times.textContent = "남은시간:" + time;
+
+                if (time == 10) {
+                    clearInterval(timer)
+                    setInterval(timerGoGo, 250)
+                }
+
+                if (time == 0) {
+                    stop();
+                }
+            }
+            var ti = setInterval(tt, 1000)
+
+
+            function stop() {
+                clearInterval(ti)
+                clearInterval(timer)
+                alert("시간오버 게임끝")
+            }
+
+            //시간에 따른 자동 움직임
+            function timerGoGo() {
+
+                /*10, 15*/
+
+                blockCreate()
+
+                //아래방향으로 움직이기
+                currMoving(0, 1)
+
+
+            }
+           /*  function timerGoGo2() {
+
+               
+
+                blockCreate()
+                currMoving(0, 2)
+            } */
+
+            timer = setInterval(timerGoGo, 500)
+            /* timer2= setInterval(timerGoGo2, 500) */
+        }
+
+
+        //블럭 위치 이동
+        function blockMoving() {
+            if (curr == null) {
+                return
+            }
+            curr.x = curr.nx
+            curr.y = curr.ny
+            for (i in curr.rotatePos[curr.rotate]) {
+
+                curr.block[i].style.left = (curr.x + curr.rotatePos[curr.rotate][i][0]) * 30 + "px"
+                curr.block[i].style.top = (curr.y + curr.rotatePos[curr.rotate][i][1]) * 30 + "px"
+
+            }
+
+
+
+        }
+
+        //기존블럭과 겹치는지 확인
+        function blocksTouch(block) {
+            //console.log(block[0]+curr.nx, block[1]+curr.ny)
+            for (const bb of blocks) {
+                if (bb.x == block[0] + curr.nx && bb.y == block[1] + curr.ny) {
+                    return true
+                }
+            }
+
+            return false
+        }
+
+
+
+        function currMoving(x, y) { //움직이기
+
+            if (curr == null) {
+                return
+            }
+
+
+
+            for (block of curr.rotatePos[curr.rotate]) { //좌우 벽을 벗어나면 나가기
+                if (curr.nx + block[0] + x < 0 || curr.nx + block[0] + x >= 10) {
+                    return
+                }
+            }
+            curr.nx += x
+            curr.ny += y
+
+            //바닥인지 확인    ,   기존블럭과 겹치는지  확인   
+            for (block of curr.rotatePos[curr.rotate]) {
+
+                if (curr.ny + block[1] >= 15 || blocksTouch(block)) {
+                    let bbs = curr.rotatePos[curr.rotate]
+                    for (var i in bbs) {
+                        //전체 블럭에 넣기
+                        blocks.push(
+                            {
+                                x: curr.x + bbs[i][0],
+                                y: curr.y + bbs[i][1],
+                                bb: curr.block[i]
+                            })
+
+
+                    }
+
+                    //줄삭제하기
+                    lineRemove()
+                    //console.log(blocks)
+                    curr = null
+                    break
+                }
+            }
+
+            blockMoving()
+        }
+
+        function currRotate() {
+
+            if (curr == null) {
+                return
+            }
+
+            var ro = eval(curr.rotate)
+            ro++
+            curr.rotate = ro % curr.rotatePos.length
+            //console.log("currRotate", curr.rotate)
+        }
+
+        function lineRemove() {
+            for (let i = 0; i < 15; i++) {//전체 줄 스캔
+                let arr = []
+                for (var bb of blocks) {
+                    if (bb && i == bb.y) {
+                        arr.push(bb.x)
+                    }
+                }
+
+                var chk = true
+                for (let col = 0; col < 10; col++) {
+                    if (!arr.includes(col)) {
+                        chk = false
+                    }
+                }
+
+                //줄 지우기 확인
+                if (chk) {
+
+                    //현재 줄 내용 삭제
+                    for (var ee = 0; ee < blocks.length; ee++) {
+
+                        if (blocks[ee] && i == blocks[ee].y) {
+                            blocks[ee].bb.remove()  //div 삭제
+                            delete blocks[ee]       //블럭들의 정보에서 삭제
+                        }
+                    }
+
+                    for (var upline = i; upline >= 0; upline--) {
+                        for (var bb of blocks) {
+                            if (bb && upline == bb.y) {
+                                bb.y++
+                                bb.bb.style.top = bb.y * 30 + "px"
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            let buf = []
+            for (const bb of blocks) {
+                //console.log(bb)
+                if (bb) {
+                    buf.push(bb)
+                }
+            }
+            blocks = buf
+
+            //console.log(blocks)
+        }
+        function space() {
+            /* var sp =setInterval(currMoving(0, 1),50) */
+
+            for (let i = 0; i < 15; i++) {/*되긴하는데뭔가이상하게됨 */
+                currMoving(0, 1)
+            }
+        }
+
+        window.onkeydown = function (e) {
+            var x = 0
+            var y = 0
+            switch (e.keyCode) {
+                case 38: //위
+                    //me.yy -= 5
+                    currRotate()
+                    break
+                case 40: //아래
+                    y = 1
+                    break
+                case 37: //좌
+                    x = -1
+                    break
+                case 39: //우
+                    x = 1
+                    break
+                case 32: //스페이스바
+                    space();
+                    break
+            }
+            currMoving(x, y)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>tetris</h1>
+
+    <section>
+        <div class="tm" id="time">남은시간:30</div>
+    </section>
+</body>
+
+</html>

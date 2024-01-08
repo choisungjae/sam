@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var two=0;
+         var th=1;
+
+
+      while(true){
+        var aa = prompt("숫자를 입력하세요")
+        
+       
+        /* two=parseInt(two); */
+        
+       
+        if(aa%2==0){
+           
+            two+=parseInt(aa);
+            /* console.log(two)
+            console.log(parseInt(aa)) */
+            
+           
+        }
+       
+        if(aa%3==0){
+            th*=parseInt(aa);
+            /* console.log(th); */
+        }
+        else if(aa=="x"){
+            break;
+        }
+        
+       /*  if(aa=="x"){
+            break;
+        } */
+     
+        console.log(aa);
+        document.write(aa+"<br>");
+     
+
+    }      
+    document.write("2의배수합 :"+two);
+    document.write("3의곱의합 :"+th);
+        console.log("2의배수합 :"+two)
+        console.log("3의곱의합 :"+th)
+        
+       
+        
+    </script>
+    
+</body>
+</html>

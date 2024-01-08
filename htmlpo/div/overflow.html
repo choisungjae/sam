@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .big{
+            width:400px;
+            height: 100px;
+            background-color: #ff0;
+            margin: 150px;
+            border: 1px solid #000;
+        }
+        img{
+            display: block;
+            float: left;
+            width:150px;
+            height: 130px;
+        }
+        .vv{
+            overflow: visible;
+        }
+
+        .hh{
+            overflow: hidden;
+        }
+        .ss{
+            overflow: scroll;
+        }
+        .aa{
+            overflow: auto;
+        }
+        .banner{
+            margin: 100px;
+            width:170px;
+            height: 100px;
+            overflow: auto;
+        }
+        .banner2{
+            margin: 100px;
+            width:190px;
+            height: 150px;
+            overflow: auto;
+            background-color: #ff0;
+        }
+        .long{
+            width:600px;
+            height: 130px;
+            background-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>overflow</h1>
+    <div class="big">                               <!-- 기본,visible  틀밖으로 뛰쳐나감 -->
+        <h3>기본</h3>                                <!-- 히든          틀밖은 사진짤림  -->
+        <img src="../fff/child_1.jpg" alt="">        <!-- 스크롤        우측,밑에 스크롤바생김 --> 
+        <img src="../fff/child_2.jpg" alt="">        <!-- 오토          우측에만 스크롤바 생김-->  
+        <img src="../fff/child_3.jpg" alt="">        <!-- 배너를 이용해서 틀잡아주면 옆으로도 사진을 나열해서 볼수가 있음 -->
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+    <div class="big vv">
+        <h3>visible</h3>
+        <img src="../fff/child_1.jpg" alt="">
+        <img src="../fff/child_2.jpg" alt="">
+        <img src="../fff/child_3.jpg" alt="">
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+    <div class="big hh">
+        <h3>hidden</h3>
+        <img src="../fff/child_1.jpg" alt="">
+        <img src="../fff/child_2.jpg" alt="">
+        <img src="../fff/child_3.jpg" alt="">
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+
+    <div class="big ss">
+        <h3>scroll</h3>
+        <img src="../fff/child_1.jpg" alt="">
+        <img src="../fff/child_2.jpg" alt="">
+        <img src="../fff/child_3.jpg" alt="">
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+    <div class="big aa">
+        <h3>auto</h3>
+        <img src="../fff/child_1.jpg" alt="">
+        <img src="../fff/child_2.jpg" alt="">
+        <img src="../fff/child_3.jpg" alt="">
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+    <div class="banner">
+        <img src="../fff/child_1.jpg" alt="">
+        <img src="../fff/child_2.jpg" alt="">
+        <img src="../fff/child_3.jpg" alt="">
+        <img src="../fff/child_4.jpg" alt="">
+    </div>
+
+    <div class="banner2">
+        <div class="long">
+            <img src="../fff/child_1.jpg" alt="">
+            <img src="../fff/child_2.jpg" alt="">
+            <img src="../fff/child_3.jpg" alt="">
+            <img src="../fff/child_4.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

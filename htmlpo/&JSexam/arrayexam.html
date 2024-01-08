@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        name=['장동건','정우성','조인성','현빈','원빈','정해인']
+        arr=name.split(",")
+
+        jum=[78,84,65,91,89,71]
+
+      
+
+        for (var i =0; i < arr.length; i++) {
+           if(jum[i]>75){
+            document.write("이름:"+arr[i]+" 점수:"+jum[i]+"<br>")
+           }
+           
+        }
+
+        st=[
+            ['장동건',78],
+            ['정우성',84],
+            ['조인성',65],
+            ['현빈',91],
+            ['원빈',89],
+            ['정해인',71],
+        ]
+        document.write(st[1])
+        document.write(st[3])
+
+        for (var i =0; i < st.length; i++) {
+            
+            arr2=st[i].split(",")
+            document.write(st[i])
+            document.write(arr2[0]+"arr2[0]")
+           /* if(arr2[0][i]>75){
+            document.write("이름:"+arr2[i]+" 점수:"+jum[i]+"<br>")
+           } */
+           
+        }
+
+
+        
+    </script>
+    
+</body>
+</html>

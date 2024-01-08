@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3::before{                              /* h3에 앞에 가상으로 넣음 */       /* 신상품같은거에 많이 사용함.ex 클래스물어서 */
+            content:"내가 before여";
+            width: 300px;
+            height: 30px;
+            background-color: #ff0;
+            display: block;
+        }
+
+        h3::after{                              /* h3에 뒤에 가상으로 넣음 */       /* 신상품같은거에 많이 사용함.ex 클래스물어서 */
+            content:"내가 before여";
+            width: 300px;
+            height: 70px;
+            background-color: rgb(200, 18, 139);
+           
+            background-image: url(../fff/01.jpg);
+            background-size: 100px 70px;
+            display: block;
+
+
+        }
+    </style>
+
+</head>
+<body>
+    <h1>virtual</h1>
+    <h3>본문이지</h3>
+    
+</body>
+</html>

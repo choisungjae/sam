@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_exam</title>
+
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+
+        
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+        var name = "장동건";
+        
+        var ma =91;
+        var en =77;
+        var gug =88;
+        var avg;
+        var tot;
+        var grade;
+        
+       
+
+        tot=ma+en+gug;
+        avg=tot/3;
+        if(avg>=90){
+            grade ="수"
+        }
+        else if(avg<90&&avg>=80){
+            if(gug>=80&&en>=80&&ma>=80){
+            grade ="우(균등)"}
+            else{
+                grade ="우"}
+        } 
+        else if(avg<80&&avg>=70){
+            grade ="미"
+        }
+        else if(avg<70&&avg>=60){
+            grade ="양"
+        }
+        else{
+            grade ="가"
+        }
+        document.write("이름: "+name)
+        document.write("<br><br>")
+        document.write("국어: "+gug)
+        document.write("<br><br>")
+        document.write("영어: "+en)
+        document.write("<br><br>")
+        document.write("수학: "+ma)
+        document.write("<br><br>")
+        document.write("총점: "+tot)
+        document.write("<br><br>")
+        document.write("평균: "+avg)
+        document.write("<br><br>")
+        document.write("영어:"+en+"수학:"+ma+"국어:"+gug+ "등급: "+ grade)
+        document.write("<br><br>")
+        
+        var afeecano ="아프리카노"
+        var americano ="아메리카노"
+        var asiano ="아시아노"
+        var ame = 2000;
+        var asia =3000;
+        var afee =4000;
+        var price;
+        var su =3;
+
+        var price2=[2000 ,3000 ,4000];
+        
+
+        switch (su) {
+            case 1:  
+            aisaprice = ame*su;
+            ameprice  = asia*su;
+            afeeprice = afee*su;
+                     break;
+            case 2:  
+            aisaprice = ame*su;
+            ameprice  = asia*su;
+            afeeprice = afee*su;
+                     break;
+            case 3:  
+            aisaprice = ame*su;
+            ameprice  = asia*su;
+            afeeprice = afee*su;
+                     break;
+        }
+
+        document.write(afeecano+" "+su+"잔"+afeeprice)
+   
+        
+
+       
+
+    </script>
+    
+</body>
+</html>

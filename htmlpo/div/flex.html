@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .big{
+            width:600px;
+            height: 300px;
+            background-color: #ff0;
+            margin: 20px;
+            display: flex;
+        }
+        .box{
+            width:50px;
+            height: 50px;
+            background-color: #fa0;
+            border: 1px solid #888;
+        }
+        .row{/* 기본과 같다*/
+            flex-direction: row;
+        }
+        .item-center{
+            align-items: center; 
+            /*전체가 세로 방향으로 가운데
+              아이템이 나열된 1개의 줄을 부모 객체에서 줄단위의 가운데로 작업
+            */
+        }
+        .justify-center{
+            justify-content: center;
+            /*전체가 가로 방향으로 가운데
+                아이템이 나열되는 1개 줄이 있는 위치에서 가운데 작업
+            */
+        }
+        .rij-center{
+            flex-direction: row;
+            align-items: center; /*전체가 세로 방향으로 가운데*/
+            justify-content: center;/*전체가 가로 방향으로 가운데*/
+        }
+        .row-r{
+            flex-direction: row-reverse;
+        }
+        .column{
+            flex-direction: column;
+        }
+        .column-item{
+            flex-direction: column;
+            align-items: center; 
+        }
+        .column-justify{
+            flex-direction: column;
+            justify-content: center; 
+        }
+        .column-item-justify{
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .column-r{
+            flex-direction: column-reverse;
+        }
+        .justify-space-between{
+            justify-content: space-between;
+        }
+        .column-justify-space-between{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-center-justify-space-between{
+            align-items: center; 
+            justify-content: space-between;
+        }
+        
+
+
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .big{
+            width:600px;
+            height: 300px;
+            background-color: #ff0;
+            margin: 20px;
+            display: flex;
+        }
+        .box{
+            width:50px;
+            height: 50px;
+            background-color: #fa0;
+            border: 1px solid #888;
+        }
+        .row{/* 기본과 같다*/
+            flex-direction: row;
+        }
+        .item-center{
+            align-items: center; 
+            /*전체가 세로 방향으로 가운데
+              아이템이 나열된 1개의 줄을 부모 객체에서 줄단위의 가운데로 작업
+            */
+        }
+        .justify-center{
+            justify-content: center;
+            /*전체가 가로 방향으로 가운데
+                아이템이 나열되는 1개 줄이 있는 위치에서 가운데 작업
+            */
+        }
+        .rij-center{
+            flex-direction: row;
+            align-items: center; /*전체가 세로 방향으로 가운데*/
+            justify-content: center;/*전체가 가로 방향으로 가운데*/
+        }
+        .row-r{
+            flex-direction: row-reverse;
+        }
+        .column{
+            flex-direction: column;
+        }
+        .column-item{
+            flex-direction: column;
+            align-items: center; 
+        }
+        .column-justify{
+            flex-direction: column;
+            justify-content: center; 
+        }
+        .column-item-justify{
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .column-r{
+            flex-direction: column-reverse;
+        }
+        .justify-space-between{
+            justify-content: space-between;
+        }
+        .column-justify-space-between{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-center-justify-space-between{
+            align-items: center; 
+            justify-content: space-between;
+        }
+        .justify-space-around{
+            justify-content: space-around;
+        }
+        .justify-space-evenly{
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <h1>flex</h1>
+    <h2>기본</h2>
+    <div class="big">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row</h2>
+    <div class="big row">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>item-center</h2>
+    <div class="big item-center">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>justify-center</h2>
+    <div class="big justify-center">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row item justify center</h2>
+    <div class="big rij-center">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row-reverse</h2>
+    <div class="big row-r">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column</h2>
+    <div class="big column">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column item-center</h2>
+    <div class="big column-item">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column justify-center</h2>
+    <div class="big column-justify">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column item-justify-center</h2>
+    <div class="big column-item-justify">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column-reverse</h2>
+    <div class="big column-r">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row justify-space-between</h2>
+    <div class="big justify-space-between">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row justify-space-around</h2>
+    <div class="big justify-space-around">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row justify-space-evenly</h2>
+    <div class="big justify-space-evenly">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>column-justify-space-between</h2>
+    <div class="big column-justify-space-between">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <h2>row item-center-justify-space-between</h2>
+    <div class="big item-center-justify-space-between">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+</body>
+</html>

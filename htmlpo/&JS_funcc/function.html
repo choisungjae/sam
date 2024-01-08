@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <h1>function</h1>
+    <script>
+        //함수 정의
+        // 함수명 : fn_1
+        // 매개변수 : aa, bb
+        // 리턴 : 1234
+        function fn_1(aa,bb){
+            document.write("fn_1() 실행 1 : "+aa+","+bb+"<br/>")
+            return 1234
+        }
+
+        //overloading 이 없다 --> 같은 이름으로 함수 정의시 마지막에 정의한 함수가 호출 됨
+        function fn_1(aa,bb, cc){
+            document.write("fn_1() 실행 2 : "+aa+","+bb+","+cc+"<br/>")
+            return 5678
+        }
+
+
+        var vv = fn_1(11,22)    //함수 호출 및 리턴
+        document.write("vv : "+vv+"<br/>")
+        fn_1(33,44,55)      //매개변수 갯수가 맞지 않아도 호출 가능
+        fn_1()
+    </script>
+</body>
+</html>

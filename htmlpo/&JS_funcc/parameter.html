@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameter</title>
+</head>
+<body>
+    <h1>parameter</h1>
+    <script>
+        function fn_1(aa,bb){
+            document.write("fn_1() : "+aa+","+bb+"<br/>")
+        }
+        function fn_2(aa,bb = 100){
+            document.write("fn_2() : "+aa+","+bb+"<br/>")
+        }
+        function fn_3(aa = "아기상어",bb = "엄마상어"){
+            document.write("fn_3() : "+aa+","+bb+"<br/>")
+        }
+        function fn_4(aa,bb, cc=aa+bb){
+            document.write("fn_4() : "+aa+","+bb+","+cc+"<br/>")
+        }
+
+        fn_1(12,34,56)
+        fn_1(56,78)
+        fn_1(99)
+        fn_1()
+        document.write("<hr/>")
+        fn_2(12,34,56)
+        fn_2(56,78)
+        fn_2(99)
+        fn_2()
+        document.write("<hr/>")
+        fn_3(12,34,56)
+        fn_3(56,78)
+        fn_3(99)
+        fn_3()
+        document.write("<hr/>")
+        fn_4(12,34,56)
+        fn_4(56,78)
+        fn_4(99)
+        fn_4()
+        document.write("<hr/>")
+
+        var x, y
+        [x, y] = [1234,5678]
+        document.write(x+","+y+"<br/>")
+        //[x, y] = {"x":987, "y":654}
+        //{x, y} = {"x":987, "y":654}
+        //{"x":x, "y":y} = {"x":987, "y":654}
+        //{x:987, y:654}
+        //document.write(x+","+y+"<br/>")
+        document.write("<hr/>")
+
+        function fn_5([aa,bb]){
+            document.write("fn_5() : "+aa+","+bb+"<br/>")
+        }
+        function fn_6([aa,bb] = [91,82]){
+            document.write("fn_6() : "+aa+","+bb+"<br/>")
+        }
+        function fn_7({aa,bb}){
+            document.write("fn_7() : "+aa+","+bb+"<br/>")
+        }
+        function fn_8({aa,bb} = {aa:73, bb:64}){
+            document.write("fn_8() : "+aa+","+bb+"<br/>")
+        }
+        fn_5([10,20])
+        fn_5([30])
+        fn_5([])
+        //fn_5()  에러
+        document.write("<hr/>")
+        fn_6([10,20])
+        fn_6([30])   //초기값 처리 X
+        fn_6([])     //초기값 처리 X
+        fn_6()       //초기값 처리 O
+        document.write("<hr/>")
+        fn_7({c:10, b:20})  //이름이 맞아야 함 --> undefined,undefined
+        fn_7({aa:10, bb:20}) 
+        fn_7({aa:10})    
+        fn_7({})      
+        //fn_7()        //에러
+        document.write("<hr/>")
+        fn_8({c:10, b:20})  //이름이 맞아야 함 --> undefined,undefined
+        fn_8({aa:10, bb:20}) //초기값 처리 X
+        fn_8({aa:10})       //초기값 처리 X
+        fn_8({})            //초기값 처리 X 
+        fn_8()              //초기값 처리 O
+
+
+        /*
+        커피를 주문하세요
+        주문 : 커피종류, 수량
+
+        아메리카노 : 1800
+        아시아노 : 2100
+        아프리카노 : 2200
+        
+        주문시 생략가능
+        커피종류 : 아메리카노
+        수량 : 1
+        
+        */
+
+        var tot = 0
+        function order(menu = "아메리카노", cnt = 1){
+            const price = {"아메리카노":1800, "아시아노":2100, "아프리카노":2200} 
+
+            var money = price[menu] * cnt
+            tot += money
+            document.write(menu+"("+price[menu]+"):"+cnt +"=>"+money +"<br/>")
+
+        }
+
+
+        order("아프리카노",3)
+        order("아시아노")
+        order("아메리카노",2)
+        order()
+        order("아프리카노")
+        order()
+        document.write("합계 : "+tot+"<br/>")
+    </script>
+</body>
+</html>

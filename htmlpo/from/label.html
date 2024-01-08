@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label</title>
+    <style>
+        *{  /* 인풋 디브[이미지] 레이블  */
+            margin:0;
+            padding: 0;
+        }
+        form{
+            margin: 50px;
+        }
+        fieldset{
+            width:400px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        legend{
+            background-color: #ffa;
+            width : 100px;
+            height: 24px;
+        }
+
+        #pid{
+            width:200px;
+            height: 24px;
+            background-color: #aff;
+            border: none;
+            border-radius: 12px;
+        }
+        #gender{
+            background-color: #0f0;
+            width : 180px;
+            height: 24px;
+            border-radius: 20px 0px;
+            text-align: center;
+        }
+        #friend_lb{
+            display: inline-block;
+            background-color: #f0f;
+            width : 150px;
+            height: 24px;
+        }
+        input[type=radio]{
+            width:50px;
+            height: 50px;
+            /*border:5px solid #f00;  효과 없음 */
+        }
+
+        select{
+            background-color: #f0f;
+            width : 150px;
+            height: 24px;
+            border: 3px solid #f00;
+            border-radius: 12px;
+        }
+
+        textarea{
+            background-color: #0ff;
+            width : 250px;
+            height: 100px;
+            border: 3px solid #f00;
+            border-radius: 12px;
+        }
+        #contentSet{
+            height: 150px;
+        }
+        button{
+            background-color: #00f;
+            color:#fff;
+            width :100px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #008;
+            border-radius: 10px 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>label</h1>
+    <form action="">
+        <fieldset><!-- 테두리가 있는 div-->
+            <legend>아이디</legend><!-- fieldset 상단border에 걸쳐있는 div-->
+            <input type="text" name="" id="pid">
+        </fieldset>
+        <fieldset>
+            <!-- label : span (inline)-->
+            <label>암호 <input type="text" name=""></label>
+        </fieldset>
+        <fieldset>
+            <!-- label 로 input 진입
+                1. label 안에 input 삽입
+                2. label for에 진입할 input의 id 설정
+            -->
+            <label>이름</label><input type="text" name="">
+        </fieldset>
+        <fieldset>
+            <label for="friend" id="friend_lb">추천아이디</label><input type="text" id="friend">
+        </fieldset>
+        <fieldset>
+            <legend id="gender">성별</legend>
+            <label><input type="radio" name="gender">남자</label>
+            <label><input type="radio" name="gender">여자</label>
+            <label><input type="radio" name="gender">it인</label>
+        </fieldset>
+        <fieldset>
+            <legend>취미</legend>
+            <label for="coding">코딩</label>
+            <label for="programming">프로그래밍</label>
+            <label for="debuging">디버깅</label><br/>
+            <input type="checkbox" id="coding">
+            <input type="checkbox" id="programming">
+            <input type="checkbox" id="debuging">
+        </fieldset>
+        <fieldset>
+            <!-- 
+                label 안에 legend를 포함할 경우 label의 for를 이용해야만 
+                input이나 textarea에 접근가능
+
+    <label ><legend>이메일</legend><input type="text" ></label>
+    label 안에 다 넣었어도 위와 같은 방식은 input 접근 불가        
+            -->
+            <label for="email1"><legend>이메일</legend></label>
+            <input type="text" name="email1" id="email1">
+            <select name="email2" id="">
+                <!-- value를 설정하지 않으면 option의 text node가 value로 설정된다-->
+                <option>naver</option>
+                <option>google</option>
+                <option>daum</option>
+            </select>
+        </fieldset>
+        <fieldset id="contentSet">
+            <label for="content">
+                <legend>남기실 말</legend>
+                <textarea id="content"></textarea>
+            </label>
+        </fieldset>
+        <fieldset >
+           <button>가입</button>
+        </fieldset>
+    </form>
+
+
+</body>
+</html>
