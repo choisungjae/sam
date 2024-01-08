@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>global_var_let</title>
+</head>
+<body>
+    <h1>global_var_let</h1>
+    <script>
+        g = 10
+        var v = 20
+        let l = 30
+        const c = 40
+
+        g++
+        v++
+        l++
+        //c++  상수
+
+        document.write("메인 : "+g+","+v+","+l+","+c+" ---- <br/>")
+
+        function fn_1(){
+                g_1 = 100
+            var v_1 = 200
+            let l_1 = 300
+            const c_1 = 400
+
+            g++
+            v++
+            l++
+
+            g_1++
+            v_1++
+            l_1++
+
+            document.write("fn_1 시작 : "+g_1+","+v_1+","+l_1+","+c_1+" ---- <br/>")
+            document.write("&nbsp;&nbsp; 메인부르기 : "+g+","+v+","+l+","+c+"<br/>")
+
+            if(true){
+                    g_if = 1000
+                var v_if = 2000
+                let l_if = 3000
+                const c_if = 4000
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp; if문 : "+g+","+v+","+l+","+c+"<br/>")
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp; if문에서 선언 : "+g_if+","+v_if+","+l_if+","+c_if+"<br/>")
+            }
+
+            
+            document.write("&nbsp;&nbsp; if부르기 : "+g_if+","+v_if+"<br/>")
+            //l_if , c_if  접근불가
+            document.write("fn_1 끝 : "+g_1+","+v_1+","+l_1+","+c_1+" ---- <br/>")
+        }
+
+        fn_1()
+
+        document.write("메인 : "+g+","+v+","+l+","+c+" ---- <br/>")
+        document.write("&nbsp;&nbsp;&nbsp; fn_1 밖에서 부르기 : "+g_1+"<br/>") //fn_1의 전역만 접근가능
+        //v_1, l_1 , c_1  접근 불가
+        
+        /*
+        
+        전역변수 : 모든 구간에서 접근
+        
+        지역변수 (var) : 함수 구간에서 접근 -- if , for 와 같은 구간 내부에서 선언후 구간 외부에서도 접근가능
+        
+        내부변수 (let) :  구간( if, for) 안에서 선언시 구간 내부에서만 접근
+
+        상수 (const) : 대입 불가, 내부변수 처럼 구간에서 선언시 구간내부에서만 접근가능
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funcInFunc</title>
+</head>
+<body>
+    <h1>funcInFunc</h1>
+    <script>
+        var a = 1111 , cc = 3333 
+        function fn_1(aa, bb, cc){
+
+            //외부변수 , 매개변수, 지역변수 모두 중첩가능
+            //외부변수 < 매개변수 < 지역변수
+            document.write("fn_1() 시작 "+a+","+aa+","+bb+","+cc+"--------------<br/>")
+            var dd = 400
+            var bb = 200
+            ee = 500    //전역변수 선언 : var 를 붙이지 않으면 전역변수 선언
+            aa = 100    //매개변수 대입
+            document.write("fn_1() 끝 "+a+","+aa+","+bb+","+cc+","+dd+","+ee+"--------------<br/>")
+        }
+
+        function fn_2(){
+            //다른 함수의 지역, 매개변수 호출 불가
+            //document.write("fn_2() : "+a+","+aa+","+bb+","+cc+"--------------<br/>")
+            document.write("fn_2() : "+a+","+cc+","+ee+" <br/>")
+        }
+
+        //fn_2()  fn_1() 호출 전이어서 전역변수 ee 가 선언 되지 않음
+        fn_1(11,22,33)
+
+        //함수 내부의 지역, 매개변수 호출 불가
+        document.write("main 1 : "+a+","+cc+","+ee+"--------------<br/>")
+        //document.write("main 1 : "+aa+"--------------<br/>")
+
+        fn_2()
+        
+
+        function fn_3(){
+            document.write("fn_3() : "+a+","+b+","+c+","+cc+","+ee+" <br/>")
+        }
+
+        var b = 2222
+        c = 3333
+        
+        fn_3() //함수 호출 전에 전역변수 , 외부 변수가 선언 되어야 변수 호출 가능
+
+        // var b = 2222
+        // c = 3333
+
+
+        function fnBig(zz,xx){
+
+            //함수 정의부에서 함수정의 가능
+            //전역변수는 물론 외부 함수의 매개, 지역 모두 접근 가능
+            //중첩될 경우 내부 함수 변수가 우선순위를 가짐
+            function fnSmall(zz,oo){
+                var yy = "스몰yy", uu = "스몰uu"
+                document.write("&nbsp;&nbsp;&nbsp;fnSmall() 시작 : "+zz+","+xx+","+yy+","+qq+","+oo+","+uu+"-------- <br/>")
+
+                document.write("&nbsp;&nbsp;&nbsp;fnSmall() 끝 : "+zz+","+xx+","+yy+","+qq+","+oo+","+uu+"-------- <br/>")
+            }
+
+
+            var yy = "빅yy", qq = "빅qq"
+            document.write("fnBig() 시작 : "+zz+","+xx+","+yy+","+qq+"-------- <br/>")
+            fnSmall(9988,7766)
+            //document.write("fnBig() 끝 : "+zz+","+xx+","+yy+","+qq+","+oo+","+uu+"-------- <br/>")
+            document.write("fnBig() 끝 : "+zz+","+xx+","+yy+","+qq+"-------- <br/>")
+        }
+        fnBig(246,135)
+        //fnSmall(147,259) --> 함수내부에서의 정의된 함수 접근불가
+
+        /*
+            피자 주문을 구현하세요
+
+            주문 시 --> 토핑을 바꿀 수 있어요
+
+            이름 : 콤비네이션, 하와이얀, 치즈, 불고기
+            크기 : 스몰, 미디움, 라지 
+            토핑 재료 : 치즈재료, 고기류, 야채(과일)류, 테두리 ==> 알아서 만드는 형태
+
+            
+
+        
+        */
+
+
+    </script>
+</body>
+</html>

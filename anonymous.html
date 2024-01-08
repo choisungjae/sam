@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anonymous</title>
+</head>
+<body>
+    <h1>anonymous</h1>
+    <script>
+        function aa(){
+            document.write("aa 실행 <br/>")
+        }
+
+        var bb = function(){
+            document.write("bb 실행 <br/>")
+        }
+
+        aa()
+        bb()
+        document.write(aa +"<br/>")
+
+        var cc = aa
+        cc()
+        /*
+        function(){
+            document.write("익명 실행 <br/>")
+        }() */
+
+        var arr = [
+            100,
+            123.456,
+            [11,22],
+            true,
+            function(){
+                document.write("arr[4] 함수 실행 <br/>")
+            }
+
+        ]
+
+        arr[4]()
+
+        function big1(aa, fn){
+            document.write("big1() 시작 "+aa +" ------- <br/>")
+
+            fn()
+
+            document.write("big1() 끝 -----------<br/>")
+        }
+
+        big1(1234,aa)
+        big1(5678,function(){ document.write("고차함수 실행<br/>")})
+
+        function big2(xx,yy, fn){
+            document.write("big2()  "+fn(xx, yy) +"<br/>")
+
+
+        }
+
+        var rr2 = function(q,w){ 
+            return q-w
+        }
+
+        var rr3 = (q,w)=>{ 
+            return q*w
+        }
+
+
+        big2(10,20, (q,w)=>{ return q+w})
+        big2(10,20, rr2)
+        big2(10,20, rr3)
+        big2(10,20, function(q,w){ return q/w})
+
+
+
+        ////배열(가변매개변수)과 함수를 매개변수로 처리하는 함수를 구현하세요
+        // 매개변수 함수의 형태 -> 합, 평균, 최대, 최소 
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread</title>
+</head>
+<body>
+    <h1>spread</h1>
+    <script>
+        function fn_1(aa,bb){
+            document.write("fn_1() : "+aa+","+bb+"<br/>")
+        }
+        function fn_2(){
+            //document.write("fn_2() : "+aa+","+bb+"<br/>")
+            document.write("fn_2() : <br/>")
+        }
+        function fn_3(){
+            console.log(arguments) //매개인자를 받음
+            document.write("fn_3() : "+arguments+"<br/>")
+            for (const i of arguments) {
+                document.write("fn_3() : "+i+"<br/>")
+            }
+        }
+
+        function fn_4(arr){
+            
+            document.write("fn_4() 시작 "+Array.isArray(arr)+"------<br/>")
+            for (const i in arr) {
+                document.write(i+" : "+arr[i]+"<br/>")
+            }
+            document.write("fn_4() 끝----------------<br/>")
+        }
+
+        function fn_5(...arr){
+            
+            document.write("fn_5() 시작 "+Array.isArray(arr)+"------<br/>")
+            for (const i in arr) {
+                document.write(i+" : "+arr[i]+"<br/>")
+            }
+            document.write("fn_5() 끝----------------<br/>")
+        }
+
+        fn_1(11,22)
+        fn_2(11,22)
+        fn_3(11,22)
+        fn_4([12,34,56,78])
+        fn_4(99,88,77,66)
+        fn_5([12,34,56,78])  // arr[0] = [12,34,56,78]  ,   arr = [ [12,34,56,78] ]
+        fn_5(99,88,77,66)   // arr[0] = 99  ,   arr = [ 99,88,77,66 ]
+
+        /*
+        매개변수 갯수를 이용하여 도형의 넓이와 둘레를 구현하세요
+        1 - 원
+        2 - 직사각형
+        3 - 직각삼각형
+        나머지 - 도형이 아니무니다
+        */
+
+        function shapePPP(name, area, border){
+            document.write(name +" : "+area+" , "+border+"<br/>")
+        }
+        function shape(...line){
+            
+            
+            switch(line.length){
+                case 1:
+                    shapePPP("원", line[0] * line[0] * Math.PI, line[0] * 2 * Math.PI)
+                    break
+                case 2:
+                    shapePPP("직사각형", line[0] * line[1], (line[0] + line[1])*2)
+                    break
+                case 3:
+                    shapePPP("직각삼각형", line[0] * line[1] / 2, line[0] + line[1]+ line[2])
+                    break
+                default:
+                    document.write("도형이 아니무니다<br/>")
+            }
+        }
+
+        shape(5)
+        shape(5,6)
+        shape(5,6,8)
+        shape(5,6,8,9)
+        shape()
+
+    </script>
+</body>
+</html>

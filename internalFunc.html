@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>internalFunc</title>
+</head>
+<body>
+    <h1>internalFunc</h1>
+    <script>
+        //alert("내가 경고했지!")
+        //var rr = confirm("살까요?")
+        //document.write(rr)
+        //var rr = prompt("뭐 살꺼야?")
+        //document.write(rr)
+        document.write(isNaN(123)+"<br/>") //숫자이면 false, 숫자 아니면 true
+        document.write(isNaN("아기상어")+"<br/>") //숫자이면 false, 숫자 아니면 true
+        document.write(isNaN("456")+"<br/>") //문자열이 숫자여도 숫자로 인식 : false
+        document.write(parseFloat("123.456")+100+"<br/>")//숫자로 변환후 더하기
+        document.write("123.456"+100+"<br/>")  //문자열로 합치기
+        document.write(parseInt("123")+100+"<br/>")//숫자로 변환후 더하기
+        document.write(parseInt("123+100")+"<br/>")//수식은 연산하지 않음 : 숫자로 표현된 부분까지만 변환
+        document.write(eval("26 % 7 * 10")+"<br/>")//문자열 -> 코드로 연산
+        document.write("a".charCodeAt()+"<br/>")//문자 -> ASCII
+        document.write("abc".charCodeAt()+"<br/>")//문자 -> ASCII
+        document.write("abc".charCodeAt(1)+"<br/>")//98
+        document.write("abc".charCodeAt(2)+"<br/>")//99
+        document.write(String.fromCharCode(97,100,104)+"<br/>")//ASCII -> 문자열
+        var vv = String(123)+100    //숫자 -> 문자열
+        document.write(vv+"<br/>")
+        vv = Number("456")+100    //문자열 -> 숫자
+        document.write(vv+"<br/>")
+        
+        function aaa(){
+           alert("aaa() 실행")
+        }
+
+        //aaa()
+        //setTimeout(aaa , 3000) //함수명, 1/1000 초  --> 1회만 실행 : 함수호출로 하지 말것
+        //setTimeout(aaa() , 3000)  setTimeout 과 상관없이 aaa() 호출
+
+        var i = 0;
+        function bbb(){
+            i++
+            document.write("bbb() 실행"+i+"<br/>")
+        }
+        var ff = setInterval(bbb , 1000) //함수명, 1/1000 초 --> 시간 간격마다 함수 실행
+                                        //thread 처럼 병렬로 실행
+
+        function ffStop(){
+            clearInterval(ff)       // 매개변수 interval 멈춤
+            document.write("ffStop() 실행 <br/>")
+        }
+
+        setTimeout(ffStop , 5000)
+
+        /*
+
+        1초간격으로 현재 시간을 출력하세요
+        -- 10초 간격으로 출력을 멈출 수 있도록 물어보세요
+        -- 출력이 멈추면 물어보는 것도 멈추세요
+        */
+    </script>
+</body>
+</html>
