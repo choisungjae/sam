@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 200px;
+            height: 150px;
+            display: block;
+            float: left;
+        }
+
+        .big{
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            margin: auto;
+            position: relative;
+        }
+        .big>div{
+            width: 1600px;
+            height: 150px;
+            position: absolute;
+            left: -400px;
+        }
+        #box{
+            position: absolute;
+            width: 1600px;
+            height: 150px;
+            left: 0px;
+            transition-duration: 0.5s;
+        }
+        .ttt{
+     
+            width: 500px;
+            margin: auto;
+            
+        }
+        /* button{
+            background-color: rgb(181, 181, 225);
+            color:#fff;
+            width :344.9px;
+            height: 80px;
+            line-height: 50px;
+            border: 1px solid rgb(170, 170, 220);
+            border-radius: 10px 5px;
+        } */
+        input[type=button]{
+            width:30px;
+            height: 30px;
+            margin: 0px 50px;
+        }
+    
+
+
+
+    </style>
+    <script>
+        window.onload = function sta(){
+            
+            var x =0;
+          /*   var z=9; */
+            var box =document.getElementById("box")
+            var stop =document.getElementById("stop")
+            var start =document.getElementById("start")
+         /*    box.style.left =-200 * x +"px" */
+
+         function gogo(){
+            x++
+            if(x>=8){
+                
+                x=0
+            }
+            box.style.left = -200 * x +"px"
+            if(x==0){
+                clearInterval(time)
+                setInterval(gogo,500)
+            
+         }
+        }
+         /* function gogo2(){
+            
+            z--;
+           
+            box.style.left = +200 * z +"px"
+
+            if(z==0){
+                clearInterval(time)
+                setInterval(gogo,500)
+            }
+            
+         } */
+         
+
+
+        stop.onclick = function(){
+            
+                clearInterval(time)
+
+        }
+        start.onclick = function(){
+             /* clearInterval(time);
+             time(); */
+           sta()
+           
+        }
+
+         var time =setInterval(gogo,500)
+        }
+
+    </script>
+</head>
+<body>
+
+    <h1>banner</h1>
+    <div class="big" >
+        <div id="box">
+            <img src="../fff/01.jpg" alt="">
+            <img src="../fff/02.jpg" alt="">
+            <img src="../fff/03.jpg" alt="">
+            <img src="../fff/04.jpg" alt="">
+            <img src="../fff/05.jpg" alt="">
+            <img src="../fff/06.jpg" alt="">
+            <img src="../fff/07.jpg" alt="">
+            <img src="../fff/child_1.jpg" alt="">
+            
+        </div>
+     
+    </div>
+    <div class="ttt" align="center">
+        <button id="stop">일시정지</button>
+        <button id="start">다시시작</button>
+       
+    </div>
+
+    
+
+    
+</body>
+</html>
