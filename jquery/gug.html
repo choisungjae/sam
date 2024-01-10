@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+
+            var name ; 
+            var kor,eng,mat;
+            var tot=0;
+            var avg;
+
+
+
+            $("input").eq(0).click(function () {
+                $("#name").val("");  
+            });
+            $("input").eq(2).click(function () {
+                $("#kor").val("");  
+            });
+            $("input").eq(4).click(function () {
+                $("#eng").val("");  
+            });
+            $("input").eq(6).click(function () {
+                $("#mat").val("");  
+            });/* ,eq안쓰고하나로묶어보기 */
+
+            
+            /*  선택자[속성=속성명]으로접근가능
+              $("input[type='text']") 등*/
+            $("input[value='이름추가']").click(function () {
+                name = $("#name").val();
+                console.log(name)
+            });
+
+            $("input[value='국어점수추가']").click(function(){
+                kor = $("#kor").val();
+                console.log(kor)
+            });
+
+            $("input[value='영어점수추가']").click(function(){
+                eng = $("#eng").val();
+                console.log(eng)
+            });
+
+            $("input[value='수학점수추가']").click(function(){
+                mat = $("#mat").val();
+                console.log(mat)
+            });
+
+            $("input[value='계산']").click(function () {
+                
+                tot = parseInt(kor) + parseInt(eng) + parseInt(mat);
+                avg = tot / 3;
+
+                console.log(tot);
+                console.log(avg);
+
+            var gradearr=['가','가','가','가','기','가','양','미','우','수','수']
+            var grade= (gradearr[parseInt(avg/10)])
+            
+            console.log(grade)
+            /* $("grade").css */
+            /* if (grade == '가') {
+                    $(".ppp").?보류
+                } else if (grade == '양') {
+                    
+                } else if (grade == '미') {
+                   
+                } else if (grade == '우') {
+                   
+                } else if (grade == '수') {
+                    
+                } */
+
+            $(".ppp").html("이름:"+name+"<br>총합:"+tot+"<br>평균:"+avg+"<br>등급:"+grade)
+
+
+
+        })
+    })
+
+    </script>
+
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="name" value="이름입력">
+        <input type="button" value="이름추가">
+    </div>
+    <input type="text" id="kor" value="국어점수입력">
+    <input type="button" value="국어점수추가">
+    <div>
+        <input type="text" id="eng" value="영어점수입력">
+        <input type="button" value="영어점수추가">
+    </div>
+    <div>
+        <input type="text" id="mat" value="수학점수입력">
+        <input type="button" value="수학점수추가">
+    </div>
+    <div>
+        <input type="button" value="계산">
+    </div>
+
+    <p class="ppp"></p>
+    
+
+
+</body>
+
+</html>

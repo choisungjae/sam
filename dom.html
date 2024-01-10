@@ -3,62 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>element</title>
-
-    <style>
-        #cons{
-            width: 400px;
-            height: 200px;
-            border: 1px solid #ccc;
-            padding: 10px;
-
+    <title>dom</title>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("aaa").style.backgroundColor = "#f00"
+            $("#bbb").css('background-color', "#0f0")
         }
+        $(function(){
+            $("div").css({
+                position:"relative",
+                width:'100px',
+                height:"50px",
+                "border":"1px solid #ccc"
+            })
+
+            $(".box").css({
+                backgroundColor : "#ff0"
+            })
+
+            var block = $(".block")
+
+            block.css({
+                'background-color' : "#f0f"
+            })
 
 
-    </style>
+            $(".box").eq(1).css({ //  eq(1)  :   묶음일 경우 1번째 (배열원소번호와 같음)
+                                  // 0 부터 시작
+                transform:'rotate(45deg)'
+            })
 
+            $("div:nth-of-type(1)").css({ //nth-of-type(1) : 1부터 시작
+                left : "100px"
+            })
+
+            $(".block").click(function(){
+                //alert("눌렀냐?")
+                // $(this).index() : 몇번째
+                //$(this).html() : innerHTML
+                console.log( $(this).html()+","+$(this).index() )  
+            })
+
+            // $("h2").eq(1).html("에이치투이지롱")  innerHTML = "에이치투이지롱"
+            $("h2").eq(1).html("에이치투이지롱")
+            
+            //$("input").eq(0).val()  : TagName("input").item(0).value
+            console.log($("input").eq(0).val())
+            $("input").eq(1).val("아기상어") //TagName("input").item(1).value = "아기상어"
+        })
+    </script>
 </head>
 <body>
-    <h1>element</h1>
-
-        <form action="">
-            <table border="">
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td input type="text" name=""></td>
-                </tr>
-            </table>
-        </form>
-
- 
+    <h1>dom</h1>
+    <div id="aaa">aaa</div>
+    <div id="bbb">bbb</div>
+    <div id="ccc">ccc</div>
+    <div class="box">box0</div>
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="block">block0</div>
+    <div class="block">block1</div>
+    <div class="block">block2</div>
+    <h2>h2이지롱0</h2>
+    <h2>h2이지롱1</h2>
+    <h2>h2이지롱2</h2>
+    <input value="내용0">
+    <input value="내용1">
+    <input value="내용2">
+    
     
 </body>
 </html>

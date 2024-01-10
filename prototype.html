@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+
+        //prototype 정의
+        //prototype이름 = 생성자(매개변수)
+        Member = function(name, age, marriage){
+
+            this.name = name
+            this.age = age
+            this.marriage = marriage
+
+
+            function fn_1(){ //직접 멤버함수 정의 의미 없음
+                console.log("fn_1() 실행")
+            }
+
+            this.fn_4 = function(){ //익명함수의 변수명 처리로 정의 가능
+                console.log("Member.fn_4() 실행:"+this.age+","+this.marriage)
+            }
+
+        }
+
+        // 멤버함수 1개만 정의
+        Member.prototype.fn_2 = function(){
+            console.log("Member.fn_2() 실행:"+this.name+","+this.age+","+this.marriage)
+        }
+
+        /*
+            Member.prototype = {
+            }
+            형태로 멤버 함수 정의시 1개씩 정의한  Member.prototype.fn_2는 사라짐
+        */ 
+        // 멤버함수 여러개 정의
+        Member.prototype = {
+
+            fn_3 : function(){
+                console.log("Member.fn_3() 실행:"+this.name)
+            },
+
+            getName : function(){
+                console.log("Member.getName() 실행:")
+                return this.name
+            },
+
+            setAge : function(age){
+                console.log("Member.setAge() 실행")
+                this.age = age
+            },
+            toString : function(){
+                return this.name +" , "+this.age+" , "+this.marriage
+            }
+        }
+
+
+        $(function(){
+
+            console.log(Member)
+
+            var m1 = Member("용준",24,false) //new 를 작성하여 인스턴스를 생성해야한다.
+            console.log(m1)
+
+            var m2 = new Member("사준",21,false) //new 를 작성하여 인스턴스를 생성해야한다.
+            console.log(m2)
+            console.log(m2.name)
+            console.log(m2.age)
+            console.log(m2.marriage)
+
+            console.log(m2["name"]) //연관배열처럼 key 값으로 접근 가능
+            console.log(m2["age"])
+            console.log(m2["marriage"])
+
+            //m2.fn_1()  실행 불가
+           // m2.fn_2()
+            m2.fn_3()
+            m2.fn_4()   //호출가능
+            var nn = m2.getName()
+            console.log("nn : ", nn)
+            m2.setAge(29)
+            console.log(m2)
+            document.write(m2)  //m2.toString() 호출
+        })
+    </script>
+</head>
+<body>
+    <h1>prototype</h1>
+</body>
+</html>

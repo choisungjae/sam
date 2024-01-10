@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        section{
+            width: 900px;
+            height: 600px;
+            background: url(../fff/js/car.jpg);
+            margin: auto;
+        }
+
+        section > div{
+            width: 90px;
+            height: 100px;
+            background-color: #ff0;
+            float: left;
+        }
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            for (let i = 0; i < 60; i++) {
+                $("section").append("<div></div>")
+            }
+
+            $("section > div").mouseover(function(){
+                
+                 /* console.log($(this).e.clientX+","+e.clientY) */ /* 좌표 이거아닌듯 */
+                 /* $(this).index() */
+                 /* console.log($(this).index()) */
+                
+                 var ttt = $(this).index();
+                 console.log(ttt)
+
+                 $("div").eq(ttt+1).css({
+                    opacity:"0.2"
+
+                 })
+                 $("div").eq(ttt-1).css({
+                    opacity:"0.2"
+
+                 })
+                 $("div").eq(ttt-10).css({
+                    opacity:"0.2"
+
+                 })
+                 $("div").eq(ttt+10).css({
+                    opacity:"0.2"
+
+                 })
+
+                 
+                 
+                  $(this).css({
+                    opacity:"0.2"
+                })
+
+              /*   $("h2").eq(20).  */
+                
+
+
+                /* $(this.).css({
+                    opacity:"0.2"
+                }) */
+
+
+             /*    $("div").eq(1).css({
+                                  
+                    opacity:"0.5"
+            }) */
+
+                /* $(this).css({
+                    opacity:"0"
+                }) */
+            })
+
+            /* $("section > div").mouseout(function(){
+               
+                $(this).css({
+                    opacity:"1"
+                })
+            }) */
+
+
+        })
+    </script>
+</head>
+<body>
+    <h1>car</h1>
+    <section></section>
+</body>
+</html>

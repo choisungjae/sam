@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        section{
+            width: 700px;
+            height: 600px;
+            border: 1px solid #aaa;
+        }
+        #reg > input,  .student > input{
+            width: 50px;
+          
+        }
+
+        section > .student{
+            width: 600px;
+            height: 30px;
+            background-color: #ffa;
+            margin: 10px;
+            padding:10px;
+        }
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        var rank =1
+        var no  = 0
+        var arr = {}
+
+        //입력부
+        function stInit(){
+            var st = {
+                    no : no,
+                    pname : $("#reg > #pname").val(),
+                    jum : []
+                }
+                $("#reg > #pname").val("정성"+(no+1))
+                for (let i = 0; i < 3; i++) {
+                    st.jum.push(eval($("#reg > .jum").eq(i).val()))
+
+
+                    $("#reg > .jum").eq(i).val(Math.floor(Math.random()*50+50) )
+                }
+                return st
+        }
+
+        //연산부
+        function calc(stud){
+            stud.tot = 0
+                for (const j of stud.jum) {
+                    stud.tot += j
+                }
+                stud.avg = parseInt(stud.tot/stud.jum.length) 
+        }
+
+        function rankk(stud){
+            for (const me of stud.avg) {
+            for (const you of stud.avg) {
+                if(me.avg< you.avg){
+                    me.rank++;
+                }
+            }
+            
+        }
+    }
+
+        function grade(stud){
+
+            var gradearr=['가','가','가','가','기','가','양','미','우','수','수']
+            stud.grade= (gradearr[parseInt(stud.avg/10)])
+            
+        }
+        //출력부
+        function stHtml(st){
+
+
+            st.htmlTAG = $("<div class = student></div>")
+            st.editJum = []
+            st.editName = $('<input type="text" class="pname" />')
+            st.editName.val(st.pname)
+            st.editName.prop("readonly",true) //javascript의 property
+            st.editTot = $('<input type="text" class="pname" value="'+st.tot+'"/>')
+            //st.editTot.attr("readonly",true) //html 의 속성 적용 안됌
+            st.editAvg = $('<input type="text" class="pname" value="'+st.avg+'"  readonly/>')
+            st.editgrade=$('<input type="text" class="pname" value="'+st.grade+'"/>')
+
+            
+
+            st.editrank=$('<input type="text" class="pname" value="'+st.rank+'"/>')
+            st.htmlTAG.append(st.editName)
+            
+            for (const j of st.jum) {
+                var ej = $('<input type="text" class="jum" />')
+                ej.prop("readonly",true) 
+                ej.val(j)
+                st.editJum.push(ej)
+                st.htmlTAG.append(ej)
+            }
+            st.htmlTAG.append(st.editTot)
+            st.htmlTAG.append(st.editAvg)
+            st.htmlTAG.append(st.editgrade)
+            st.htmlTAG.append(st.editrank)
+            
+
+            var delBtn = $('<button>삭제</button>')        /* 삭제 */
+            delBtn.on("click", function(){
+                st.htmlTAG.remove()
+                delete arr[st.no]
+                console.log(arr)
+            })
+            st.htmlTAG.append(delBtn)
+
+            var modifyBtn = $('<button>수정</button>')
+
+            modifyBtn.on("click", function(){
+                if($(this).html()=="수정"){
+                    st.editName.prop("readonly",false)
+                    for (const ej of st.editJum) {
+                        ej.prop("readonly",false)
+                    }
+                    $(this).html("수정완료")
+
+                }else{
+                    st.pname = st.editName.val()
+                    st.jum = []
+                    for (const ej of st.editJum) {
+                        st.jum.push(eval(ej.val()))
+                    }
+
+                    calc(st)
+                    grade(st)
+                    st.editTot.val(st.tot)
+                    st.editAvg.val(st.avg)
+                    st.editgrade.val(st.grade)
+
+                    console.log(st)
+                    $(this).html("수정")
+                }
+                
+            })
+
+            st.htmlTAG.append(modifyBtn)
+        }
+
+
+        $(function(){
+            $("#reg > button").on("click",function(){
+                
+                var st = stInit()
+                calc(st)
+                grade(st)
+                /* rankk(st) */
+                
+        
+                arr[no]=st
+               console.log("arr[no]:"+arr[no])
+
+              
+             no++
+
+            /* function rank(st){
+            for (const me of stud.avg) {
+            for (const you of stud.avg) {
+                if(me.avg< you.avg){
+                    me.rank++;
+                }
+            }} */
+            
+            for (const me of arr[st.no]) {
+            for (const you of arr[st.no]) {
+                if(me.avg< you.avg){
+                    me.rank++;
+                }
+            }
+            
+        }
+    
+            
+        
+
+                stHtml(st)
+                $("section").append(st.htmlTAG)
+                console.log(arr)
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>exam</h1>
+    <div id="reg">
+        <input type="text" id="pname" value="정성"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <button>추가</button>
+    </div>
+    <section>
+        
+    </section>
+</body>
+</html>
+
+<!--     for (const me of studs) {
+            for (const you of studs) {
+                if(me.avg< you.avg){
+                    me.rank++;
+                }
+            }
+        } -->
