@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>protoExam</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        section{
+            width: 700px;
+            height: 600px;
+            border: 1px solid #aaa;
+        }
+        #reg > input,  .student > input{
+            width: 50px;
+          
+        }
+
+        section > .student{
+            width: 600px;
+            height: 30px;
+            background-color: #ffa;
+            margin: 10px;
+            padding:10px;
+        }
+
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        Stud = function(){
+            this.name = $("#reg > #pname").val()
+            this.jum = []
+            for (let i = 0; i < 3; i++) {
+                this.jum.push( eval($("#reg > .jum").eq(i).val()) )  
+            }
+            this.calc()
+            this.line()
+        }
+        Stud.prototype = {
+
+            calc : function(){
+                this.tot = 0
+                for (const i of this.jum) {
+                    this.tot += i
+                }
+                this.avg = Math.floor(this.tot / this.jum.length)
+            }, 
+            line : function(){
+                //return "<div>"+this.name +" , "+this.jum +" , "+this.tot +" , "+this.avg+"</div>"
+                var ttt = $("<div>"+this.name +" , "+this.jum +" , "+this.tot +" , "+this.avg+"</div>")
+                $("section").append(ttt)
+            }
+        }
+
+
+        var studs = []
+
+        $(function(){
+
+            $("#reg > button").on("click", function(){
+                //alert("눌렀냐")
+                //var st = new Stud()
+                //console.log(st)
+                studs.push(new Stud())
+                console.log(studs)
+            })
+
+            /*
+            var studs = [
+                new Stud("정우성",66,68,61),
+                new Stud("정남성",96,98,91),
+                new Stud("정중성",76,78,71),
+                new Stud("정좌성",56,58,51),
+                new Stud("북두신성",86,88,81)
+            ]
+            for (const st of studs) {
+                $("section").append(st.line())
+            }
+                학생 prototype을 정의 하고 
+                5명의 학생정보를 출력하세요
+                학생정보 - 이름, 국어, 영어, 수학, 총점, 평균
+            */
+        })
+    </script>
+</head>
+<body>
+    <h1>protoExam</h1>
+    <div id="reg">
+        <input type="text" id="pname" value="정성"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <button>추가</button>
+    </div>
+    <section/>
+</body>
+</html>
