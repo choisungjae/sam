@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        div{
+            width:50px;
+            height: 50px;
+            position: relative;
+            background-color: #ff0;
+            
+        }
+        
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+           $(".start").click(function(){
+                $($(this).attr("ele"))
+                .animate({width:"300px"},1500) 
+                .animate({left:"300px"},1500) 
+                .animate({height:"300px"},1500) 
+           })
+
+           $(".stop").click(function(){
+                switch($(this).attr("ele")){
+
+                    case "#box1":
+                    $($(this).attr("ele")).stop(true,true)
+                    break
+                    case "#box2":
+                    $($(this).attr("ele")).stop(true,false)
+                    break
+                    case "#box3":
+                    $($(this).attr("ele")).stop(false,true)
+                    break
+                    case "#box4":
+                    $($(this).attr("ele")).stop(false,false)
+                    break
+                }
+
+           })
+                
+        })
+    </script>
+</head>
+<body>
+    <h1>stop</h1>
+    <a href="#" class="start" ele="#box1">시작1</a>
+    <a href="#" class="stop" ele="#box1">(true,true)</a>
+    <div id="box1"></div>
+    <a href="#" class="start" ele="#box2">시작2</a>
+    <a href="#" class="stop" ele="#box2">(true,false)</a>
+    <div id="box2"></div>
+    <a href="#" class="start" ele="#box3">시작3</a>
+    <a href="#" class="stop" ele="#box3">(false,true)</a>
+    <div id="box3"></div>
+    <a href="#" class="start" ele="#box4">시작4</a>
+    <a href="#" class="stop" ele="#box4">(false,false)</a>
+    <div id="box4"></div>
+</body>
+</html>
