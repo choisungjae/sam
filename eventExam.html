@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            width: 1200px;
+            height: 510px;
+            /* background-color: #ff0; */
+            margin: 5px;
+            float: left;
+            margin: auto;
+        }
+        img{
+            width: 260px;
+            height: 260px;
+        }
+
+        section>div {
+            width: 270px;
+            height: 270px;
+            float: left;
+            margin: 5px;
+            border: 1px solid #aaaaaa;
+            overflow: auto;
+            margin: auto;
+            /* box-shadow: inset; */
+            
+            
+        }
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("section > div").eq(0).click(function() {
+
+                $("section > div").eq(4).css({ backgroundColor: "#ce8d38" })
+            })
+        })
+        $(function () {
+            $("section > div").eq(1).mouseover(function() {
+
+                $("section > div").eq(5).css({ boxShadow : " 5px 5px 5px  #ff0" })
+            })
+        })
+        $(function () {
+            $("section > div").eq(2).mouseout(function() {
+
+                $("section > div").eq(6).css({ opacity : "0.5"})
+            })
+        })
+        $(function () {
+            $("section > div").eq(3).mouseup(function() {
+
+                $("section > div").eq(7).css({  transform:'rotate(90deg)' })
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <section>
+        <div><img src="../$jqueryexam/08.png" alt=""></div>
+        <div><img src="../$jqueryexam/01.png" alt=""></div>
+        <div><img src="../$jqueryexam/02.png" alt=""></div>
+        <div><img src="../$jqueryexam/03.png" alt=""></div>
+        <div><img src="../$jqueryexam/04.png" alt=""></div>
+        <div><img src="../$jqueryexam/05.png" alt=""></div>
+        <div><img src="../$jqueryexam/06.png" alt=""></div>
+        <div><img src="../$jqueryexam/07.png" alt=""></div>
+
+    </section>
+
+</body>
+
+</html>
