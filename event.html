@@ -5,129 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
     <style>
-        section{
-            width:800px;
-            background-color: #ffa;
+        *{
+            margin: 0;
+            padding:0;
         }
 
-        section > div> img{
-            width:100px;
-            height: 70px;
+        section , #rrr{
+            width:500px;
+            height: 250px;
+            background-color: #ff0;
             margin: 5px;
-            padding: 5px;
-            border: 1px solid #ccc;
             float: left;
         }
-
-        section > div> img{
-            width:100px;
-            height: 70px;
-        }
-        #box{
-            width:200px;
-            height: 200px;
+        section > div, #rrr > div{
+            width:80px;
+            height: 80px;
+            float: left;
             margin: 5px;
-            padding: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #aaa;
             overflow: auto;
         }
+        #con{
+            width:600px;
+            border: 1px solid #aaa;
+            margin: 5px;
+            
+        }
+
+        
     </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
     <script>
-        function dd0(){
-            console.log("dd0 눌렀냐")
-        }
-        window.onload = function(){
-            var ppArr = document.getElementsByClassName("pp")
-            console.log(ppArr)
-            ppArr[1].onclick = function(){
-                console.log(" ppArr[1] 눌렀구만?")
-            }
-            ppArr[2].addEventListener('click',
-                                        ()=>{console.log(" ppArr[2] 눌렀으요")}, 
-                                        false)
-            
-            ppArr[3].onmouseover = function(e){
-                console.log("ppArr[3] over여 : "+e.clientX+","+e.clientY)
-            }
-            ppArr[4].onmouseout = function(e){
-                console.log("ppArr[4] out여1 : "+e.clientX+","+e.clientY)
-                console.log("ppArr[4] out여2 : "+e.pageX+","+e.pageY)
-            }
-            ppArr[5].onmousemove = function(e){
-                console.log("ppArr[5] move여 : "+e.clientX+","+e.clientY)
-            }
-            ppArr[3].onmousedown = function(e){
-                console.log("ppArr[3] 눌렀어 : "+e.clientX+","+e.clientY)
-            }
-            ppArr[4].onmouseup = function(e){
-                console.log("ppArr[4] 땠어 : "+e.clientX+","+e.clientY)
-                
+        $(function(){
+            function log(ttt){
+                $("#con").html($("#con").html()+ttt+"<br/>")
             }
 
-            var iptArr = document.getElementsByTagName("input")
 
-            console.log(iptArr)
+            $("section > div").eq(0).click(function(){
+                $(this).css({color:"#f00"})
+            })
+            $("section > div").on("click",function(){
 
-            iptArr[0].onfocus =function(){
-                console.log("iptArr[0] 눌렀어 : ")
-            }
+                //eq()  :: 배열에서 몇번째를 가져와라
+                //index() :: 내가 배열에서 몇번째냐
+                $("#rrr > div").eq($(this).index()).css({backgroundColor:"#f00"})
+            })
+            $("section > div").eq(1).mousedown(function(){
+                log("mousedown 이여 1")
+            })
+            $("section > div").eq(2).on("mousedown",function(){
+                log("mousedown 이여 2")
+            })
 
-            iptArr[1].onblur =function(){
-                console.log("iptArr[1] 땠어 : ")
-            }
-            
-            iptArr[2].onkeydown =function(e){
-                console.log("iptArr[2]키다운 : "+e.keyCode)
-            }
-            iptArr[3].onkeyup =function(e){
-                console.log("iptArr[2]키업 : "+e.keyCode)
-            }
-            
+            $("section > div").eq(2).on("mouseup",function(){
+                log("mouseup 이여 2")
+            })
 
-            var sel = document.getElementsByTagName("select").item(0)
+            $("section > div").eq(3).on("mousedown",function(){
+                log("mousedown 이여 3")
+            }).on("mouseup",function(){
+                log("mouseup 이여 3")
+            })
+            $("section > div").eq(4).hover(
+                function(){
+                    log("hover -> over 여 4")
+                },
+                function(){
+                    log("hover -> out 여 4")
+                }
+            )
+            $("section > div").eq(5).hover(
+                function(){
+                    log("hover -> over, out 여 5")
+                }
+            )
+            $("section > div").eq(6).mouseover(function(){
+                log("mouseover 이여 6")
+            }).mouseout(function(){
+                log("mouseout 이여 6")
+            })
+            $("section > div").eq(7).mousemove(function(e){
+                log("mousemove 이여 7 : "+e.pageX+","+e.pageY)
+            })
 
-            console.log(sel)
+            $("section > div").eq(8).scroll(function(){
+                log("scroll 이여 8 : "+$(this).scrollLeft()+","+$(this).scrollTop())
+            })
+            $("input:first-of-type").keydown(function(e){
+                log("keydown 이여  : "+e.keyCode)
+            }).on("keyup", function(e){
+                log("keyup 이여  : "+e.keyCode)
+            })
 
-            sel.onchange= function(){
-                console.log("sel.onchange : "+this.value)    /* 아이템가져온거 셀렉터창  바뀔때마다 출력  */
-            }
+            $("input:last-of-type").focus(function(){
+                log("focus 여  : ")
+            }).on("blur", function(){
+                log("blur 여  : ")
+            })
+            $("select").on("change",function(){
+                log("change 여  : "+$(this).val())
+            })
 
-            document.getElementById("box").onscroll=function(){
-                console.log("sel.onchange : "+this.scrollTop+","+this.scrollLeft) 
-            }
-        }
-
-        window.onresize= function(){
-            console.log("window.onresize "
-            +this.outerWidth+","+this.outerHeight+","+this.innerWidth+","+this.innerHeight) 
-        }  /* 실질적으로는  이너위드,하잇트 */
+            $(window).on("resize",function(e){
+                log("resize 여  : "+$(this).width()+","+$(this).height())
+            })
+        })
     </script>
 </head>
 <body>
     <h1>event</h1>
     <section>
-        <div class="pp"><img src="../fff/child_1.jpg" alt="" onclick="dd0()"></div>
-        <div class="pp"><img src="../fff/child_2.jpg" alt=""></div>
-        <div class="pp"><img src="../fff/child_3.jpg" alt=""></div>
-        <div class="pp"><img src="../fff/child_4.jpg" alt=""></div>
-        <div class="pp"><img src="../fff/child_4.jpg" alt=""></div>
-        <div class="pp"><img src="../fff/son_2.jpg" alt=""></div>
+        <div>0</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8
+            <img src="../fff/child_1.jpg" alt="">
+        </div>
+        <div>9</div>
     </section>
+    <div id="rrr">
+        <div>0</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
     <input type="text">
     <input type="text">
-    <input type="text">
-    <input type="text">
-    
-
     <select name="" id="">
-        <option>나혜린</option>
-        <option>너혜린</option>
-        <option>그혜린</option>
-        <option>그것혜린</option>
-        <option>우리혜린</option>
+        <option>네이버</option>
+        <option>구글</option>
+        <option>다음</option>
+        <option>인스타</option>
     </select>
-
-    <div id="box"><img src="../fff/son_3.jpg" alt=""></div>
-
+    
+    <div id="con"/>
 </body>
 </html>
