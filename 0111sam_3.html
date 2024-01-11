@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>protoExam</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        section{
+            width: 700px;
+            height: 600px;
+            border: 1px solid #aaa;
+        }
+        #reg > input,  section > div > input{
+            width: 50px;
+            margin: 5px;
+        }
+
+        section > div{
+            width: 600px;
+            height: 30px;
+            background-color: #ffa;
+            margin: 10px;
+            padding:10px;
+        }
+
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        
+
+        Stud = function(){
+            this.name = $("#reg > #pname").val()
+            var jum = []
+           /* for (let i = 0; i < 3; i++) {
+                this.jum.push( eval($("#reg > .jum").eq(i).val()) )  
+            } */
+            $("#reg > .jum").each(function(key, jj){
+                                        //key , value 임  => 0 , <input> 객체
+                                        //key , value 임  => 1 , <input> 객체
+                                        //key , value 임  => 2 , <input> 객체
+
+                //console.log(key, jj, jj.value)
+                //여기서 this 를 사용할 경우 this 는 jj 를 지칭함
+                //this.jum 으로 접근 불가 
+
+                //jum.push( eval(jj.value) )  아래 것과 같다
+                jum.push( eval(this.value) )   //this 는 $("#reg > .jum")[key] 이다
+            })
+            this.jum = jum
+            studs.push(this)
+            this.line()
+            this.calc()
+            
+        }
+        Stud.prototype = {
+
+            calc : function(){
+                this.tot = 0
+                for (const i of this.jum) {
+                    this.tot += i
+                }
+                this.avg = Math.floor(this.tot / this.jum.length)
+
+                
+                this.editTot.val(this.tot)
+                this.editAvg.val(this.avg)
+                this.studsRank()
+            },
+            rankCalc:function(){
+                
+                /*studs.forEach(function(you){
+                    //console.log(this, you.avg) this : window를 지칭    
+                }) */
+
+                this.rank = 1
+                for (const you of studs) {
+                    if(this.avg < you.avg){
+                        this.rank++
+                    }
+                }
+                this.editRank.val(this.rank)
+
+            }, 
+
+            studsRank : function(){
+                for (const st of studs) {
+                    st.rankCalc()
+                }
+            },
+            line : function(){
+
+                let htmlTAG = $("<div/>")
+                this.editName = $("<input readonly />")
+                this.editName.val(this.name)
+                this.editTot = $("<input readonly />")
+                this.editAvg = $("<input readonly />")
+                this.editRank = $("<input readonly />")
+                
+
+                htmlTAG.append(this.editName)
+
+                this.editJums = []
+
+                /*
+                this.jum.forEach(function(vv,   i){
+                                  //  원소값, 원소번호
+                    console.log(i, vv)
+                })
+                */
+
+
+                this.jum.forEach(function(vv){
+                                  //  원소값
+                    //console.log(vv)
+                    htmlTAG.append($("<input readonly value="+vv+" />"))
+                })
+
+                htmlTAG.append(this.editTot)
+                htmlTAG.append(this.editAvg)
+                htmlTAG.append(this.editRank)
+
+
+                var me = this
+                //return "<div>"+this.name +" , "+this.jum +" , "+this.tot +" , "+this.avg+"</div>"
+                //var ttt = $("<div>"+this.name +" , "+this.jum +" , "+this.tot +" , "+this.avg+"</div>")
+
+                var delBtn = $("<button>삭제</button>")
+                delBtn.click(function(){
+                    htmlTAG.remove()
+                    var no = studs.indexOf(me)
+                    //delete studs[no]
+                    studs.splice(no,1)
+                    console.log("삭제",studs)
+
+                    studs.forEach(function(st){
+                        st.calc()
+                    })
+                    
+                })
+
+                var modifyBtn = $("<button>수정</button>")
+                modifyBtn.click(function(){
+                    if($(this).html()=="수정"){
+                        $(this).html("수정완료")
+                        me.editName.prop("readonly", false)
+                        me.editJums.forEach(function(vv){
+                            vv.prop("readonly", false)
+                        })
+                    }else{
+                        $(this).html("수정")
+                        me.editName.prop("readonly", true)
+                        me.editJums.forEach(function(vv){
+                            vv.prop("readonly", true)
+                        })
+                    }
+                })
+                
+                htmlTAG.append(delBtn)
+                htmlTAG.append(modifyBtn)
+                $("section").append(htmlTAG)
+            }
+        }
+
+
+        var studs = []
+
+        $(function(){
+
+            /*
+            //object 하지마
+            var arr = {"사자":"포유류", "오타니":"이도류", 100:"사랑해요", "소수":123.456}
+
+            arr.forEach(function(vv,   i){
+                        //  원소값, 원소번호
+                console.log(i, vv)
+            }) */
+
+            $("#reg > button").on("click", function(){
+                //alert("눌렀냐")
+                //var st = new Stud()
+                //console.log(st)
+                new Stud()
+                console.log(studs)
+            })
+
+            /*
+            var studs = [
+                new Stud("정우성",66,68,61),
+                new Stud("정남성",96,98,91),
+                new Stud("정중성",76,78,71),
+                new Stud("정좌성",56,58,51),
+                new Stud("북두신성",86,88,81)
+            ]
+            for (const st of studs) {
+                $("section").append(st.line())
+            }
+                학생 prototype을 정의 하고 
+                5명의 학생정보를 출력하세요
+                학생정보 - 이름, 국어, 영어, 수학, 총점, 평균
+            */
+        })
+    </script>
+</head>
+<body>
+    <h1>protoExam</h1>
+    <div id="reg">
+        <input type="text" id="pname" value="정성"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <input type="text" class="jum"/>
+        <button>추가</button>
+    </div>
+    <section/>
+</body>
+</html>
