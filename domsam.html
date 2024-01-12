@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        nav > .main {
+            width:800px;
+            height: 42px;
+            background-color: #f0f;
+            overflow: hidden;
+        }
+
+        nav > .main > .title{
+            padding:5px;
+            width:150px;
+            height: 32px;
+            line-height: 32px;
+            font-size: 1.2rem;
+            background-color: #ff0;
+            border-top: 1px solid #888;
+        }
+        nav > .main > .sub{ /* 높이 : 31 */
+            position: relative;
+            margin-left: 20px;
+            padding: 3px;
+            width:100px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 1rem;
+            background-color: #afa;
+            border-bottom: 1px solid #ccc;
+            
+        }
+
+        nav > .main > .sub >div{ /* 높이 : 31 */
+            position: absolute;
+            top:0px;
+            margin-left: 100px;
+            
+            /* width:471px; */
+            width:0px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 1rem;
+            background-color: #0ff;
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+        }
+        nav > .main > .sub >div >div{
+            float: left;
+            width: 100px;
+            font-size: 0.8rem;
+        }
+        
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        var cnt = [3,4,3,4]
+        $(function(){
+                $("nav > .main > .title").on("click", function(){
+
+                    var dataOpen = eval($(this).attr("data-open"))
+
+                    $("nav > .main > .title").attr("data-open", "false")
+                    $("nav > .main").stop().animate({
+                        height: "42px"
+                    }, 1000) 
+                    
+
+                    //console.log($(this).parent().index())
+                    var hh = 42 + 31 * cnt[$(this).parent().index()]
+
+                    
+                    if(dataOpen){
+                        hh = 42
+                    }
+                    $(this).attr("data-open", !dataOpen)
+
+                    $(this).parent().stop().animate({
+                        height: hh+"px"
+                    }, 1000) 
+                    
+                    
+                })
+
+
+                $("nav > .main > .sub").on("click", function(){
+                    $("nav > .main > .sub > div").animate({width:"471px"}, 1000)
+                })
+        })
+    </script>
+</head>
+<body>
+    <h1>menu</h1>
+    <nav>
+        <div class="main">
+            <div class="title"  data-open="false">회사소개</div>
+            <div class="sub">인사말</div>
+            <div class="sub">인사개
+                <div>
+                    <div>헬로개</div>
+                    <div>멍멍개</div>
+                    <div>기체후일향개</div>
+                    <div>와우와우개</div>
+                </div>
+            </div>
+            <div class="sub">인사소</div>
+        </div>
+        <div class="main" >
+            <div class="title" data-open="false">갤러리</div>
+            <div class="sub">봄</div>
+            <div class="sub">여름</div>
+            <div class="sub">가을</div>
+            <div class="sub">겨울</div>
+        </div>
+        <div class="main" >
+            <div class="title" data-open="false">제품</div>
+            <div class="sub">니품</div>
+            <div class="sub">내품</div>
+            <div class="sub">그놈품</div>
+        </div>
+        <div class="main" >
+            <div class="title" data-open="false">고객센터</div>
+            <div class="sub">공지사항</div>
+            <div class="sub">일지사항</div>
+            <div class="sub">이지사항</div>
+            <div class="sub">삼지사항</div>
+        </div>
+    </nav>
+    
+
+
+</body>
+</html>
