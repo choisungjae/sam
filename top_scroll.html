@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>top_scroll</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        
+        
+        header{
+                      
+            width:100%;
+            height: 200px;
+            background-color: #ff0;
+        }
+        nav{
+            
+            width:100%;
+            height: 50px;
+            background-color: #0f0;
+            transition-duration: 0.5s;
+        }    
+        
+        section{
+            
+            border: 1px solid #333;
+            width:100%;
+            background-color: #0ff;
+        }
+        .fff{
+            
+            position: fixed;
+            top:20px;
+            width:600px;
+            height: 30px;
+            background-color: rgba(100, 10, 50, 0.5);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+    </style>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        
+        $(function(){
+
+            var navTop = $("nav").offset().top
+
+            console.log(navTop)
+
+            $(window).scroll(function(){
+                //console.log($(this).scrollTop())
+                if($(this).scrollTop()>=navTop){
+                    //console.log("넘어갔냐")
+                    $("nav").addClass("fff")
+                }else{
+                    //console.log("돌아왔구나 nav식이")
+                    $("nav").removeClass("fff")
+                }
+
+            })
+        })
+</script>
+</head>
+<body>
+    <h1>top_scroll</h1>
+    <header>난 헤더야</header>
+    <nav>내가 네비게이션 이야</nav>
+    <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam hic ratione harum 
+        <img src="../fff/child_1.jpg" alt="">
+        perferendis neque tenetur fuga eos commodi. Harum tenetur
+        <img src="../fff/child_2.jpg" alt="">
+        similique quod provident sequi, nobis consectetur adipisci velit voluptates ex!
+        <img src="../fff/child_3.jpg" alt="">
+    </section>
+</body>
+</html>
