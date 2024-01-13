@@ -1,0 +1,45 @@
+package control_p;
+
+public class SwitchMain {
+	public static void main(String[] args) {
+		
+				
+				String grade="과장";
+				int basic=400;
+				double bonus;
+				
+				switch(grade) {
+				case "부장":
+					bonus=0.5;
+					break;
+				case "과장":
+					bonus=0.3;
+					break;
+				case "대리":
+					bonus=0.2;
+					break;
+				case "사원":
+					bonus=0.1;
+					break;
+				case "":
+					bonus=0;
+					break;
+				}
+				int mo=basic+(int)(basic*bonus);
+				
+				System.out.println(mo);
+				
+				
+				
+				
+				
+				
+				
+			                         //break=  제어문탈출시 사용
+			}
+		
+	
+		
+		
+
+}

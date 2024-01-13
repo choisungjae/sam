@@ -1,0 +1,39 @@
+package Restaurant;
+
+import java.util.TreeSet;
+
+enum SawonCC{
+	부장,과장,대리,사원
+}	
+class TrSwon{
+	SawonCC sc;
+	String name;
+	int jum;
+	public TrSwon(String sc, String name, int jum) {
+		super();
+		this.sc = SawonCC.valueOf(sc);
+		this.name = name;
+		this.jum = jum;
+	}
+	@Override
+	public String toString() {
+		return sc+"\t"+name+"\t"+jum;
+	}
+	
+	
+	
+}	
+	
+	
+	
+	
+	
+
+public class TreeSawonMain {
+
+	public static void main(String[] args) {
+		TreeSet ts =new TreeSet();
+
+	}
+
+}

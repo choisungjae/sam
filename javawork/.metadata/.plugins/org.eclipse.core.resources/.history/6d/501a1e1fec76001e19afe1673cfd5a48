@@ -1,0 +1,13 @@
+package control_p;
+
+public class SwitchSampleMain {
+
+	public static void main(String[] args) {
+		
+		double avg=87.54;
+		System.out.println((int)avg);
+		 
+
+	}
+
+}

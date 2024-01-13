@@ -1,0 +1,97 @@
+package Restaurant;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.TreeSet;
+
+//1번문제 반,등수,이름 출력
+// 만약다하면 2번문제 타입,반,성별,등수,이름순으로 출력
+//3번 입력값에 따라 타입,반,성별 선택하고 등수,이름순으로 출력하세요
+
+//타입 = 일반,예체능
+//다하면  2차  집어넣는 값에따라 정렬알아서 바뀌어라
+//타입별로비교 - 같으면 반별로해라 - 그다음은 등수나 뭐 그런거로 정렬해라
+
+enum type{
+	일반, 예체능
+}
+class Stud{
+	type sc;
+	String name;
+	int jum[];
+	int avg,tot;
+	
+	public Stud(String sc, String name, int ...jum) {
+		this.sc = type.valueOf(sc);
+		this.name = name;
+		this.jum = new int[] {jum[0], jum[1], jum[2]};
+		calc();
+	}
+	void calc() {
+		tot = 0;
+		for (int j = 0; j < jum.length; j++) {
+			tot += jum[j];
+		}
+		avg = tot/jum.length;
+		
+	
+	} 
+
+	@Override
+	public String toString() {
+		return sc + "\t" + name + "\t" + Arrays.toString(jum)+"\t"+tot+"\t"+avg;
+	}
+}
+
+class Studrank implements Comparator{
+
+	
+	
+	public int compare(Object o1, Object o2) {
+		Stud me=(Stud)o1; 
+	    Stud you=(Stud)o2; 
+	    int res =me.sc.ordinal()-you.sc.ordinal();
+	    if(res==0) {
+			res=you.avg-me.avg;
+		}
+	    if(res==0) {
+      		res=me.name.compareTo(you.name);
+				}
+//	    
+	    
+		return res;
+		
+	}
+}
+
+ 
+
+public class Tr1204 {
+
+	public static void main(String[] args) {
+		TreeSet one = new TreeSet(new Studrank());
+		TreeSet two = new TreeSet(new Studrank());
+        
+		one.add(new Stud("일반","최성재",72,44,33));
+		one.add(new Stud("예체능","최성재4",72,55,88));
+		one.add(new Stud("일반","김성재3",72,43,23));
+		one.add(new Stud("예체능","유성재2",72,43,53));
+		one.add(new Stud("예체능","최성재2",72,43,23));
+		one.add(new Stud("일반","최성재9",52,43,63));
+		one.add(new Stud("예체능","님성재10",12,43,23));
+		one.add(new Stud("일반","아성재11",22,53,73));
+		two.add(new Stud("일반","최성재11",22,53,73));
+		two.add(new Stud("일반","규성재11",22,53,73));
+		two.add(new Stud("일반","최성재11",22,53,73));
+		two.add(new Stud("일반","윤성재11",22,53,73));
+		two.add(new Stud("일반","최성재11",22,53,73));
+		two.add(new Stud("일반","윤성재11",22,53,73));
+		two.add(new Stud("일반","최성재11",22,53,73));
+		two.add(new Stud("일반","임성재11",22,53,73));
+	
+	
+	for (Object ob: one) {
+		System.out.println(ob);
+	}
+	} 
+
+}

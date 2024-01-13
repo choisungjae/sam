@@ -1,0 +1,35 @@
+package Restaurant;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+public class LinkedHashSetmain {
+
+	public static void main(String[] args) {
+		ArrayList arr= new ArrayList();
+		HashSet hs1= new HashSet();              //순번 랜덤
+		LinkedHashSet Ihs1 =new LinkedHashSet(); //입력순서대로 잘나옴 
+		TreeSet ts1=new TreeSet();
+		
+		
+		for (int i: new int[] {33,22,44,11,33,44,11,55,33,66}) {
+			arr.add(i);
+			hs1.add(i);
+			Ihs1.add(i);
+			ts1.add(i);
+		}
+		System.out.println("arr:"+arr);
+		System.out.println("hs1:"+hs1);
+		System.out.println("Ihs1:"+Ihs1);
+		System.out.println("ts1:"+ts1);
+		
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,54 @@
+package Restaurant;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+//비교를 수행하는 클래스 정의
+class MyCom implements Comparator{
+
+	//비교하는 메소드 재정의 -> 
+	// 현재 add 하는 원소 : o1, 기존 collection 의 원소 o2
+	@Override
+	public int compare(Object o1, Object o2) {
+		System.out.println("compare :"+o1+","+o2);
+		return 0;
+	}
+	
+}
+
+public class LinkedHashSetMain {
+
+	public static void main(String[] args) {
+		ArrayList arr = new ArrayList();
+		HashSet hs1 = new HashSet();
+		LinkedHashSet lhs1 = new LinkedHashSet();
+		TreeSet ts1 = new TreeSet();
+									//생성시 비교 클래스 입력
+		TreeSet ts2 = new TreeSet(new MyCom());
+		
+		
+		for (int i : new int[] {33,44,11,55,22,66,11,33,44,33}) {
+			arr.add(i);
+			hs1.add(i);
+			lhs1.add(i);
+			ts1.add(i);
+			ts2.add(i);
+			System.out.println(i+"-----------------------");
+		}
+		
+		System.out.println("arr "+arr);
+		System.out.println("hs1 "+hs1);
+		System.out.println("lhs1 "+lhs1);
+		System.out.println("ts1 "+ts1);
+		System.out.println("headSet(44) "+ts1.headSet(44));
+		System.out.println("tailSet(44) "+ts1.tailSet(44));
+//		System.out.println("hs1 "+hs1.get(2));
+//		System.out.println("lhs1 "+lhs1.get(2));
+//		System.out.println("ts1 "+ts1.get(2));
+		System.out.println("ts2 "+ts2);
+	}
+
+}

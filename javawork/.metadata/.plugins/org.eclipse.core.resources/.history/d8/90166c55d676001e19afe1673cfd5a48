@@ -1,0 +1,24 @@
+package control_p;
+
+public class SwitchMain {
+	public static void main(String[] args) {
+		
+		switch(30) {
+		case 50:
+			System.out.println("50이지렁");
+		case 40:
+			System.out.println("40이지렁");
+		case 30:
+			System.out.println("30이지렁");
+		case 60:
+			System.out.println("20이지렁");
+		case 10:
+			System.out.println("10이지렁");
+			
+		
+		}
+		
+		
+
+}
+}

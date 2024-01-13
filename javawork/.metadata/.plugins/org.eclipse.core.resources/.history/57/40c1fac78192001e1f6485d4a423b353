@@ -1,0 +1,61 @@
+package Restaurant;
+
+import java.util.Comparator;
+import java.util.TreeSet;
+
+enum SawonCC{
+	부장, 과장, 대리, 사원
+}
+
+class TrSawon{
+	SawonCC sc;
+	String name;
+	int jum;
+	
+	public TrSawon(String sc, String name, int jum) {
+		this.sc = SawonCC.valueOf(sc);
+		this.name = name;
+		this.jum = jum;
+	}
+
+	@Override
+	public String toString() {
+		return sc + "\t" + name + "\t" + jum;
+	}
+}
+
+class SaCom implements Comparator{
+
+	@Override
+	public int compare(Object o1, Object o2) {
+	    TrSawon me =(TrSawon)o1;
+	    TrSawon you =(TrSawon)o2;
+		int res =me.sc.ordinal()-you.sc.ordinal();
+	    return res;
+	}
+	
+}
+
+public class TreeSawonMain {
+
+	public static void main(String[] args) {
+		TreeSet ts = new TreeSet(new SaCom());
+		ts.add(new TrSawon("과장", "현빈", 72));
+		ts.add(new TrSawon("부장", "원빈", 62));
+		ts.add(new TrSawon("대리", "김우빈", 82));
+		ts.add(new TrSawon("과장", "투빈", 92));
+		ts.add(new TrSawon("사원", "골빈", 42));
+		ts.add(new TrSawon("대리", "커피빈", 72));
+		ts.add(new TrSawon("부장", "젤리빈", 62));
+		ts.add(new TrSawon("사원", "장희빈", 2));
+		ts.add(new TrSawon("과장", "미스터빈", 52));
+		ts.add(new TrSawon("대리", "하얼빈", 82));
+		ts.add(new TrSawon("사원", "텅빈", 62));
+		ts.add(new TrSawon("사원", "자바빈", 32));
+		
+		for (Object ob : ts) {
+			System.out.println(ob);
+		}
+	}
+
+}

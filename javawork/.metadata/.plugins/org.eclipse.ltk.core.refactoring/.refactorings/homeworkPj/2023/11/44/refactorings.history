@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;homeworkPj.zamzam&apos; to &apos;haaaaaaaaaaaaaaaaaaaaaaaaaaa&apos;&#x0D;&#x0A;- Original project: &apos;homeworkPj&apos;&#x0D;&#x0A;- Original element: &apos;homeworkPj.zamzam&apos;&#x0D;&#x0A;- Renamed element: &apos;homeworkPj.haaaaaaaaaaaaaaaaaaaaaaaaaaa&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;zamzam&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;homeworkPj{zamzam.java[zamzam" matchStrategy="1" name="haaaaaaaaaaaaaaaaaaaaaaaaaaa" qualified="false" references="true" similarDeclarations="false" stamp="1698843072365" textual="false" version="1.0"/>
+</session>

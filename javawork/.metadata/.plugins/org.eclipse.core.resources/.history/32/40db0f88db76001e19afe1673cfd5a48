@@ -1,0 +1,85 @@
+package control_p;
+
+public class SwitchMain {
+	public static void main(String[] args) {
+		
+		switch(30) {                             //값30로이동해서 거기부터 밑으로 쭉실행
+		case 50:
+			System.out.println("50이지렁");
+		case 20:
+			System.out.println("20이지렁");
+		case 40:
+			System.out.println("40이지렁");
+		case 30:
+			System.out.println("30이지렁");
+		case 60:
+			System.out.println("60이지렁");
+		}
+			System.out.println("switch 종료-----------------------------------");
+			
+			switch("문자는가능") {}   //정수,문자,문자열 !가능
+			//switch(123.456) {}  //실수 불!가능
+			//switch('a')         //char 불!가능
+			//switch(true) {}       //boolean 불!가능
+			
+			System.out.println("switch 종료2-----------------------------------");
+		    	
+			switch(30) {                             //값30로이동해서 거기부터 밑으로 쭉실행
+			case 50:
+				System.out.println("50이지렁");
+				break;
+			case 20:
+				System.out.println("20이지렁");
+				break;
+			case 40:
+				System.out.println("40이지렁");
+				break;
+			default:
+				System.out.println("기본값이지롱");       //default -아무값도없을때 출력
+			case 30:
+				System.out.println("30이지렁");
+				break;
+			case 60:
+				System.out.println("60이지렁");
+				break;
+				
+				String grade="과장";
+				int basic=400;
+				double bonus;
+				
+				switch(grade) {
+				case "부장":
+					bonus=0.5;
+					break;
+				case "과장":
+					bonus=0.3;
+					break;
+				case "대리":
+					bonus=0.2;
+					break;
+				case "사원":
+					bonus=0.1;
+					break;
+				case "":
+					bonus=0.;
+					break;
+				}
+				int mo=basic+(int)(basic*bonus);
+				
+				System.out.println(mo);
+				
+				
+				
+				
+				
+				
+				
+			                         //break=  제어문탈출시 사용
+			}
+		
+	
+		
+		
+
+}
+}

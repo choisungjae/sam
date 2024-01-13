@@ -1,0 +1,284 @@
+package lang_p;
+
+import java.util.Arrays;
+
+/*
+ String
+   toString() : 값이 나옴
+    대입    : 값의 대입
+    equals(값) : 값의 비교
+    length()  : 글자 길이
+
+
+    charAt(22) : //글자번호 char 추출
+
+    substring(22) : //일부 문자열 추출 글자번호->끝
+    substring(4,10) : //일부 문자열  시작번호 -> 끝나는 다음번호  4->9
+    
+
+
+    indexOf("a");  //찾는 문자열의 처음 등장번호    없으면 : -1
+
+    indexOf("a", 7);  //찾는 문자열의 처음 시작번호로부터 처음 등장번호
+
+    indexOf("a", 7, 10);  //에러
+    indexOf("avz", 7) ;//찾는 문자열의 시작번호에서부터 처음 등장하는번호
+    lastIndexOf("a"); //찾는 문자열의 마지막 등장번호
+
+    lastIndexOf("a", 20); //찾는 문자열의 시작번에서부터 앞쪽으로 마지막 등장번호    20번앞으로 a 찾기 : 19번
+
+    contains("ab");   //"ab" 존재여부
+
+
+
+    startsWith(String prefix)  //prefix 로시작
+
+     endsWith(String suffix);//suffix로 끝
+
+
+
+
+
+    split("@");    //문자열을 구분기호로 나누어 문자열배열
+
+    split("@", 3);    //문자열을 구분기호로 나누어 문자열배열  배열 원소을 3개까지만으로 나누기(앞에서 부터 나눔)
+    split("[.]");    //점만 [] 사용
+
+    split("[ ,.()=\"*¹²³]"   []안에 있는 것들로 나누기 
+
+
+
+
+
+    toUpperCase();  //대문자
+    toLowerCase();  //소문자
+
+
+
+선생님 귀여워요 Abcd Ef Java 만세 12a3a4
+
+  replace('이전문자','바뀔문자');  //문자 치환 (한글자만)
+
+
+
+  replace("이전문자열","바뀔 문자열");  //문자열 치환 전부
+  replaceAll("이전문자열","바뀔 문자열");  //문자열 치환 전부
+
+  "qwer".repeat(3)  :   qwerqwerqwer
+
+
+  toCharArray();  //문자열을 글자배열
+  trim()      //문자열 앞뒤 공백제거
+
+concat("Java")  //문자열 뒤에 붙이기
+
+
+
+join
+
+
+
+String. join() 사용하면
+
+Array나 List를 구분자를 지정해서 String으로 얻을 수 있다. 
+ * */
+public class StringMain {
+
+	public static void main(String[] args) {
+
+		String s1 = "나는무너";
+		String s2 = "나는무너";
+		String s3 = s1;
+		String s4 = new String("나는무너");
+		String s5 = "나는상어";
+		String s6 = new String(new char[] {'나','는','무','너'});
+		
+		System.out.println(s1+","+s1.toString()+","+s1.hashCode());
+		System.out.println(s2+","+s2.toString()+","+s2.hashCode());
+		System.out.println(s3+","+s3.toString()+","+s3.hashCode());
+		System.out.println(s4+","+s4.toString()+","+s4.hashCode());
+		System.out.println(s5+","+s5.toString()+","+s5.hashCode());
+		System.out.println(s6+","+s6.toString()+","+s6.hashCode());
+		
+		System.out.println("== >>>>>>>>>>>>>>>>");
+		System.out.println("s1==s2 : "+(s1==s2));
+		System.out.println("s1==s3 : "+(s1==s3));
+		System.out.println("s1==s4 : "+(s1==s4));
+		System.out.println("s1==s5 : "+(s1==s5));
+		System.out.println("s1==s6 : "+(s1==s6));
+		System.out.println("equals( ) >>>>>>>>>>>>>>>>");
+		System.out.println("s1.equals(s2) : "+s1.equals(s2));
+		System.out.println("s1.equals(s3) : "+s1.equals(s3));
+		System.out.println("s1.equals(s4) : "+s1.equals(s4));
+		System.out.println("s1.equals(s5) : "+s1.equals(s5));
+		System.out.println("s1.equals(s6) : "+s1.equals(s6));
+		
+		String a = "선생님은 귀여워요 aBcD eF Java 만세 12a3a4";
+		//          0 123 45 67 8901234567890123 45678901
+		System.out.println(a);
+		System.out.println(a.length());
+		char ch = a.charAt(13);
+		System.out.println(ch+","+(int)ch);
+		String b = "87321";
+		int nos = 0;
+		for (int i = 0; i < b.length(); i++) {
+			char cc = b.charAt(i);
+			int no = cc-'0'; 
+			
+			nos*=10;
+			nos+=no;
+			System.out.println(i+":"+cc+" , "+(int)cc+" , "+no+" , "+nos);
+			
+		}
+		//String a = "선생님은 귀여워요 aBcD eF Java 만세 12a3a4";
+		//            0 123 45 67 8901234567890123 45678901
+		
+		String c = a.substring(11);
+		System.out.println("a.substring(11) : "+c);
+		System.out.println("a.substring(11,16) : "+a.substring(11,16));
+		int pos = a.indexOf("c");
+		System.out.println("a.indexOf(\"c\") : "+pos);
+		System.out.println("a.indexOf(\"av\") : "+a.indexOf("av"));
+		System.out.println("a.indexOf(\"아기상어\") : "+a.indexOf("아기상어"));
+		System.out.println("a.indexOf(\"a\") : "+a.indexOf("a"));
+		System.out.println("a.indexOf(\"a\",11) : "+a.indexOf("a",11));
+		System.out.println("a.indexOf(\"a\",20) : "+a.indexOf("a",20));
+		System.out.println("a.indexOf(\"a\",22) : "+a.indexOf("a",22));
+		System.out.println("a.indexOf(\"a\",31) : "+a.indexOf("a",31));
+		System.out.println("a.lastIndexOf(\"a\") : "+a.lastIndexOf("a"));
+		System.out.println("a.lastIndexOf(\"a\",27) : "+a.lastIndexOf("a",27));
+		/*
+		 *  
+	*  변수.indexOf(11)                  11가 몇번째에있냐?
+	   변수.substring(11)                문자열 [11번] 부터 출력해
+	   변수.substring(11,16)             문자열 [11번] 부터 [16번]까지 출력해
+	   변수.lastIndexOf(11)              11을 뒤에서부터찾아줘   [자리수출력됨]
+	   변수.contains(11)                 문자열에 11가있냐?
+	   변수.startsWith(11)               11부터시작이냐?
+	   변수.endsWith(11)                 11로 끝나냐?
+	   String []arr= c.split(",");      배열화시켜줘
+	   c =a.replaceAll("a", "에이");      c배열에있는걸  a를 에이로 바꿔줘
+	   a.toUpperCase()                  a안에있는애들  대문자로 바꿔줘
+	   a.toLowerCase()                  a안에있는애들  소문자로 바꿔줘
+	   c.trim()                         c문자열에 앞뒤 공백을 채워줘 
+	   
+		c="zxcv";
+		d=c.repeat(5);   //d에 c를 5번 넣어줘
+		
+		
+		//껴넣기
+		arr= new String[] {"차은우","자전거은우","오토바이은우","유으운"};
+	    c=String.join("<==>", arr);   //배열의 원소 사이에 (1,배열)  1을 투입
+		차은우<==>자전거은우<==>오토바이은우<==>유으운
+		
+		//배열화
+		c= "아메리카노,아시아노,유럽노-아프리카노,오세아니아노,카노";
+		String []arr= c.split(",");              c에있는애들을 ,기준으로 배열화 시켜줘 
+		for (String tt : arr) {
+			System.out.println(tt);
+		}
+		
+		//한글자씩표현
+		c= "여긴 참123숲 %^&수";                    c 에있는애들을 한글자씩표현해줘
+		
+		char[] charr= c.toCharArray();
+		for (char e : charr) {
+			System.out.println(e);
+		}
+		
+		 
+		 
+	
+		 * */
+		a = "선생님은 귀여워요 aBcD eF Java 만세 12a3a4";
+		String fname = "aaaa.bbb.cccccc.dd.eee.txt";
+		int fpos = fname.lastIndexOf(".");
+		System.out.println(fpos);
+		String ext = fname.substring(fpos+1);
+		System.out.println(ext);
+		System.out.println(fname.substring(fname.lastIndexOf(".")+1));
+		
+		
+		System.out.println("a.indexOf:"+a.contains("Bc"));
+		System.out.println("a.indexOf:"+a.contains("아기상어"));
+		System.out.println("a.indexOf:"+a.startsWith("선생"));
+		System.out.println("a.indexOf:"+a.startsWith("aaaa"));
+		System.out.println("a.indexOf:"+a.endsWith("a3a4"));
+		System.out.println("a.indexOf:"+a.endsWith("귀여워요"));
+		System.out.println("---------------------");
+		c= "아메리카노,아시아노,유럽노-아프리카노,오세아니아노,카노";
+		String []arr= c.split(",");
+		for (String tt : arr) {
+			System.out.println(tt);
+		}
+		c= "아메리카노,아시아노,유럽노-아프리카노,오세아니아노,카노";
+		String []arr2= c.split("[,.-]"); //,.이면 .이 한글자아무거나가능 .자리에는표시x
+		for (String ttt : arr2) {        // []안의 글자로 나눔 , . - 세개다 적용 
+			System.out.println(ttt);
+		}
+		
+		
+		System.out.println("---------------------");
+		
+		arr= new String[] {"차은우","자전거은우","오토바이은우","유으운"};
+		
+		String d=String.join("<==>", arr);   //배열의 원소 사이에 (1,배열)  1을 투입
+		System.out.println(d);
+		
+		
+		System.out.println("---------------------");
+		c= "여긴 참123숲 %^&수";
+		
+		char[] charr= c.toCharArray();
+		for (char e : charr) {
+			System.out.println(e);
+		}
+		System.out.println("---------------------");
+		
+		c =a.replaceAll("a", "에이");
+		System.out.println(c);
+		
+		c="zxcv";
+		d=c.repeat(5);
+		System.out.println(d);
+		
+		d= c.concat("장수풍뎅이");
+		System.out.println(d);
+		
+		System.out.println("a.toUpperCase():" +a.toUpperCase());
+		System.out.println("a.toLowerCase():" +a.toLowerCase());
+		
+		
+		c="        그린 IT아카데미";
+		System.out.println(c+":"+c.length());
+		System.out.println(c.trim()+":"+c.trim());  //앞뒤로 빈칸없애줌
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

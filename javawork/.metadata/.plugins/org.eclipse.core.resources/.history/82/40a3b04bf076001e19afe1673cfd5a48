@@ -1,0 +1,73 @@
+package control_p;
+
+public class Zam2 {
+
+	public static void main(String[] args) {
+		
+	/*	int am=2000,asi=3000,af=4000;
+		String cu="커피";
+		int amsu =1,asisu=3,afsu=1;
+		int total= (am*amsu)+(asi*asisu)+(af*afsu);
+		System.out.println(total);
+		
+		if(total>=10000) {
+			System.out.println("배달가능");
+		}else if(total>=8000) {
+			System.out.println("포인트추가");
+		}else {System.out.println("기본");} */
+		
+		
+	   String gd= "등급";
+	   double score =  Math.round(3.8);
+	   System.out.println(score);
+	   /*switch((double)score){
+		case 4.5:
+			System.out.println("A+");
+		 break;
+		case 4.0:
+			System.out.println("A");
+		 break;
+		case 3.5:
+			System.out.println("B+");
+		 break;
+		case 3.0:
+			System.out.println("B");
+		 break;
+		case 2.5:
+			System.out.println("C+");
+		 break;
+		case 2.0:
+			System.out.println("C");
+		 break;
+		case 1.5:
+			System.out.println("D+");
+		 break;
+		case 1:
+			System.out.println("D");
+		 break;
+		}*/
+	   
+	   
+	   
+	   
+	   
+	   
+		
+		
+	
+		
+		
+	    
+		
+		
+		
+		
+		
+		//아메2000
+		//아시아노 3000
+		//아프리카노4000
+		//10000이상이면 배달가능 / 8000이상이면 포인트추가,미만이면 기본
+
+	}
+
+}

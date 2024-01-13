@@ -1,0 +1,31 @@
+package control_p;
+
+public class VarscopeMain {
+
+	public static void main(String[] args) {
+		int a=10,b,c;
+		System.out.println("main1:"+a);
+		
+		boolean bo =true;
+		if(bo) {
+			a=20;
+			b=2000;
+			c=1234;
+			int d=9988;
+			System.out.println("참이지롱:"+a+","+b+","+d);
+			}
+		else{
+			a=30;                                       //
+			c=456;
+			System.out.println("거짓부렁:"+a);
+			//System.out.println("거짓부렁:"+a+b);
+			
+		}
+		
+		System.out.println("main:"+a+","+c);
+		
+	
+
+	}
+
+}

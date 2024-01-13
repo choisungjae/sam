@@ -1,0 +1,61 @@
+package Restaurant;
+
+import java.util.Comparator;
+import java.util.TreeSet;
+
+enum SawonCC{
+	부장,과장,대리,사원
+}	
+class TrSwon{
+	SawonCC sc;
+	String name;
+	int jum;
+	public TrSwon(String sc, String name, int jum) {
+		super();
+		this.sc = SawonCC.valueOf(sc);
+		this.name = name;
+		this.jum = jum;
+	}
+	@Override
+	public String toString() {
+		return sc+"\t"+name+"\t"+jum;
+	}
+	
+	
+	
+}	
+	
+	
+class SaCom implements Comparator{
+
+	public int compare(Object o1, Object o2) {
+		
+		return 0;
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+	
+	
+	
+
+public class TreeSawonMain {
+
+	public static void main(String[] args) {
+		TreeSet ts =new TreeSet(new SaCom());
+		
+		ts.add(new TrSawon("부장","543빈",32));
+		ts.add(new TrSawon("과장","576빈",52));
+		ts.add(new TrSawon("부장","123빈",42));
+		ts.add(new TrSawon("사원","22빈",73));
+		ts.add(new TrSawon("부장","44빈",66));
+		ts.add(new TrSawon("대리","44빈",42));
+		ts.add(new TrSawon("부장","66빈",62));
+		ts.add(new TrSawon("대리","55빈",75));
+		ts.add(new TrSawon("부장","22빈",34));
+		ts.add(new TrSawon("사원","3빈",12));
+		ts.add(new TrSawon("부장","빈",22));
+
+	}
+
+}
