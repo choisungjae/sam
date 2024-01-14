@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ttttttollAni</title>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <style>
+        
+
+        body {
+            width: 1000px;
+            height: 100%;
+            border: 1px solid #000000;
+        }
+
+        .ww {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .sub {
+            width: 400px;
+            height: 100%;
+            box-sizing: border-box;
+            margin: 30px;
+        }
+
+        .sub>img {
+            width: 400px;
+            height: 400px;
+            margin: 30px;
+        }
+
+        ul {
+            display: flex;
+            width: 900px;
+            height: 40px;
+            background-color: #f2dbdb;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin: 30px;
+            
+        }
+
+        li {
+            margin-right: 100px;
+            font-size: 30px;
+        }
+
+        .fixe {
+            position: fixed;
+            top: 10px;
+            width: 900px;
+            height: 50px;
+            background-color: #f2dbdb;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .fixe2 {
+            position: fixed;
+            top: 50px;
+            width: 900px;
+            height: 50px;
+            background-color: #d6f6c0;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            left: 1000px;
+        }
+        .fixe3 {
+            position: fixed;
+            top: 50px;
+            width: 900px;
+            height: 50px;
+            background-color: #bed0ed;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            left: 1000px;
+        }
+        .fixe4 {
+            position: fixed;
+            top: 50px;
+            width: 900px;
+            height: 50px;
+            background-color: #e7b3f0;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            left: 1000px;
+        }
+        .no{
+            display: none;
+        }
+        header{
+            font-size: 70px;
+            background-color: #c7eae2;
+            margin: 10px 20px 0px 20px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header> 고봉씨 사진 저장소</header>
+    <nav>
+        <ul>
+            <li>강아지사진첩</li>
+            <li>고양이사진첩</li>
+            <li>고봉띠어릴때</li>
+        </ul>
+        <ul class ="no">
+            <li>강아지사진첩</li>
+        </ul>
+        <ul class ="no">
+            <li>고양이사진첩</li>
+        </ul>
+        <ul class ="no">
+            <li>고봉띠어릴때</li>
+        </ul>
+    </nav>
+    <div class="ww">
+        <div class="sub"><img src="KakaoTalk_20240114_172740205.jpg" alt=""></div>
+        <div class="sub"><img src="KakaoTalk_20240114_172736703.jpg" alt=""></div>
+    </div>
+    <div class="ww">
+        <div class="sub"><img src="KakaoTalk_20240114_172738286.jpg" alt=""></div>
+        <div class="sub"><img src="KakaoTalk_20240114_172739591.jpg" alt=""></div>
+    </div>
+    <div class="ww">
+        <div class="sub"><img src="KakaoTalk_20240114_172735969.jpg" alt=""></div>
+        <div class="sub"><img src="KakaoTalk_20240114_172757954.jpg" alt=""></div>
+    </div>
+    <div class="ww">
+        <div class="sub"><img src="스크린샷 2024-01-14 182323.png" alt=""></div>
+        <div class="sub"><img src="스크린샷 2024-01-14 182343.png" alt=""></div>
+    </div>
+    <div class="ww">
+        <div class="sub"><img src="KakaoTalk_20240114_172740205.jpg" alt=""></div>
+        <div class="sub"><img src="KakaoTalk_20240114_172736703.jpg" alt=""></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var navTop =$("div:eq(0)").offset().top;
+            var navcat =$("div:eq(3)").offset().top;
+            var navwith =$("div:eq(10)").offset().top;
+
+            $(window).scroll(function () {/* .css안쓰고 */
+                if ($(this).scrollTop() >= navTop) { 
+                   
+                    $("nav ul:nth-child(1)").addClass("fixe");
+                    $("nav ul:nth-child(2)").removeClass("no");
+                    $("nav ul:nth-child(2)").addClass("fixe2");
+                    $("nav ul:nth-child(2)").animate({left: "50px"}, 500).animate({left:"0px"},500)
+                    $(".ww").each(function (index) {
+                $(this).delay(500 * index).animate({ left: "0px" }, 1000);
+            });
+                } else {
+                    $("nav ul:nth-child(1)").removeClass("fixe");
+                    $("nav ul:nth-child(2)").removeClass("fixe2");
+                    $("nav ul:nth-child(2)").addClass("no");
+                }
+
+                if ($(this).scrollTop() >= navcat) {
+                    $("nav ul:nth-child(2)").removeClass("fixe2");
+                    $("nav ul:nth-child(3)").removeClass("no");
+                    $("nav ul:nth-child(3)").addClass("fixe3");
+                 
+
+                    $("nav ul:nth-child(3)").animate({left: "50px"}, 500).animate({left:"0px"},500)
+                } else {
+                    $("nav ul:nth-child(3)").removeClass("fixe3");
+                    $("nav ul:nth-child(3)").addClass("no");
+                }
+                if ($(this).scrollTop() >= navwith) {
+                    $("nav ul:nth-child(3)").removeClass("fixe3");
+                    $("nav ul:nth-child(4)").removeClass("no");
+                    $("nav ul:nth-child(4)").addClass("fixe4");
+                    $("nav ul:nth-child(4)").animate({left: "50px"}, 500).animate({left:"0px"},500)
+                } else {
+                    $("nav ul:nth-child(4)").removeClass("fixe4");
+                    $("nav ul:nth-child(4)").addClass("no");
+                }
+            });
+        });
+   
+    </script>
+
+</body>
+
+</html>
