@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../fff/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+
+
+
+
+           
+            var name = $("pname").val();
+            var ju = $("ju").val();
+            var pw = $("#pw").val();
+
+
+            $("#pidb").click(function () {
+                var id = $("#pid").val()
+                if (/^d{2,7}$/.test(id)) {
+                    console.log(id + "입력완료")
+                    alert("입력완료")
+                }
+                else {
+                    console.log("id틀림")
+                    alert("다시입력")
+                }
+            })
+
+            $("#pww").click(function () {
+                pw = $("#pw").val()
+                if (/(^d+$|^\w+$)/.test(pw)) {
+                    console.log(pw + "입력완료")
+                    alert("입력완료")
+                }
+                else {
+                    console.log("pw틀림")
+                    alert("다시입력")
+                }
+            })
+            $("#rpww").click(function () {
+                var rpw = $("#rpw").val()
+                console.log(rpw)
+                if (pw.test(rpw)) {
+                    console.log(rpw + "일치")
+                    alert("입력완료")
+                }
+                else {
+                    console.log("재입력불일치")
+                    alert("다시입력")
+                }
+            })
+            $("#emaill").click(function () {
+                var email = $("#email").val();
+                console.log(email)
+                if (/(^d+$|^\w+$)/.test(email)) {
+                    console.log(email + "입력완료")
+                    alert("이메일입력완료")
+                }
+                else {
+                    console.log("재입력불일치")
+                    alert("다시입력")
+                }
+            })
+            $("#ponn").click(function () {
+                var pon = $("#pon").val();
+                console.log(pon)
+                if (/(^d+$|^\w+$)/.test(pon)) {
+                    console.log(pon + "확인")
+                    alert("폰번입력완료")
+                }
+                else {
+                    console.log("재입력불일치")
+                    alert("다시입력")
+                }
+            })
+
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+
+
+    <form action="">
+        <table border="">
+            <tr>
+                <td>ID</td>
+                <td><input type="text" id="pid" size="13">
+                    <input type="button" id="pidb" value="아이디확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>Pw</td>
+                <td><input type="text" id="pw" size="13">
+                    <input type="button" id="pww" value="비번조건확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>RePw</td>
+                <td><input type="text" id="rpw" size="13">
+                    <input type="button" id="rpww" value="비번재확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" id="email" size="13">
+                    <input type="button" id="emaill" value="이메일확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="text" id="pon" size="13">
+                    <input type="button" id="ponn" value="전화번호확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" id="pname" size="13">
+                    <input type="button" value="이름확인">
+                </td>
+
+            </tr>
+            <tr>
+                <td>주민번호</td>
+                <td><input type="text" name="ju" size="13">
+                    <input type="button" value="주민번호확인">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+
+</html>
